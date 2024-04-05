@@ -25,7 +25,7 @@ namespace MyFlatWEB.Areas.Identity.Pages.Account.Manage
 
         public async Task<IActionResult> OnGetAsync()
         {
-            return RedirectToPage("Index");
+            return Page();
         }
 
         //public async Task<IActionResult> OnPostAsync()

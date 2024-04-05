@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Shared\_ManageLayout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.32" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.32" />
@@ -25,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Management\Controllers\" />
     <Folder Include="Areas\Management\Data\" />
     <Folder Include="Areas\Management\Models\" />
   </ItemGroup>

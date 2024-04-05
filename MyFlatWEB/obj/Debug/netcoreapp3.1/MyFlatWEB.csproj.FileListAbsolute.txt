@@ -201,9 +201,9 @@ C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
-C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Pages\ManageViews\Index.cshtml.g.cs
-C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Pages\_ValidationScriptsPartial.cshtml.g.cs
-C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Pages\_ViewImports.cshtml.g.cs
-C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Pages\_ViewStart.cshtml.g.cs
-C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutManage.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageView\Index.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\Shared\_ManageLayout.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\_ViewImports.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\_ViewStart.cshtml.g.cs
