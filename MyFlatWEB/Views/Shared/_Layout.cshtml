@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject UserRoles UserRoles
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,14 +21,26 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
+                        @*@if (UserRoles != null && UserRoles.Roles.Contains("Admin"))
+                        {*@
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Management" asp-controller="ManageView" asp-action="Index" title="Manage Views">Management</a>
+                            </li>
+                        @*}*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Management" asp-controller="ManageView" asp-action="Index" title="Manage Views">Manage</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Contact</a>
                         </li>
                     </ul>
                 </div>
