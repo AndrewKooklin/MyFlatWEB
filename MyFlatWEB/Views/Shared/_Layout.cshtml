@@ -1,4 +1,9 @@
 ﻿@inject UserRoles UserRoles
+@inject RandomString RandomString
+@{
+    RandomString randomString = new RandomString();
+    var headerString = randomString.GetHeaderString();
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +16,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MyFlatWEB</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -22,10 +27,10 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         @*@if (UserRoles != null && UserRoles.Roles.Contains("Admin"))
-                        {*@
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Management" asp-controller="ManageView" asp-action="Index" title="Manage Views">Management</a>
-                            </li>
+                            {*@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Management" asp-controller="ManageView" asp-action="Index" title="Manage Views">Management</a>
+                        </li>
                         @*}*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -46,6 +51,13 @@
                 </div>
             </div>
         </nav>
+        <div class="container border-bottom">
+                <div class="row d-flex justify-content-end">
+                    <div class="">
+                        <h2 class="text-right header-call">@headerString</h2>
+                    </div>
+                </div>
+            </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">

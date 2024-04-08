@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyFlatWEB.Models;
+using MyFlatWEB.HelpMethods;
 
 namespace MyFlatWEB
 {
@@ -36,6 +37,7 @@ namespace MyFlatWEB
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<UserRoles>();
+            services.AddTransient<RandomString>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
