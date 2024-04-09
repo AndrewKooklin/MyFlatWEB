@@ -10,9 +10,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyFlatWEB</title>
+    <title>@ViewData["Title"] - MyFlat</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -52,12 +53,12 @@
             </div>
         </nav>
         <div class="container border-bottom">
-                <div class="row d-flex justify-content-end">
-                    <div class="">
-                        <h2 class="text-right header-call">@headerString</h2>
-                    </div>
+            <div class="row d-flex justify-content-end">
+                <div class="">
+                    <h1 class="text-right header-call">&quot;@headerString&quot;</h1>
                 </div>
             </div>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -73,6 +74,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
