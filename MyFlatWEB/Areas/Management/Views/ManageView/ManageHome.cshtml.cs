@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MyFlatWEB.Areas.Identity.Pages.Account.Manage
+namespace MyFlatWEB.Areas.Management.Views
 {
-    public partial class Index : PageModel
+    public partial class ManageHome : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
 
-        public Index(
+        public ManageHome(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager)
         {
