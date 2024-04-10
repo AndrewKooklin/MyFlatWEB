@@ -161,9 +161,6 @@ C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.W
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.csproj.CoreCompileInputs.cache
-C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.MvcApplicationPartsAssemblyInfo.cs
-C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.MvcApplicationPartsAssemblyInfo.cache
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\AccessDenied.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.g.cs
@@ -207,3 +204,13 @@ C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\View
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\_ViewImports.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\_ViewStart.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageView\ManageHome.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.csproj.CoreCompileInputs.cache
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.MvcApplicationPartsAssemblyInfo.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.MvcApplicationPartsAssemblyInfo.cache

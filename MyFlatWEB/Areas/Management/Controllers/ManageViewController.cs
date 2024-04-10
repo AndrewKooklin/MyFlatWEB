@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MyFlatWEB.Models;
 
 namespace MyFlatWEB.Areas.Management.Controllers
 {
@@ -12,7 +14,14 @@ namespace MyFlatWEB.Areas.Management.Controllers
     {
         public IActionResult ManageHome()
         {
-            return View("ManageHome");
+            if (UserRoles.Roles.Contains("Admin"))
+            {
+                return View("ManageHome");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
         }
     }
 }
