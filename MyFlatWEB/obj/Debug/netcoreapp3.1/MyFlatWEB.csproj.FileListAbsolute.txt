@@ -63,7 +63,6 @@ C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.csprojAssemblyReference.cache
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.AssemblyInfoInputs.cache
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.AssemblyInfo.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.RazorAssemblyInfo.cache
@@ -215,3 +214,5 @@ C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.csproj.CoreCompil
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.MvcApplicationPartsAssemblyInfo.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.MvcApplicationPartsAssemblyInfo.cache
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Views\Home\Projects.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Views\Home\ProjectDetails.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.csprojAssemblyReference.cache

@@ -28,6 +28,11 @@ namespace MyFlatWEB.Controllers
             return View();
         }
 
+        public IActionResult ProjectDetails()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
