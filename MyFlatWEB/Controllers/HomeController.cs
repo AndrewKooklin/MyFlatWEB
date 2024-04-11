@@ -33,6 +33,26 @@ namespace MyFlatWEB.Controllers
             return View();
         }
 
+        public IActionResult Services()
+        {
+            return View();
+        }
+
+        public IActionResult Blogs()
+        {
+            return View();
+        }
+
+        public IActionResult BlogDetails()
+        {
+            return View();
+        }
+
+        public IActionResult Contacts()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
