@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
+using MyFlatWEB.Data;
 using MyFlatWEB.Models;
 
 namespace MyFlatWEB.Controllers
@@ -12,15 +14,29 @@ namespace MyFlatWEB.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DataManager _dataManager;
+        IEnumerable<string> _categoryServiceNames;
+        OrderModel _orderModel;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+                              DataManager dataManager)
         {
             _logger = logger;
+            _dataManager = dataManager;
+            _categoryServiceNames = _dataManager.Rendering.GetCategoryServiceNames().AsEnumerable();
         }
 
         public IActionResult Index()
         {
-            return View();
+            _orderModel = new OrderModel
+            {
+                CategoryServiceNames = _categoryServiceNames.Select(i => new SelectListItem
+                {
+                    Text = i,
+                    Value = i
+                })
+            };
+            return View(_orderModel);
         }
 
         public IActionResult Projects()

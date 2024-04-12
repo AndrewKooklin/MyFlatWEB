@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyFlatWEB.Models;
 using MyFlatWEB.HelpMethods;
+using MyFlatWEB.Data.Repositories.Abstract;
+using MyFlatWEB.Data.Repositories.API;
 
 namespace MyFlatWEB
 {
@@ -36,6 +38,9 @@ namespace MyFlatWEB
                     .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddTransient<IAccountRepository, APIAccountRepository>();
+            services.AddTransient<IRenderingRepository, APIRenderingRepository>();
+            services.AddTransient<DataManager>();
             services.AddTransient<UserRoles>();
             services.AddTransient<RandomString>();
         }
