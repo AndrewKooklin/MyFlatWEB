@@ -2649,37 +2649,30 @@ a.btn.disabled, fieldset:disabled a.btn {
             box-shadow: 0 0 0 .2rem rgba(58,176,195,.5)
         }
 
-/*.btn-back {
-    color: #fff;
-    text-decoration: none !important;
+.left-sidebar-pro {
+    display: block;
+    width: 200px;
 }
 
-    .btn-back::before {
-        content: '\21A9';
-        text-decoration: none !important;
-        outline: none !important;
-        outline-color: transparent;
-        outline-width: 0 !important;
-        border: 0 !important;
-        outline-style: none;
-        box-shadow: none !important;
-        -moz-box-shadow: none;
-        -webkit-box-shadow: none;
-        -webkit-tap-highlight-color: transparent;
-    }
+.all-content-wrapper {
+    margin-left: 205px;
+    transition: all .3s;
+}
 
-        .btn-back::before:focus {
-            content: '\21A9';
-            outline: none !important;
-            outline-color: transparent;
-            outline-width: 0 !important;
-            border: 0 !important;
-            outline-style: none;
-            box-shadow: none !important;
-            -moz-box-shadow: none;
-            -webkit-box-shadow: none;
-            -webkit-tap-highlight-color: transparent;
-        }*/
+#sidebar {
+    min-width: 205px;
+    background: #1b2a47;
+    color: #fff;
+    position: fixed;
+    transition: all .3s;
+    height: 100%;
+}
+
+#topbar {
+    min-height: 40px;
+    background: #1b2a47;
+    color: #fff;
+}
 
 .btn-warning {
     color: #212529;
@@ -10455,7 +10448,6 @@ a.text-dark:focus, a.text-dark:hover {
     -webkit-box-shadow: 0px 10px 29px -16px rgba(0, 0, 0, 0.12);
     -moz-box-shadow: 0px 10px 29px -16px rgba(0, 0, 0, 0.12);
     box-shadow: 0px 10px 29px -16px rgba(0, 0, 0, 0.12);
-    background: #fff;
     border-radius: 0;
     overflow: hidden;
 }
@@ -10531,6 +10523,95 @@ a.text-dark:focus, a.text-dark:hover {
     font-family: "Ionicons";
     font-style: normal;
     color: black;
+}
+
+.manage-accordion {
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 10px 29px -16px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 10px 29px -16px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 10px 29px -16px rgba(0, 0, 0, 0.12);
+    border-radius: 0;
+    overflow: hidden;
+}
+
+    .manage-accordion .card,
+    .manage-accordion .card:last-child .card-header {
+        border: none;
+        background: transparent;
+    }
+
+    .manage-accordion .card a{
+        color:aqua;
+        text-decoration:none;
+    }
+
+    .manage-accordion .card-header {
+        border: none;
+        background: transparent;
+    }
+
+        .manage-accordion .card-header .heading {
+            position: relative;
+            font-weight: 300;
+            z-index: 0;
+        }
+
+            .manage-accordion .card-header .heading h3 {
+                font-size: 16px;
+                margin-bottom: 0;
+                text-align: left;
+            }
+
+            .manage-accordion .card-header .heading .icon {
+                width: 60px;
+                height: 60px;
+                z-index: 0;
+                background: #75d6d1;
+                border-radius: 10px 0 0 10px;
+            }
+
+                .manage-accordion .card-header .heading .icon span {
+                    font-size: 20px;
+                    color: #fff;
+                }
+
+    .manage-accordion .fa-manage {
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.3);
+    }
+
+    .manage-accordion .btn {
+        width: 100%;
+        font-weight: normal;
+        color: white;
+        padding: 0;
+        letter-spacing: 0;
+        font-size: 18px;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        background-color: transparent;
+    }
+
+    .manage-accordion .btn-link:hover,
+    .manage-accordion .card a:hover,
+    .manage-accordion .card a:active,
+    .manage-accordion .btn-link:focus {
+        text-decoration: none;
+    }
+
+[data-toggle="collapse"] .fa-manage:before {
+    content: "\003E";
+    font-family: "Ionicons";
+    font-style: normal;
+    color: white;
+}
+
+[data-toggle="collapse"].collapsed .fa-manage:before {
+    content: "\02C5";
+    font-family: "Ionicons";
+    font-style: normal;
+    color: white;
 }
 
 .date-blog {

@@ -9,14 +9,14 @@ namespace MyFlatWEB.Areas.Management.Controllers
     {
         public IActionResult ManageHome()
         {
-            if (UserRoles.Roles.Contains("Admin"))
-            {
+            //if (UserRoles.Roles.Contains("Admin"))
+            //{
                 return View("ManageHome");
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home", new { area = "" });
-            }
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Index", "Home", new { area = "" });
+            //}
         }
     }
 }

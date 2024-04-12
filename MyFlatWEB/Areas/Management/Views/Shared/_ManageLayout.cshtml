@@ -3,42 +3,210 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyFlatWEB Manage</title>
+    <title>@ViewData["Title"] - MyFlat</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MyFlatWEB</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header">
+                <a class="navbar-brand w-100 text-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img class="mt-2 pt-md-0" src="~/Images/kind.png" width="60" alt="header-logo">
+                </a>
+            </div>
+            <div id="accordion" class="manage-accordion w-100">
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapseOne" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseOne">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Desktop</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapseTwo" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseTwo">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Home</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapseThree" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseThree">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Projects</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapseFour" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseFour">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Services</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingFive">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapseFive" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseFive">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Blogs</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingSix">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapseSix" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseSix">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Contacts</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingSeven">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapseSeven" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseSeven">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Users</h3>
+                                </div>
+                                <i class="fa-manage" aria-hidden="true"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseSeven" 
+                         class="collapse" 
+                         aria-labelledby="headingSeven" 
+                         data-parent="#accordion" 
+                         style="">
+                        <div class="card-body p-0">
+                            <ul>
+                                <li>
+                                    <a href="#" class="d-flex justify-content-between align-items-center">
+                                        <p>Add user</p>
+                                        <i class="ion-ios-arrow-forward"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="d-flex justify-content-between align-items-center">
+                                        <p>Add role to user</p>
+                                        <i class="ion-ios-arrow-forward"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingEight">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapseEight" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapseEight">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Roles</h3>
+                                </div>
+                                <i class="fa-manage" aria-hidden="true"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseEight" 
+                         class="collapse" 
+                         aria-labelledby="headingEight" 
+                         data-parent="#accordion" 
+                         style="">
+                        <div class="card-body p-0">
+                            <ul>
+                                <li>
+                                    <a href="#" class="d-flex justify-content-between align-items-center">
+                                        <p>Add role</p>
+                                        <i class="ion-ios-arrow-forward"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    </div>
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="topbar" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1>.</h1>
+                </div>
+            </div>
+        </div>
+        <div class="section-admin container-fluid">
+            <div class="row admin text-center">
+                <div class="col-md-12">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted all-content-wrapper">
         <div class="container">
-            &copy; 2024 - MyFlatWEB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
