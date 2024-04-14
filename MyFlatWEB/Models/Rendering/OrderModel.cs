@@ -7,12 +7,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyFlatWEB.Models.Rendering
 {
-    public class OrderModel
+    public class OrderModel : BaseModel
     {
-        [Key]
-        [Required]
-        public string OrderId { get; set; }
-
         [Required]
         public DateTime DateCreate { get; set; }
 
