@@ -1,6 +1,6 @@
 using System;
 
-namespace MyFlatWEB.Models
+namespace MyFlatWEB.Views.Shared
 {
     public class ErrorViewModel
     {

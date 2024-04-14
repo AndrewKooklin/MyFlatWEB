@@ -21,27 +21,35 @@ using MyFlatWEB;
 #nullable disable
 #nullable restore
 #line 2 "C:\repos\MyFlatWEB\MyFlatWEB\Views\_ViewImports.cshtml"
-using MyFlatWEB.Models;
+using MyFlatWEB.Models.Account;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "C:\repos\MyFlatWEB\MyFlatWEB\Views\_ViewImports.cshtml"
-using Microsoft.AspNetCore.Identity;
+using MyFlatWEB.Models.Rendering;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "C:\repos\MyFlatWEB\MyFlatWEB\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\repos\MyFlatWEB\MyFlatWEB\Views\_ViewImports.cshtml"
 using MyFlatWEB.HelpMethods;
+    using MyFlatWEB.Views.Shared;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e2275514abd87324546d1a7fecb13fef03b40446", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4cfd182535a70dced90455f23bbff75649ed97e4", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

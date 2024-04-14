@@ -40,8 +40,15 @@ using MyFlatWEB.Areas.Management;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
+using MyFlatWEB.Areas.Management.Models.Rendering;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"35ceaa95005b051c744203c370508a521eeacb46", @"/Areas/Management/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4417fd0672a065973e912feea95f1850263a3426", @"/Areas/Management/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4a19b8ee5894dcab30fa51baa3121e8af8b0dbd0", @"/Areas/Management/Views/_ViewImports.cshtml")]
     public class Areas_Management_Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

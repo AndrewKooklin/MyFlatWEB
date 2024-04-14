@@ -1,10 +1,10 @@
-﻿@inject UserRoles UserRoles
+﻿@inject UserRolesModel UserRolesModel
 
 <ul class="navbar-nav">
-        @if (UserRoles != null && !String.IsNullOrEmpty(UserRoles.EMail))
+        @if (UserRolesModel != null && !String.IsNullOrEmpty(UserRolesModel.EMail))
         {
             <li class="nav-item ">
-                <a id="manage" class="nav-link" style="color:darkred"><i>Hello @UserRoles.EMail!</i></a>
+                <a id="manage" class="nav-link" style="color:darkred"><i>Hello @UserRolesModel.EMail!</i></a>
             </li>
             <li class="nav-item">
                 <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
