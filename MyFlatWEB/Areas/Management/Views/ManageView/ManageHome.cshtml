@@ -1,4 +1,32 @@
-﻿
+﻿@model List<ServiceOrdersCountModel>
 <div>
-    <h2>Manage Page</h2>
+    <h2>Orders by services</h2>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Service name</th>
+            <th>Orders count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="OrderByService"
+                           asp-action="OrdersServiceDetails"
+                           asp-route-id="@item.ServiceName"
+                           title="Просмотреть"
+                           class="serviceName invisible">@item.ServiceName</a>
+                    </td>
+                    <td>@item.OrdersCount</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

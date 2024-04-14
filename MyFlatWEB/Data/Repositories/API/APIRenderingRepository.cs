@@ -1,4 +1,5 @@
-﻿using MyFlatWEB.Data.Repositories.Abstract;
+﻿using MyFlatWEB.Areas.Management.Models.Rendering;
+using MyFlatWEB.Data.Repositories.Abstract;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,21 @@ namespace MyFlatWEB.Data.Repositories.API
             }
 
             return names;
+        }
+
+        public List<ServiceOrdersCountModel> GetServiceOrdersCount()
+        {
+            List<ServiceOrdersCountModel> serviceOrdersCount = new List<ServiceOrdersCountModel>();
+            urlRequest = $"{url}" + "ServicesAPI/GetServiceOrdersCount";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                serviceOrdersCount = JsonConvert.DeserializeObject<List<ServiceOrdersCountModel>>(result);
+            }
+
+            return serviceOrdersCount;
         }
     }
 }

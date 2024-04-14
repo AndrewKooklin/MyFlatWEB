@@ -10618,3 +10618,10 @@ a.text-dark:focus, a.text-dark:hover {
     font-style: normal;
     color:coral;
 }
+
+.serviceName{
+    font-size: 0.7rem;
+    color:blue;
+    text-decoration: none;
+    cursor: pointer;
+}
