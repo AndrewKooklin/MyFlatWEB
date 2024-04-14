@@ -68,7 +68,7 @@
                             <div class="col-sm-6">
                                 <div class="form-floating">
                                     @*<label asp-for="CategoryName"></label>*@
-                                    <select asp-for="CategoryName" asp-items="@Model.CategoryServiceNames" class="form-control" id="service">
+                                    <select asp-for="ServiceName" asp-items="@Model.ServiceNames" class="form-control" id="service">
                                         <option disabled selected></option>
                                         @*<option value="Building design">Building design</option>
             <option value="Home construction">Home construction</option>
@@ -77,7 +77,7 @@
             <option value="Finishing facilities">Finishing facilities</option>*@
                                     </select>
                                     <label for="service">Choose A Service</label>
-                                    <span asp-validation-for="CategoryName" class="text-danger"></span>
+                                    <span asp-validation-for="ServiceName" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12">

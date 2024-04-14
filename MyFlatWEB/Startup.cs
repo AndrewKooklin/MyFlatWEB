@@ -41,7 +41,7 @@ namespace MyFlatWEB
             services.AddTransient<IAccountRepository, APIAccountRepository>();
             services.AddTransient<IRenderingRepository, APIRenderingRepository>();
             services.AddTransient<DataManager>();
-            services.AddTransient<UserRoles>();
+            services.AddTransient<UserRolesModel>();
             services.AddTransient<RandomString>();
         }
 

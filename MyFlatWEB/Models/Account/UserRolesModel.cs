@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyFlatWEB.Models
+namespace MyFlatWEB.Models.Account
 {
-    public class UserRoles
+    public class UserRolesModel
     {
         public static string EMail { get; set; } = "";
 

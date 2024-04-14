@@ -3,12 +3,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MyFlatWEB.Models
+namespace MyFlatWEB.Models.Rendering
 {
     public class OrderModel
     {
+        [Key]
+        [Required]
+        public string OrderId { get; set; }
+
+        [Required]
+        public DateTime DateCreate { get; set; }
+
         [Required(ErrorMessage = "Заполните поле \"Name\"")]
+        [MinLength(3, ErrorMessage = "Длина не менее 3 символов.")]
         [Display(Name = "Name")]
         public string Name { get; set; }
 
@@ -17,8 +26,9 @@ namespace MyFlatWEB.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Заполните поле \"Mobile\"")]
-        [MinLength(11, ErrorMessage = "Длина не менее 11 символов.")]
+        //[Required(ErrorMessage = "Заполните поле \"Mobile\"")]
+        //[Phone]
+        //[MinLength(11, ErrorMessage = "Длина не менее 11 символов.")]
         [Display(Name = "Mobile")]
         public string Mobile { get; set; }
 
@@ -27,9 +37,18 @@ namespace MyFlatWEB.Models
         [Display(Name = "Message")]
         public string Message { get; set; }
 
+        [Required]
         [Display(Name = "CategoryName")]
-        public string CategoryName { get; set; }
+        public string ServiceName { get; set; }
 
-        public IEnumerable<SelectListItem> CategoryServiceNames { get; set; }
+        [NotMapped]
+        public IEnumerable<SelectListItem> ServiceNames { get; set; }
+
+        [Required]
+        [Display(Name = "StatusName")]
+        public string StatusName { get; set; }
+
+        [NotMapped]
+        public IEnumerable<SelectListItem> StatusNames { get; set; }
     }
 }
