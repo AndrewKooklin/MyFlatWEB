@@ -19,10 +19,10 @@ namespace MyFlatWEB.Data.Repositories.API
         bool apiResponseConvert;
 
 
-        public List<string> GetCategoryServiceNames()
+        public List<string> GetServiceNames()
         {
             List<string> names = new List<string>();
-            urlRequest = $"{url}" + "ServicesAPI/GetCategoryNames";
+            urlRequest = $"{url}" + "ServicesAPI/GetServiceNames";
             using (_httpClient = new HttpClient())
             {
                 _httpClient.DefaultRequestHeaders.Accept.Clear();

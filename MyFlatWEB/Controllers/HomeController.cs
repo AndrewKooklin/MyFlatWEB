@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using MyFlatWEB.Data;
 using MyFlatWEB.Models;
+using MyFlatWEB.Models.Rendering;
 
 namespace MyFlatWEB.Controllers
 {
@@ -15,7 +16,7 @@ namespace MyFlatWEB.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly DataManager _dataManager;
-        IEnumerable<string> _categoryServiceNames;
+        IEnumerable<string> _serviceNames;
         OrderModel _orderModel;
 
         public HomeController(ILogger<HomeController> logger,
@@ -23,14 +24,14 @@ namespace MyFlatWEB.Controllers
         {
             _logger = logger;
             _dataManager = dataManager;
-            _categoryServiceNames = _dataManager.Rendering.GetCategoryServiceNames().AsEnumerable();
+            _serviceNames = _dataManager.Rendering.GetServiceNames().AsEnumerable();
         }
 
         public IActionResult Index()
         {
             _orderModel = new OrderModel
             {
-                CategoryServiceNames = _categoryServiceNames.Select(i => new SelectListItem
+                ServiceNames = _serviceNames.Select(i => new SelectListItem
                 {
                     Text = i,
                     Value = i

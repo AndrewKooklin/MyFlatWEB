@@ -7,6 +7,6 @@ namespace MyFlatWEB.Data.Repositories.Abstract
 {
     public interface IRenderingRepository
     {
-        List<string> GetCategoryServiceNames();
+        List<string> GetServiceNames();
     }
 }
