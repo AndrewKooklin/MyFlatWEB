@@ -18,6 +18,7 @@ using MyFlatWEB.Data.Repositories.Abstract;
 using MyFlatWEB.Data.Repositories.API;
 using MyFlatWEB.Models.Account;
 using MyFlatWEB.Models.Rendering;
+using MyFlatWEB.Areas.Management.Models.Rendering;
 
 namespace MyFlatWEB
 {
@@ -47,6 +48,7 @@ namespace MyFlatWEB
             services.AddTransient<UserRoles>();
             services.AddTransient<ServicesModel>();
             services.AddTransient<StatusesModel>();
+            services.AddTransient<ChangeStatusModel>();
             services.AddTransient<RandomString>();
             services.AddTransient<RandomString>();
         }
