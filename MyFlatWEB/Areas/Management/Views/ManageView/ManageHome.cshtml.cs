@@ -28,6 +28,8 @@ namespace MyFlatWEB.Areas.Management.Views
             return Page();
         }
 
+
+
         //public async Task<IActionResult> OnPostAsync()
         //{
         //    var user = await _userManager.GetUserAsync(User);

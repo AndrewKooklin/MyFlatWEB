@@ -46,8 +46,8 @@
                 <form id="formOrder" asp-controller="Home" asp-action="SaveOrder" class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;" method="post">
                     <div>
                         <h2 class="mb-4">Make An Order</h2>
+                        <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
                         <div class="row g-3">
-                            <div asp-validation-summary="All" class="text-danger"></div>
                             <div class="col-sm-6">
                                 <div class="form-floating">
                                     <input asp-for="Name" type="text" class="form-control" id="name" placeholder="Your Name">
@@ -57,14 +57,16 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="mail" placeholder="Your Email">
-                                    <label for="mail">Your Email</label>
+                                    <input asp-for="Email" type="email" class="form-control" id="mail" placeholder="Your Email">
+                                    <label asp-for="Email"></label>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="mobile" placeholder="Your Mobile">
-                                    <label for="mobile">Your Mobile</label>
+                                    <input asp-for="Mobile" type="text" class="form-control" id="mobile" placeholder="Your Mobile">
+                                    <label asp-for="Mobile"></label>
+                                    <span asp-validation-for="Mobile" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -78,7 +80,7 @@
                                         @*<option value="Room design">Room design</option>*@
                                         @*<option value="Finishing facilities">Finishing facilities</option>*@
                                     </select>
-                                    <label for="service">Choose A Service</label>
+                                    <label asp-for="ServiceName"></label>
                                     <span asp-validation-for="ServiceName" class="text-danger"></span>
                                 </div>
                             </div>

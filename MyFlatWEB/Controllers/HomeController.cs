@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 using MyFlatWEB.Data;
 using MyFlatWEB.Models;
 using MyFlatWEB.Models.Rendering;
-using MyFlatWEB.Views.Shared;
 
 namespace MyFlatWEB.Controllers
 {
@@ -18,7 +17,7 @@ namespace MyFlatWEB.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly DataManager _dataManager;
         IEnumerable<string> _serviceNames;
-        OrderModel _orderModel;
+        OrderModel _orderModel = new OrderModel();
 
         public HomeController(ILogger<HomeController> logger,
                               DataManager dataManager)
@@ -41,17 +40,42 @@ namespace MyFlatWEB.Controllers
             return View(_orderModel);
         }
 
-        public IActionResult SaveOrder()
+        [HttpPost]
+        public async Task<IActionResult> SaveOrder(OrderModel order)
         {
-            _orderModel = new OrderModel
+            if (ModelState.IsValid)
             {
-                ServiceNames = _serviceNames.Select(i => new SelectListItem
+                var result = await _dataManager.Rendering.SaveOrder(order);
+                if (result)
+                {
+                    ModelState.AddModelError(string.Empty, "Order success added.");
+                    return View("ManageHome", order);
+                }
+                else
+                {
+                    _orderModel = new OrderModel
+                    {
+                        ServiceNames = _serviceNames.Select(i => new SelectListItem
+                        {
+                            Text = i,
+                            Value = i
+                        })
+                    };
+                    ModelState.AddModelError(string.Empty, "Server error.");
+                    return View("ManageHome", _orderModel);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid order model.");
+                _orderModel = order;
+                _orderModel.ServiceNames = _serviceNames.Select(i => new SelectListItem
                 {
                     Text = i,
                     Value = i
-                })
-            };
-            return View(_orderModel);
+                });
+                return View(_orderModel);
+            }
         }
 
         public IActionResult Projects()
@@ -89,10 +113,10 @@ namespace MyFlatWEB.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MyFlatWEB.Areas.Management.Models.Rendering;
+using MyFlatWEB.Models.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         List<string> GetServiceNames();
 
         List<ServiceOrdersCountModel> GetServiceOrdersCount();
+
+        Task<bool> SaveOrder(OrderModel order);
     }
 }

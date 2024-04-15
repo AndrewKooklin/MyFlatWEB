@@ -14,18 +14,18 @@ namespace MyFlatWEB.Models.Rendering
 
         [Required(ErrorMessage = "Заполните поле \"Name\"")]
         [MinLength(3, ErrorMessage = "Длина не менее 3 символов.")]
-        [Display(Name = "Name")]
+        [Display(Name = "Your Name")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Заполните поле \"Email\"")]
         [EmailAddress(ErrorMessage = "Поле Email формата name@site.com")]
-        [Display(Name = "Email")]
+        [Display(Name = "Your Email")]
         public string Email { get; set; }
 
         //[Required(ErrorMessage = "Заполните поле \"Mobile\"")]
         //[Phone]
         //[MinLength(11, ErrorMessage = "Длина не менее 11 символов.")]
-        [Display(Name = "Mobile")]
+        [Display(Name = "Your Mobile")]
         public string Mobile { get; set; }
 
         [Required(ErrorMessage = "Заполните поле \"Message\"")]
@@ -34,7 +34,7 @@ namespace MyFlatWEB.Models.Rendering
         public string Message { get; set; }
 
         [Required]
-        [Display(Name = "CategoryName")]
+        [Display(Name = "Choose A Service")]
         public string ServiceName { get; set; }
 
         [NotMapped]

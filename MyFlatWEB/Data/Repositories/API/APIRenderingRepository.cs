@@ -1,10 +1,12 @@
 ﻿using MyFlatWEB.Areas.Management.Models.Rendering;
 using MyFlatWEB.Data.Repositories.Abstract;
+using MyFlatWEB.Models.Rendering;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
@@ -48,6 +50,23 @@ namespace MyFlatWEB.Data.Repositories.API
             }
 
             return serviceOrdersCount;
+        }
+
+        public async Task<bool> SaveOrder(OrderModel order)
+        {
+            urlRequest = $"{url}" + "Orders/SaveOrder/" + $"{order}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, order))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
         }
     }
 }
