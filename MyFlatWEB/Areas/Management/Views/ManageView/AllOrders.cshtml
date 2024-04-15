@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-12">
             <form class="" asp-controller="Statuses" asp-action="ChangeStatus" method="post">
-                <table class="table mt-5">
+                <table class="text-table table mt-5">
                     <thead>
                         <tr>
                             <th class="">Id</th>
@@ -16,10 +16,10 @@
                             <th class="">Name</th>
                             <th class="">Email</th>
                             <th class="">Mobile</th>
-                            <th class="">ServiceName</th>
+                            <th class="">Service</th>
                             <th class="">Message</th>
-                            <th class="">StatusName</th>
-                            <th class="">Statuses</th>
+                            <th class="">Status</th>
+                            <th class="" width="125px">Statuses</th>
                             <th class=""><i>Change status</i></th>
                         </tr>
                     </thead>
@@ -35,11 +35,12 @@
                                     <td class="">@item.Email</td>
                                     <td class="">@item.Mobile</td>
                                     <td class="">@item.ServiceName</td>
-                                    <td class="">@item.Message</td>
+                                    <td class="text-left">@item.Message</td>
                                     <td class="">@item.StatusName</td>
-                                    <td class="">
-                                        <select asp-for="@item.StatusName" asp-items="@StatusesModel.StatusNames" class="form-control" id="service">
-                                            <option disabled selected>select status</option>
+                                    <td class="select-status">
+                                        <select asp-for="@item.StatusName" 
+                                                asp-items="@StatusesModel.StatusNames" 
+                                                class="select-status-control">
                                         </select>
                                     </td>
                                     <td class="">

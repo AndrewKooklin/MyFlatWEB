@@ -18,12 +18,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         public ManageViewController(DataManager dataManager)
         {
             _dataManager = dataManager;
-            _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
-            ServicesModel.ServiceNames = _statusNames.Select(i => new SelectListItem
-            {
-                Text = i,
-                Value = i
-            });
+            
         }
 
         [Route("ManageHome")]
@@ -45,6 +40,12 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("AllOrders")]
         public IActionResult AllOrders()
         {
+            _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
+            StatusesModel.StatusNames = _statusNames.Select(i => new SelectListItem
+            {
+                Text = i,
+                Value = i
+            });
             var model = _dataManager.Rendering.GetAllOrders();
 
             return View(model);

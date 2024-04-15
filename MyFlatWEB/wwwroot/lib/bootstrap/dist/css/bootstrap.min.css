@@ -10632,6 +10632,26 @@ a.text-dark:focus, a.text-dark:hover {
         cursor: pointer;
     }
 
-/*.orders-count {
-    width: 80px;
-}*/
+.text-table{
+    font-size:0.9rem;
+}
+
+.select-status{
+    width:100px;
+    font-size:0.9rem;
+}
+
+.select-status-control {
+    display: block;
+    width: 100%;
+    height: calc(1.3em + .75rem + 2px);
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
