@@ -217,3 +217,8 @@ C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Views\Home\Blogs.csht
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Views\Home\BlogDetails.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contacts.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageView\OrdersServiceDetails.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\System.Net.Http.Json.dll
+C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.csproj.CoreCompileInputs.cache
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.MvcApplicationPartsAssemblyInfo.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.MvcApplicationPartsAssemblyInfo.cache

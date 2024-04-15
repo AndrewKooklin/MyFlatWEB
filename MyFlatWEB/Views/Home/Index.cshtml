@@ -1,4 +1,5 @@
 ﻿@model OrderModel
+@inject ServicesModel ServicesModel
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -47,32 +48,35 @@
                     <div>
                         <h2 class="mb-4">Make An Order</h2>
                         <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
+                        <div class="form-group collapse invisible">
+                            <input class="form-control collapse invisible" asp-for="StatusName" value="Recieved" />
+                        </div>
                         <div class="row g-3">
                             <div class="col-sm-6">
-                                <div class="form-floating">
+                                <div class="form-floating form-group">
                                     <input asp-for="Name" type="text" class="form-control" id="name" placeholder="Your Name">
                                     <label asp-for="Name"></label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="form-floating">
+                                <div class="form-floating form-group">
                                     <input asp-for="Email" type="email" class="form-control" id="mail" placeholder="Your Email">
                                     <label asp-for="Email"></label>
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="form-floating">
+                                <div class="form-floating form-group">
                                     <input asp-for="Mobile" type="text" class="form-control" id="mobile" placeholder="Your Mobile">
                                     <label asp-for="Mobile"></label>
                                     <span asp-validation-for="Mobile" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="form-floating">
+                                <div class="form-floating form-group">
                                     @*<label asp-for="CategoryName"></label>*@
-                                    <select asp-for="ServiceName" asp-items="@Model.ServiceNames" class="form-control" id="service">
+                                    <select asp-for="ServiceName" asp-items="@ServicesModel.ServiceNames" class="form-control" id="service">
                                         <option disabled selected></option>
                                         @*<option value="Building design">Building design</option>*@
                                         @*<option value="Home construction">Home construction</option>*@
@@ -85,9 +89,10 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 104px;"></textarea>
-                                    <label for="message">Message</label>
+                                <div class="form-floating form-group">
+                                    <textarea asp-for="Message" class="form-control" placeholder="Leave a message here" id="message" style="height: 104px;"></textarea>
+                                    <label asp-for="Message">Message</label>
+                                    <span asp-validation-for="Message" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
@@ -108,12 +113,10 @@
     var $submitbutton = $("#submitOrder");
 
     $form.on("blur", "input", () => {
-        if ($form.valid())
-        {
+        if ($form.valid()) {
             $submitbutton.removeAttr("disabled");
         }
-        else
-        {
+        else {
             $submitbutton.add.attr("disabled", "disabled");
         }
     });

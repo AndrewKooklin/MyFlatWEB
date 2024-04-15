@@ -21,6 +21,20 @@ namespace MyFlatWEB.Data.Repositories.API
         string result;
         bool apiResponseConvert;
 
+        public List<OrderModel> GetAllOrders()
+        {
+            List<OrderModel> orders = new List<OrderModel>();
+            urlRequest = $"{url}" + "OrdersAPI/GetAllOrders";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result =  _httpClient.GetStringAsync(urlRequest).Result;
+                orders = JsonConvert.DeserializeObject<List<OrderModel>>(result);
+            }
+
+            return orders;
+        }
 
         public List<string> GetServiceNames()
         {

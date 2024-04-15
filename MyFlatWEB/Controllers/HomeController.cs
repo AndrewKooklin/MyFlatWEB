@@ -16,8 +16,8 @@ namespace MyFlatWEB.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly DataManager _dataManager;
-        IEnumerable<string> _serviceNames;
         OrderModel _orderModel = new OrderModel();
+        private IEnumerable<string> _serviceNames;
 
         public HomeController(ILogger<HomeController> logger,
                               DataManager dataManager)
@@ -25,19 +25,16 @@ namespace MyFlatWEB.Controllers
             _logger = logger;
             _dataManager = dataManager;
             _serviceNames = _dataManager.Rendering.GetServiceNames().AsEnumerable();
+            ServicesModel.ServiceNames = _serviceNames.Select(i => new SelectListItem
+            {
+                Text = i,
+                Value = i
+            });
         }
 
         public IActionResult Index()
         {
-            _orderModel = new OrderModel
-            {
-                ServiceNames = _serviceNames.Select(i => new SelectListItem
-                {
-                    Text = i,
-                    Value = i
-                })
-            };
-            return View(_orderModel);
+            return View();
         }
 
         [HttpPost]
@@ -48,33 +45,30 @@ namespace MyFlatWEB.Controllers
                 var result = await _dataManager.Rendering.SaveOrder(order);
                 if (result)
                 {
-                    ModelState.AddModelError(string.Empty, "Order success added.");
-                    return View("ManageHome", order);
+                    ModelState.AddModelError(string.Empty, "Order added successfully.");
+                    return View("Index");
                 }
                 else
                 {
-                    _orderModel = new OrderModel
+                    ServicesModel.ServiceNames = _serviceNames.Select(i => new SelectListItem
                     {
-                        ServiceNames = _serviceNames.Select(i => new SelectListItem
-                        {
-                            Text = i,
-                            Value = i
-                        })
-                    };
+                        Text = i,
+                        Value = i
+                    });
                     ModelState.AddModelError(string.Empty, "Server error.");
-                    return View("ManageHome", _orderModel);
+                    return View("Index", _orderModel);
                 }
             }
             else
             {
                 ModelState.AddModelError(string.Empty, "Invalid order model.");
                 _orderModel = order;
-                _orderModel.ServiceNames = _serviceNames.Select(i => new SelectListItem
+                ServicesModel.ServiceNames = _serviceNames.Select(i => new SelectListItem
                 {
                     Text = i,
                     Value = i
                 });
-                return View(_orderModel);
+                return View("Index", _orderModel);
             }
         }
 

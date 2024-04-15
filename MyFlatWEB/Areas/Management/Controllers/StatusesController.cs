@@ -7,15 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace MyFlatWEB.Areas.Management.Controllers
 {
     [Area("Management")]
-    [Route("Management/OrderByService")]
-    public class OrderByServiceController : Controller
+    [Route("Management/Statuses")]
+    public class StatusesController : Controller
     {
-        public IActionResult OrdersCountByService()
-        {
-            return View();
-        }
 
-        public IActionResult OrdersServiceDetails()
+
+        [HttpPost]
+        public IActionResult ChangeStatus()
         {
             return View();
         }

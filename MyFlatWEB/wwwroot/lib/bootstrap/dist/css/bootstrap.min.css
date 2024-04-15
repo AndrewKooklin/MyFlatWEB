@@ -10619,9 +10619,19 @@ a.text-dark:focus, a.text-dark:hover {
     color:coral;
 }
 
+
 .serviceName{
-    font-size: 0.7rem;
-    color:blue;
-    text-decoration: none;
-    cursor: pointer;
+    width: 200px;
 }
+
+    .serviceName a {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: blue;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+/*.orders-count {
+    width: 80px;
+}*/

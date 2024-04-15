@@ -29,5 +29,12 @@ namespace MyFlatWEB.Areas.Management.Controllers
             //    return RedirectToAction("Index", "Home", new { area = "" });
             //}
         }
+
+        public IActionResult AllOrders()
+        {
+            var model = _dataManager.Rendering.GetAllOrders();
+
+            return View(model);
+        }
     }
 }

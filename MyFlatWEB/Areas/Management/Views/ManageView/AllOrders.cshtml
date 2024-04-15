@@ -1,0 +1,61 @@
+﻿@model List<OrderModel>
+@inject StatusesModel StatusesModel
+<div>
+    <h2>All Orders</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form class="" asp-controller="Statuses" asp-action="ChangeStatus" method="post">
+                <table class="table mt-5">
+                    <thead>
+                        <tr>
+                            <th class="">Id</th>
+                            <th class="">DateCreate</th>
+                            <th class="">Name</th>
+                            <th class="">Email</th>
+                            <th class="">Mobile</th>
+                            <th class="">ServiceName</th>
+                            <th class="">Message</th>
+                            <th class="">StatusName</th>
+                            <th class="">Statuses</th>
+                            <th class=""><i>Change status</i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="">@item.Id</td>
+                                    <td class="">@item.DateCreate</td>
+                                    <td class="">@item.Name</td>
+                                    <td class="">@item.Email</td>
+                                    <td class="">@item.Mobile</td>
+                                    <td class="">@item.ServiceName</td>
+                                    <td class="">@item.Message</td>
+                                    <td class="">@item.StatusName</td>
+                                    <td class="">
+                                        <select asp-for="@item.StatusName" asp-items="@StatusesModel.StatusNames" class="form-control" id="service">
+                                            <option disabled selected>select status</option>
+                                        </select>
+                                    </td>
+                                    <td class="">
+                                        <button class="form-control btn btn-primary"
+                                                title="Изменить"
+                                                type="submit">Change</button>
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+

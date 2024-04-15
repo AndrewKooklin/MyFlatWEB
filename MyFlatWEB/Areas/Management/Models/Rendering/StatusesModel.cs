@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyFlatWEB.Areas.Management.Models.Rendering
 {
-    public class StatusModel : BaseModel
+    public class StatusesModel : BaseModel
     {
         [Required]
         [MinLength(3)]

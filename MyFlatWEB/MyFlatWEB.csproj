@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Compile Remove="Areas\Management\Models\BaseModel.cs" />
+    <Compile Remove="Areas\Management\Models\Rendering\StatusesModel.cs" />
     <Compile Remove="Views\Shared\ErrorViewModel.cs" />
   </ItemGroup>
 

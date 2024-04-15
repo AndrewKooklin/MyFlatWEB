@@ -10,7 +10,7 @@ namespace MyFlatWEB.Models.Rendering
     public class OrderModel : BaseModel
     {
         [Required]
-        public DateTime DateCreate { get; set; }
+        public DateTime DateCreate { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = "Заполните поле \"Name\"")]
         [MinLength(3, ErrorMessage = "Длина не менее 3 символов.")]
@@ -33,18 +33,12 @@ namespace MyFlatWEB.Models.Rendering
         [Display(Name = "Message")]
         public string Message { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Выберите сервис")]
         [Display(Name = "Choose A Service")]
         public string ServiceName { get; set; }
-
-        [NotMapped]
-        public IEnumerable<SelectListItem> ServiceNames { get; set; }
 
         [Required]
         [Display(Name = "StatusName")]
         public string StatusName { get; set; }
-
-        [NotMapped]
-        public IEnumerable<SelectListItem> StatusNames { get; set; }
     }
 }
