@@ -41,6 +41,19 @@ namespace MyFlatWEB.Controllers
             return View(_orderModel);
         }
 
+        public IActionResult SaveOrder()
+        {
+            _orderModel = new OrderModel
+            {
+                ServiceNames = _serviceNames.Select(i => new SelectListItem
+                {
+                    Text = i,
+                    Value = i
+                })
+            };
+            return View(_orderModel);
+        }
+
         public IActionResult Projects()
         {
             return View();
