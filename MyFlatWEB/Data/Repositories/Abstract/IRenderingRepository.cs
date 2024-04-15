@@ -11,10 +11,12 @@ namespace MyFlatWEB.Data.Repositories.Abstract
     {
         List<string> GetServiceNames();
 
+        List<string> GetStatusNames();
+
         List<ServiceOrdersCountModel> GetServiceOrdersCount();
 
         Task<bool> SaveOrder(OrderModel order);
 
-        Task<List<OrderModel>> GetAllOrders();
+        List<OrderModel> GetAllOrders();
     }
 }

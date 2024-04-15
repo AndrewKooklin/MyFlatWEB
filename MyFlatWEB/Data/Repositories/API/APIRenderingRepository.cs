@@ -51,6 +51,21 @@ namespace MyFlatWEB.Data.Repositories.API
             return names;
         }
 
+        public List<string> GetStatusNames()
+        {
+            List<string> names = new List<string>();
+            urlRequest = $"{url}" + "StatusesAPI/GetStatusNames";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                names = JsonConvert.DeserializeObject<List<string>>(result);
+            }
+
+            return names;
+        }
+
         public List<ServiceOrdersCountModel> GetServiceOrdersCount()
         {
             List<ServiceOrdersCountModel> serviceOrdersCount = new List<ServiceOrdersCountModel>();

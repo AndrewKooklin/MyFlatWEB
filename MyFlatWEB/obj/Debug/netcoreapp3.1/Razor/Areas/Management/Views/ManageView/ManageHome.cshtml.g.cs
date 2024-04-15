@@ -47,8 +47,15 @@ using MyFlatWEB.Areas.Management.Models.Rendering;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
+using MyFlatWEB.Models.Rendering;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6b460595e6a5dc8d04914f13ec8f22b69d77c79b", @"/Areas/Management/Views/ManageView/ManageHome.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4a19b8ee5894dcab30fa51baa3121e8af8b0dbd0", @"/Areas/Management/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8150854dfd246796f648e5d016a95082ad384b10", @"/Areas/Management/Views/_ViewImports.cshtml")]
     public class Areas_Management_Views_ManageView_ManageHome : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<ServiceOrdersCountModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "OrderByService", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -114,7 +121,7 @@ using MyFlatWEB.Areas.Management.Models.Rendering;
 #line hidden
 #nullable disable
             WriteLiteral("                            <tr>\r\n                                <td class=\"serviceName text-left\">\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b460595e6a5dc8d04914f13ec8f22b69d77c79b5957", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b460595e6a5dc8d04914f13ec8f22b69d77c79b6144", async() => {
 #nullable restore
 #line 28 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\ManageView\ManageHome.cshtml"
                                                       Write(item.ServiceName);
