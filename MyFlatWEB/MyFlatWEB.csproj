@@ -27,6 +27,7 @@
     <Content Remove="Areas\Management\Views\ManageView\OrdersCountByService.cshtml" />
     <Content Remove="Views\Shared\Error.cshtml" />
     <Content Remove="Views\Shared\_ManageLayout.cshtml" />
+    <Content Remove="wwwroot\js\app.js" />
   </ItemGroup>
 
   <ItemGroup>
