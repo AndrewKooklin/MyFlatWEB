@@ -70,4 +70,22 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+.left-custom-menu-adp-wrap .mCustomScrollBox, .left-custom-menu-adp-wrap .mCSB_container {
+    overflow: unset
+}
+
+.mini-navbar #sidebar.active .sidebar-nav ul.metismenu li ul.submenu-angle {
+    width: 200px;
+    left: 80px;
+    position: absolute;
+    z-index: 999
+}
+
+    .mini-navbar #sidebar.active .sidebar-nav ul.metismenu li ul.submenu-angle li a {
+        text-align: left
+    }
+
+.mini-navbar #sidebar.active .sidebar-nav .metismenu a {
+    padding: 16px 15px
+}
 

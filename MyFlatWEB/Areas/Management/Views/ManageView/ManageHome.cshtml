@@ -1,17 +1,19 @@
 ﻿@model List<ServiceOrdersCountModel>
 
-<div>
-    <h2>Orders by services</h2>
-</div>
 
 <div class="container">
     <div class="row">
-        <div class="col-6 justify-content-center">
-            <table class="table mt-5">
-                <thead>
+        <div class="col-5 justify-content-center mt-3">
+            <h2>Orders by services</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5 justify-content-center">
+            <table class="table mt-3">
+                <thead class="resp-table-header">
                     <tr>
-                        <th class="serviceName text-left">Service name</th>
-                        <th class="orders-count">Orders count</th>
+                        <th class="serviceName text-left align-content-center">Service name</th>
+                        <th class="orders-count text-center">Orders count</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,7 +28,7 @@
                                        asp-route-serviceName="@item.ServiceName"
                                        title="Просмотреть">@item.ServiceName</a>
                                 </td>
-                                <td class="orders-count">@item.OrdersCount</td>
+                                <td class="orders-count text-center">@item.OrdersCount</td>
                             </tr>
                         }
                     }

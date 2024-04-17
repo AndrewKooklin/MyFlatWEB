@@ -6,6 +6,14 @@
     <title>@ViewData["Title"] - MyFlat</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/meanmenu.min.css" />
+    <link rel="stylesheet" href="~/css/metisMenu-vertical.css" />
+    <link rel="stylesheet" href="~/css/metisMenu.min.css" />
+    <link rel="stylesheet" href="~/css/jquery.mCustomScrollbar.min.css" />
+    <link rel="stylesheet" href="~/css/responsive.css" />
+    <link rel="stylesheet" href="~/css/nalika-icon.css" />
+    <link rel="stylesheet" href="~/css/animate.css" />
+    <link rel="stylesheet" href="~/css/normalize.css" />
 </head>
 <body>
     <div class="left-sidebar-pro">
@@ -15,519 +23,408 @@
                    asp-area=""
                    asp-controller="Home"
                    asp-action="Index">
-                    <img class="mt-2 pt-md-0 main-logo" src="~/Images/kind.png" alt="header-logo">
+                    <img class="mt-2 pt-md-0 main-logo" src="~/Images/kind.png" width="60" height="45" alt="header-logo">
                 </a>
-                <strong><img src="img/logo/logosn.png" alt=""></strong>
             </div>
-            <div class="nalika-profile">
-                <div class="profile-dtl">
-                    <a href="#"><img src="img/notification/4.jpg" alt=""></a>
-                    <h2>Lakian <span class="min-dtn">Das</span></h2>
-                </div>
-                <div class="profile-social-dtl">
-                    <ul class="dtl-social">
-                        <li><a href="#"><i class="icon nalika-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon nalika-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon nalika-linkedin"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="left-custom-menu-adp-wrap comment-scrollbar mCustomScrollbar _mCS_1 mCS-autoHide" style="position: relative; overflow: visible;">
-                <div id="mCSB_1" class="mCustomScrollBox mCS-light-1 mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
-                    <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
-                        <nav class="sidebar-nav left-sidebar-menu-pro">
-                            <ul class="metismenu" id="menu1">
-                                <li class="active">
-                                    <a class="has-arrow" href="index.html">
-                                        <i class="icon nalika-home icon-wrap"></i>
-                                        <span class="mini-click-non">Ecommerce</span>
+            <div id="accordion" class="manage-accordion w-100">
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                    data-toggle="collapse"
+                                    data-target="#collapseOne"
+                                    aria-expanded="false"
+                                    aria-controls="collapseOne">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Desktop</h3>
+                                </div>
+                                <i class="fa-manage" aria-hidden="true"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne"
+                         class="collapse"
+                         aria-labelledby="headingOne"
+                         data-parent="#accordion"
+                         style="">
+                        <div class="card-body p-0">
+                            <ul>
+                                <li class="">
+                                    <a asp-controller="ManageView" asp-action="ManageHome" class="d-flex justify-content-between align-items-center">
+                                        <p>Orders by service</p>
+                                        <i class="ion-ios-arrow-forward"></i>
                                     </a>
-                                    <ul class="submenu-angle collapse in" aria-expanded="true">
-                                        <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
-                                        <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
-                                        <li><a title="Dashboard v.3" href="index-2.html"> <span class="mini-sub-pro">Dashboard v.3</span></a></li>
-                                        <li><a title="Product List" href="product-list.html"><span class="mini-sub-pro">Product List</span></a></li>
-                                        <li><a title="Product Edit" href="product-edit.html"><span class="mini-sub-pro">Product Edit</span></a></li>
-                                        <li><a title="Product Detail" href="product-detail.html"><span class="mini-sub-pro">Product Detail</span></a></li>
-                                        <li><a title="Product Cart" href="product-cart.html"><span class="mini-sub-pro">Product Cart</span></a></li>
-                                        <li><a title="Product Payment" href="product-payment.html"><span class="mini-sub-pro">Product Payment</span></a></li>
-                                        <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>
-                                        <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Widgets</span></a></li>
-                                    </ul>
                                 </li>
                                 <li>
-                                    <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-mail icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
-                                    <ul class="submenu-angle collapse" aria-expanded="false">
-                                        <li><a title="Inbox" href="mailbox.html"><span class="mini-sub-pro">Inbox</span></a></li>
-                                        <li><a title="View Mail" href="mailbox-view.html"><span class="mini-sub-pro">View Mail</span></a></li>
-                                        <li><a title="Compose Mail" href="mailbox-compose.html"><span class="mini-sub-pro">Compose Mail</span></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Interface</span></a>
-                                    <ul class="submenu-angle collapse" aria-expanded="false">
-                                        <li><a title="Google Map" href="google-map.html"><span class="mini-sub-pro">Google Map</span></a></li>
-                                        <li><a title="Data Maps" href="data-maps.html"><span class="mini-sub-pro">Data Maps</span></a></li>
-                                        <li><a title="Pdf Viewer" href="pdf-viewer.html"><span class="mini-sub-pro">Pdf Viewer</span></a></li>
-                                        <li><a title="X-Editable" href="x-editable.html"><span class="mini-sub-pro">X-Editable</span></a></li>
-                                        <li><a title="Code Editor" href="code-editor.html"><span class="mini-sub-pro">Code Editor</span></a></li>
-                                        <li><a title="Tree View" href="tree-view.html"><span class="mini-sub-pro">Tree View</span></a></li>
-                                        <li><a title="Preloader" href="preloader.html"><span class="mini-sub-pro">Preloader</span></a></li>
-                                        <li><a title="Images Cropper" href="images-cropper.html"><span class="mini-sub-pro">Images Cropper</span></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-pie-chart icon-wrap"></i> <span class="mini-click-non">Miscellaneous</span></a>
-                                    <ul class="submenu-angle collapse" aria-expanded="false">
-                                        <li><a title="File Manager" href="file-manager.html"><span class="mini-sub-pro">File Manager</span></a></li>
-                                        <li><a title="Blog" href="blog.html"><span class="mini-sub-pro">Blog</span></a></li>
-                                        <li><a title="Blog Details" href="blog-details.html"><span class="mini-sub-pro">Blog Details</span></a></li>
-                                        <li><a title="404 Page" href="404.html"><span class="mini-sub-pro">404 Page</span></a></li>
-                                        <li><a title="500 Page" href="500.html"><span class="mini-sub-pro">500 Page</span></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-bar-chart icon-wrap"></i> <span class="mini-click-non">Charts</span></a>
-                                    <ul class="submenu-angle collapse" aria-expanded="false">
-                                        <li><a title="Bar Charts" href="bar-charts.html"><span class="mini-sub-pro">Bar Charts</span></a></li>
-                                        <li><a title="Line Charts" href="line-charts.html"><span class="mini-sub-pro">Line Charts</span></a></li>
-                                        <li><a title="Area Charts" href="area-charts.html"><span class="mini-sub-pro">Area Charts</span></a></li>
-                                        <li><a title="Rounded Charts" href="rounded-chart.html"><span class="mini-sub-pro">Rounded Charts</span></a></li>
-                                        <li><a title="C3 Charts" href="c3.html"><span class="mini-sub-pro">C3 Charts</span></a></li>
-                                        <li><a title="Sparkline Charts" href="sparkline.html"><span class="mini-sub-pro">Sparkline Charts</span></a></li>
-                                        <li><a title="Peity Charts" href="peity.html"><span class="mini-sub-pro">Peity Charts</span></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
-                                    <ul class="submenu-angle collapse" aria-expanded="false">
-                                        <li><a title="Peity Charts" href="static-table.html"><span class="mini-sub-pro">Static Table</span></a></li>
-                                        <li><a title="Data Table" href="data-table.html"><span class="mini-sub-pro">Data Table</span></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-forms icon-wrap"></i> <span class="mini-click-non">Forms Elements</span></a>
-                                    <ul class="submenu-angle collapse" aria-expanded="false">
-                                        <li><a title="Basic Form Elements" href="basic-form-element.html"><span class="mini-sub-pro">Bc Form Elements</span></a></li>
-                                        <li><a title="Advance Form Elements" href="advance-form-element.html"><span class="mini-sub-pro">Ad Form Elements</span></a></li>
-                                        <li><a title="Password Meter" href="password-meter.html"><span class="mini-sub-pro">Password Meter</span></a></li>
-                                        <li><a title="Multi Upload" href="multi-upload.html"><span class="mini-sub-pro">Multi Upload</span></a></li>
-                                        <li><a title="Text Editor" href="tinymc.html"><span class="mini-sub-pro">Text Editor</span></a></li>
-                                        <li><a title="Dual List Box" href="dual-list-box.html"><span class="mini-sub-pro">Dual List Box</span></a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-smartphone-call icon-wrap"></i> <span class="mini-click-non">App views</span></a>
-                                    <ul class="submenu-angle collapse" aria-expanded="false">
-                                        <li><a title="Notifications" href="notifications.html"><span class="mini-sub-pro">Notifications</span></a></li>
-                                        <li><a title="Alerts" href="alerts.html"><span class="mini-sub-pro">Alerts</span></a></li>
-                                        <li><a title="Modals" href="modals.html"><span class="mini-sub-pro">Modals</span></a></li>
-                                        <li><a title="Buttons" href="buttons.html"><span class="mini-sub-pro">Buttons</span></a></li>
-                                        <li><a title="Tabs" href="tabs.html"><span class="mini-sub-pro">Tabs</span></a></li>
-                                        <li><a title="Accordion" href="accordion.html"><span class="mini-sub-pro">Accordion</span></a></li>
-                                    </ul>
-                                </li>
-                                <li id="removable">
-                                    <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-new-file icon-wrap"></i> <span class="mini-click-non">Pages</span></a>
-                                    <ul class="submenu-angle collapse" aria-expanded="false">
-                                        <li><a title="Login" href="login.html"><span class="mini-sub-pro">Login</span></a></li>
-                                        <li><a title="Register" href="register.html"><span class="mini-sub-pro">Register</span></a></li>
-                                        <li><a title="Lock" href="lock.html"><span class="mini-sub-pro">Lock</span></a></li>
-                                        <li><a title="Password Recovery" href="password-recovery.html"><span class="mini-sub-pro">Password Recovery</span></a></li>
-                                    </ul>
+                                    <a asp-controller="ManageView" asp-action="AllOrders" class="d-flex justify-content-between align-items-center">
+                                        <p>All orders</p>
+                                        <i class="ion-ios-arrow-forward"></i>
+                                    </a>
                                 </li>
                             </ul>
-                        </nav>
+                        </div>
                     </div>
-                </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light-1 mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 0px; display: block; height: 340px; max-height: 570px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                    data-toggle="collapse"
+                                    data-target="#collapseTwo"
+                                    aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Home</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                    data-toggle="collapse"
+                                    data-target="#collapseThree"
+                                    aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Projects</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                    data-toggle="collapse"
+                                    data-target="#collapseFour"
+                                    aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Services</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingFive">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                    data-toggle="collapse"
+                                    data-target="#collapseFive"
+                                    aria-expanded="false"
+                                    aria-controls="collapseFive">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Blogs</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingSix">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                    data-toggle="collapse"
+                                    data-target="#collapseSix"
+                                    aria-expanded="false"
+                                    aria-controls="collapseSix">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Contacts</h3>
+                                </div>
+                                @*<i class="fa-manage" aria-hidden="true"></i>*@
+                            </button>
+                        </h2>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingSeven">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                    data-toggle="collapse"
+                                    data-target="#collapseSeven"
+                                    aria-expanded="false"
+                                    aria-controls="collapseSeven">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Users</h3>
+                                </div>
+                                <i class="fa-manage" aria-hidden="true"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseSeven"
+                         class="collapse"
+                         aria-labelledby="headingSeven"
+                         data-parent="#accordion"
+                         style="">
+                        <div class="card-body p-0">
+                            <ul>
+                                <li>
+                                    <a href="#" class="d-flex justify-content-between align-items-center">
+                                        <p>Add user</p>
+                                        <i class="ion-ios-arrow-forward"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="d-flex justify-content-between align-items-center">
+                                        <p>Add role to user</p>
+                                        <i class="ion-ios-arrow-forward"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-1">
+                    <div class="card-header p-0" id="headingEight">
+                        <h2 class="mb-0">
+                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                    data-toggle="collapse"
+                                    data-target="#collapseEight"
+                                    aria-expanded="false"
+                                    aria-controls="collapseEight">
+                                <div class="heading d-flex align-items-center">
+                                    <h3 class="mb-0 ml-3 p-3">Roles</h3>
+                                </div>
+                                <i class="fa-manage" aria-hidden="true"></i>
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseEight"
+                         class="collapse"
+                         aria-labelledby="headingEight"
+                         data-parent="#accordion"
+                         style="">
+                        <div class="card-body p-0">
+                            <ul>
+                                <li>
+                                    <a href="#" class="d-flex justify-content-between align-items-center">
+                                        <p>Add role</p>
+                                        <i class="ion-ios-arrow-forward"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
     </div>
     <div class="all-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="logo-pro">
-                        <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="header-advance-area">
             <div class="mobile-menu-area">
-                <div class="container mean-container">
-                    <div class="mean-bar">
-                        <a href="#nav" class="meanmenu-reveal" style="right:0;left:auto;">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </a>
-                        <nav class="mean-nav">
-                            <ul class="mobile-menu-nav" style="display: none;">
-                                <li>
-                                    <a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                    <ul class="collapse dropdown-header-top" style="display: none;">
-                                        <li><a href="index.html">Dashboard v.1</a></li>
-                                        <li><a href="index-1.html">Dashboard v.2</a></li>
-                                        <li><a href="index-3.html">Dashboard v.3</a></li>
-                                        <li><a href="product-list.html">Product List</a></li>
-                                        <li><a href="product-edit.html">Product Edit</a></li>
-                                        <li><a href="product-detail.html">Product Detail</a></li>
-                                        <li><a href="product-cart.html">Product Cart</a></li>
-                                        <li><a href="product-payment.html">Product Payment</a></li>
-                                        <li><a href="analytics.html">Analytics</a></li>
-                                        <li><a href="widgets.html">Widgets</a></li>
-                                    </ul>
-                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="collapse" data-target="#demo" href="#">Mailbox <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                    <ul id="demo" class="collapse dropdown-header-top" style="display: none;">
-                                        <li>
-                                            <a href="mailbox.html">Inbox</a>
-                                        </li>
-                                        <li>
-                                            <a href="mailbox-view.html">View Mail</a>
-                                        </li>
-                                        <li>
-                                            <a href="mailbox-compose.html">Compose Mail</a>
-                                        </li>
-                                    </ul>
-                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="collapse" data-target="#others" href="#">Miscellaneous <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                    <ul id="others" class="collapse dropdown-header-top" style="display: none;">
-                                        <li><a href="file-manager.html">File Manager</a></li>
-                                        <li><a href="contacts.html">Contacts Client</a></li>
-                                        <li><a href="projects.html">Project</a></li>
-                                        <li><a href="project-details.html">Project Details</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                        <li><a href="404.html">404 Page</a></li>
-                                        <li><a href="500.html">500 Page</a></li>
-                                    </ul>
-                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">Interface <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                    <ul id="Miscellaneousmob" class="collapse dropdown-header-top" style="display: none;">
-                                        <li>
-                                            <a href="google-map.html">Google Map</a>
-                                        </li>
-                                        <li>
-                                            <a href="data-maps.html">Data Maps</a>
-                                        </li>
-                                        <li>
-                                            <a href="pdf-viewer.html">Pdf Viewer</a>
-                                        </li>
-                                        <li>
-                                            <a href="x-editable.html">X-Editable</a>
-                                        </li>
-                                        <li>
-                                            <a href="code-editor.html">Code Editor</a>
-                                        </li>
-                                        <li>
-                                            <a href="tree-view.html">Tree View</a>
-                                        </li>
-                                        <li>
-                                            <a href="preloader.html">Preloader</a>
-                                        </li>
-                                        <li>
-                                            <a href="images-cropper.html">Images Cropper</a>
-                                        </li>
-                                    </ul>
-                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="collapse" data-target="#Chartsmob" href="#">Charts <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                    <ul id="Chartsmob" class="collapse dropdown-header-top" style="display: none;">
-                                        <li>
-                                            <a href="bar-charts.html">Bar Charts</a>
-                                        </li>
-                                        <li>
-                                            <a href="line-charts.html">Line Charts</a>
-                                        </li>
-                                        <li>
-                                            <a href="area-charts.html">Area Charts</a>
-                                        </li>
-                                        <li>
-                                            <a href="rounded-chart.html">Rounded Charts</a>
-                                        </li>
-                                        <li>
-                                            <a href="c3.html">C3 Charts</a>
-                                        </li>
-                                        <li>
-                                            <a href="sparkline.html">Sparkline Charts</a>
-                                        </li>
-                                        <li>
-                                            <a href="peity.html">Peity Charts</a>
-                                        </li>
-                                    </ul>
-                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="collapse" data-target="#Tablesmob" href="#">Tables <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                    <ul id="Tablesmob" class="collapse dropdown-header-top" style="display: none;">
-                                        <li>
-                                            <a href="static-table.html">Static Table</a>
-                                        </li>
-                                        <li>
-                                            <a href="data-table.html">Data Table</a>
-                                        </li>
-                                    </ul>
-                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="collapse" data-target="#formsmob" href="#">Forms <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                    <ul id="formsmob" class="collapse dropdown-header-top" style="display: none;">
-                                        <li>
-                                            <a href="basic-form-element.html">Basic Form Elements</a>
-                                        </li>
-                                        <li>
-                                            <a href="advance-form-element.html">Advanced Form Elements</a>
-                                        </li>
-                                        <li>
-                                            <a href="password-meter.html">Password Meter</a>
-                                        </li>
-                                        <li>
-                                            <a href="multi-upload.html">Multi Upload</a>
-                                        </li>
-                                        <li>
-                                            <a href="tinymc.html">Text Editor</a>
-                                        </li>
-                                        <li>
-                                            <a href="dual-list-box.html">Dual List Box</a>
-                                        </li>
-                                    </ul>
-                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="collapse" data-target="#Appviewsmob" href="#">App views <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                    <ul id="Appviewsmob" class="collapse dropdown-header-top" style="display: none;">
-                                        <li>
-                                            <a href="basic-form-element.html">Basic Form Elements</a>
-                                        </li>
-                                        <li>
-                                            <a href="advance-form-element.html">Advanced Form Elements</a>
-                                        </li>
-                                        <li>
-                                            <a href="password-meter.html">Password Meter</a>
-                                        </li>
-                                        <li>
-                                            <a href="multi-upload.html">Multi Upload</a>
-                                        </li>
-                                        <li>
-                                            <a href="tinymc.html">Text Editor</a>
-                                        </li>
-                                        <li>
-                                            <a href="dual-list-box.html">Dual List Box</a>
-                                        </li>
-                                    </ul>
-                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a>
-                                </li>
-                                <li>
-                                    <a data-toggle="collapse" data-target="#Pagemob" href="#">Pages <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                    <ul id="Pagemob" class="collapse dropdown-header-top" style="display: none;">
-                                        <li>
-                                            <a href="login.html">Login</a>
-                                        </li>
-                                        <li>
-                                            <a href="register.html">Register</a>
-                                        </li>
-                                        <li>
-                                            <a href="lock.html">Lock</a>
-                                        </li>
-                                        <li class="mean-last">
-                                            <a href="password-recovery.html">Password Recovery</a>
-                                        </li>
-                                    </ul>
-                                    <a class="mean-expand" href="#" style="font-size: 18px">+</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="mobile-menu">
-                                <div class="mean-push"></div><nav id="dropdown" style="display: none;">
-                                    <ul class="mobile-menu-nav">
-                                        <li>
-                                            <a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul class="collapse dropdown-header-top">
-                                                <li><a href="index.html">Dashboard v.1</a></li>
-                                                <li><a href="index-1.html">Dashboard v.2</a></li>
-                                                <li><a href="index-3.html">Dashboard v.3</a></li>
-                                                <li><a href="product-list.html">Product List</a></li>
-                                                <li><a href="product-edit.html">Product Edit</a></li>
-                                                <li><a href="product-detail.html">Product Detail</a></li>
-                                                <li><a href="product-cart.html">Product Cart</a></li>
-                                                <li><a href="product-payment.html">Product Payment</a></li>
-                                                <li><a href="analytics.html">Analytics</a></li>
-                                                <li><a href="widgets.html">Widgets</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="collapse" data-target="#demo" href="#">Mailbox <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul id="demo" class="collapse dropdown-header-top">
-                                                <li>
-                                                    <a href="mailbox.html">Inbox</a>
-                                                </li>
-                                                <li>
-                                                    <a href="mailbox-view.html">View Mail</a>
-                                                </li>
-                                                <li>
-                                                    <a href="mailbox-compose.html">Compose Mail</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="collapse" data-target="#others" href="#">Miscellaneous <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul id="others" class="collapse dropdown-header-top">
-                                                <li><a href="file-manager.html">File Manager</a></li>
-                                                <li><a href="contacts.html">Contacts Client</a></li>
-                                                <li><a href="projects.html">Project</a></li>
-                                                <li><a href="project-details.html">Project Details</a></li>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                                <li><a href="404.html">404 Page</a></li>
-                                                <li><a href="500.html">500 Page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">Interface <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
-                                                <li>
-                                                    <a href="google-map.html">Google Map</a>
-                                                </li>
-                                                <li>
-                                                    <a href="data-maps.html">Data Maps</a>
-                                                </li>
-                                                <li>
-                                                    <a href="pdf-viewer.html">Pdf Viewer</a>
-                                                </li>
-                                                <li>
-                                                    <a href="x-editable.html">X-Editable</a>
-                                                </li>
-                                                <li>
-                                                    <a href="code-editor.html">Code Editor</a>
-                                                </li>
-                                                <li>
-                                                    <a href="tree-view.html">Tree View</a>
-                                                </li>
-                                                <li>
-                                                    <a href="preloader.html">Preloader</a>
-                                                </li>
-                                                <li>
-                                                    <a href="images-cropper.html">Images Cropper</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="collapse" data-target="#Chartsmob" href="#">Charts <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul id="Chartsmob" class="collapse dropdown-header-top">
-                                                <li>
-                                                    <a href="bar-charts.html">Bar Charts</a>
-                                                </li>
-                                                <li>
-                                                    <a href="line-charts.html">Line Charts</a>
-                                                </li>
-                                                <li>
-                                                    <a href="area-charts.html">Area Charts</a>
-                                                </li>
-                                                <li>
-                                                    <a href="rounded-chart.html">Rounded Charts</a>
-                                                </li>
-                                                <li>
-                                                    <a href="c3.html">C3 Charts</a>
-                                                </li>
-                                                <li>
-                                                    <a href="sparkline.html">Sparkline Charts</a>
-                                                </li>
-                                                <li>
-                                                    <a href="peity.html">Peity Charts</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="collapse" data-target="#Tablesmob" href="#">Tables <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul id="Tablesmob" class="collapse dropdown-header-top">
-                                                <li>
-                                                    <a href="static-table.html">Static Table</a>
-                                                </li>
-                                                <li>
-                                                    <a href="data-table.html">Data Table</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="collapse" data-target="#formsmob" href="#">Forms <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul id="formsmob" class="collapse dropdown-header-top">
-                                                <li>
-                                                    <a href="basic-form-element.html">Basic Form Elements</a>
-                                                </li>
-                                                <li>
-                                                    <a href="advance-form-element.html">Advanced Form Elements</a>
-                                                </li>
-                                                <li>
-                                                    <a href="password-meter.html">Password Meter</a>
-                                                </li>
-                                                <li>
-                                                    <a href="multi-upload.html">Multi Upload</a>
-                                                </li>
-                                                <li>
-                                                    <a href="tinymc.html">Text Editor</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dual-list-box.html">Dual List Box</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="collapse" data-target="#Appviewsmob" href="#">App views <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul id="Appviewsmob" class="collapse dropdown-header-top">
-                                                <li>
-                                                    <a href="basic-form-element.html">Basic Form Elements</a>
-                                                </li>
-                                                <li>
-                                                    <a href="advance-form-element.html">Advanced Form Elements</a>
-                                                </li>
-                                                <li>
-                                                    <a href="password-meter.html">Password Meter</a>
-                                                </li>
-                                                <li>
-                                                    <a href="multi-upload.html">Multi Upload</a>
-                                                </li>
-                                                <li>
-                                                    <a href="tinymc.html">Text Editor</a>
-                                                </li>
-                                                <li>
-                                                    <a href="dual-list-box.html">Dual List Box</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="collapse" data-target="#Pagemob" href="#">Pages <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                            <ul id="Pagemob" class="collapse dropdown-header-top">
-                                                <li>
-                                                    <a href="login.html">Login</a>
-                                                </li>
-                                                <li>
-                                                    <a href="register.html">Register</a>
-                                                </li>
-                                                <li>
-                                                    <a href="lock.html">Lock</a>
-                                                </li>
-                                                <li>
-                                                    <a href="password-recovery.html">Password Recovery</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
+                <div id="mobile" class="container mean-container">
+                    <nav class="navbar navbar-expand-xxl navbar-toggleable-sm navbar-light mb-3">
+                        <div class="container">
+                            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                                <img class="pt-7 pt-md-0" src="~/Images/kind.png" width="60" alt="header-logo">
+                            </a>
+                            <button class="navbar-toggler bg-blue" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="navbar-collapse collapse d-xl-inline-flex">
+                                <div id="accordion" class="manage-accordion w-100">
+                                    <div class="card mt-1">
+                                        <div class="card-header p-0" id="headingOne">
+                                            <h2 class="mb-0">
+                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapseOne"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseOne">
+                                                    <div class="heading d-flex align-items-center">
+                                                        <h3 class="mb-0 ml-3 p-3">Desktop</h3>
+                                                    </div>
+                                                    <i class="fa-manage" aria-hidden="true"></i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseOne"
+                                             class="collapse"
+                                             aria-labelledby="headingOne"
+                                             data-parent="#accordion"
+                                             style="">
+                                            <div class="card-body p-0">
+                                                <ul>
+                                                    <li class="">
+                                                        <a asp-controller="ManageView" asp-action="ManageHome" class="d-flex justify-content-between align-items-center">
+                                                            <p>Orders by service</p>
+                                                            <i class="ion-ios-arrow-forward"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-controller="ManageView" asp-action="AllOrders" class="d-flex justify-content-between align-items-center">
+                                                            <p>All orders</p>
+                                                            <i class="ion-ios-arrow-forward"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-1">
+                                        <div class="card-header p-0" id="headingTwo">
+                                            <h2 class="mb-0">
+                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapseTwo"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseTwo">
+                                                    <div class="heading d-flex align-items-center">
+                                                        <h3 class="mb-0 ml-3 p-3">Home</h3>
+                                                    </div>
+                                                    @*<i class="fa-manage" aria-hidden="true"></i>*@
+                                                </button>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-1">
+                                        <div class="card-header p-0" id="headingThree">
+                                            <h2 class="mb-0">
+                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapseThree"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseThree">
+                                                    <div class="heading d-flex align-items-center">
+                                                        <h3 class="mb-0 ml-3 p-3">Projects</h3>
+                                                    </div>
+                                                    @*<i class="fa-manage" aria-hidden="true"></i>*@
+                                                </button>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-1">
+                                        <div class="card-header p-0" id="headingFour">
+                                            <h2 class="mb-0">
+                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapseFour"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseFour">
+                                                    <div class="heading d-flex align-items-center">
+                                                        <h3 class="mb-0 ml-3 p-3">Services</h3>
+                                                    </div>
+                                                    @*<i class="fa-manage" aria-hidden="true"></i>*@
+                                                </button>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-1">
+                                        <div class="card-header p-0" id="headingFive">
+                                            <h2 class="mb-0">
+                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapseFive"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseFive">
+                                                    <div class="heading d-flex align-items-center">
+                                                        <h3 class="mb-0 ml-3 p-3">Blogs</h3>
+                                                    </div>
+                                                    @*<i class="fa-manage" aria-hidden="true"></i>*@
+                                                </button>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-1">
+                                        <div class="card-header p-0" id="headingSix">
+                                            <h2 class="mb-0">
+                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapseSix"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseSix">
+                                                    <div class="heading d-flex align-items-center">
+                                                        <h3 class="mb-0 ml-3 p-3">Contacts</h3>
+                                                    </div>
+                                                    @*<i class="fa-manage" aria-hidden="true"></i>*@
+                                                </button>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-1">
+                                        <div class="card-header p-0" id="headingSeven">
+                                            <h2 class="mb-0">
+                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapseSeven"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseSeven">
+                                                    <div class="heading d-flex align-items-center">
+                                                        <h3 class="mb-0 ml-3 p-3">Users</h3>
+                                                    </div>
+                                                    <i class="fa-manage" aria-hidden="true"></i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseSeven"
+                                             class="collapse"
+                                             aria-labelledby="headingSeven"
+                                             data-parent="#accordion"
+                                             style="">
+                                            <div class="card-body p-0">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="d-flex justify-content-between align-items-center">
+                                                            <p>Add user</p>
+                                                            <i class="ion-ios-arrow-forward"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="d-flex justify-content-between align-items-center">
+                                                            <p>Add role to user</p>
+                                                            <i class="ion-ios-arrow-forward"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-1">
+                                        <div class="card-header p-0" id="headingEight">
+                                            <h2 class="mb-0">
+                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapseEight"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseEight">
+                                                    <div class="heading d-flex align-items-center">
+                                                        <h3 class="mb-0 ml-3 p-3">Roles</h3>
+                                                    </div>
+                                                    <i class="fa-manage" aria-hidden="true"></i>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div id="collapseEight"
+                                             class="collapse"
+                                             aria-labelledby="headingEight"
+                                             data-parent="#accordion"
+                                             style="">
+                                            <div class="card-body p-0">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="d-flex justify-content-between align-items-center">
+                                                            <p>Add role</p>
+                                                            <i class="ion-ios-arrow-forward"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -543,7 +440,16 @@
         </div>
     </footer>
 
+    <script src="~/js/main.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/metisMenu-active.js"></script>
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/js/mCustomScrollbar-active.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/lib/jquery/admin/jquery-1.12.4.min.js"></script>
+    <script src="~/lib/jquery/admin/jquery.meanmenu.js"></script>
+    <script src="~/lib/jquery/admin/modernizr-2.8.3.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
