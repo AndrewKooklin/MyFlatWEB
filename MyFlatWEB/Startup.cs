@@ -44,6 +44,7 @@ namespace MyFlatWEB
             services.AddTransient<IAccountRepository, APIAccountRepository>();
             services.AddTransient<IRenderingRepository, APIRenderingRepository>();
             services.AddTransient<DataManager>();
+            services.AddTransient<ErrorModel>();
             services.AddTransient<UserRolesModel>();
             services.AddTransient<UserRoles>();
             services.AddTransient<ServicesModel>();
@@ -79,10 +80,10 @@ namespace MyFlatWEB
             {
                 endpoints.MapControllerRoute(
                     name: "Management",
-                    pattern: "{area:exists}/{controller=ManageView}/{action=ManageHome}/{id?}");
+                    pattern: "{area:exists}/{controller=ManageView}/{action=ManageHome}/{id?}/{param?}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}/{param?}");
                 endpoints.MapRazorPages();
             });
         }

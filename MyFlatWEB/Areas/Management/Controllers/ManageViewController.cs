@@ -40,6 +40,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("AllOrders")]
         public IActionResult AllOrders()
         {
+            StatusesModel statusesModel = new StatusesModel();
             _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
             StatusesModel.StatusNames = _statusNames.Select(i => new SelectListItem
             {

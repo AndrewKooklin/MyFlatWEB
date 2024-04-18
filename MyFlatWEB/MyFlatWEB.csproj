@@ -17,15 +17,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Identity\Pages\Error.cshtml.cs" />
     <Compile Remove="Areas\Management\Models\BaseModel.cs" />
     <Compile Remove="Areas\Management\Models\Rendering\StatusesModel.cs" />
+    <Compile Remove="Views\ErrorModel.cs" />
+    <Compile Remove="Views\Shared\ErrorModel.cs" />
     <Compile Remove="Views\Shared\ErrorViewModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Areas\Identity\Pages\Error.cshtml" />
     <Content Remove="Areas\Management\Views\ManageView\OrdersByService.cshtml" />
     <Content Remove="Areas\Management\Views\ManageView\OrdersCountByService.cshtml" />
+    <Content Remove="Areas\Management\Views\Shared\Acordion.cshtml" />
+    <Content Remove="Areas\Management\Views\Shared\Error.cshtml" />
     <Content Remove="Views\Shared\Error.cshtml" />
+    <Content Remove="Views\Shared\ErrorView.cshtml" />
     <Content Remove="Views\Shared\_ManageLayout.cshtml" />
     <Content Remove="wwwroot\js\app.js" />
   </ItemGroup>

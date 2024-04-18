@@ -10717,6 +10717,7 @@ a.text-dark:focus, a.text-dark:hover {
 
 .table-body-cell {
     display: table-cell;
+    width:3rem;
 }
 
 

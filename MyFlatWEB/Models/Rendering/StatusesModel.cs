@@ -8,6 +8,7 @@ namespace MyFlatWEB.Models.Rendering
 {
     public class StatusesModel
     {
+        public static string StatusName { get; set; }
         public static IEnumerable<SelectListItem> StatusNames { get; set; }
     }
 }

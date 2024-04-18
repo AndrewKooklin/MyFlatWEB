@@ -97,5 +97,26 @@ namespace MyFlatWEB.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public async Task<bool> ChangeStatusOrder(ChangeStatusModel model)
+        {
+            urlRequest = $"{url}" + "StatusesAPI/ChangeStatusOrder/" + $"{model}";
+
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                response = await _httpClient.PostAsJsonAsync(urlRequest, model);
+            }
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

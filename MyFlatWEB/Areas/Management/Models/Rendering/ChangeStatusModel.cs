@@ -7,8 +7,8 @@ namespace MyFlatWEB.Areas.Management.Models.Rendering
 {
     public class ChangeStatusModel
     {
-        public static int Id { get; set; }
+        public int Id { get; set; }
 
-        public static string Status { get; set; }
+        public string Status { get; set; }
     }
 }
