@@ -49,7 +49,7 @@ namespace MyFlatWEB
             services.AddTransient<UserRolesModel>();
             services.AddTransient<UserRoles>();
             services.AddTransient<ServicesModel>();
-            services.AddTransient<StatusesModel>();
+            services.AddTransient<OrdersModel>();
             services.AddTransient<ChangeStatusModel>();
             services.AddTransient<RandomString>();
             services.AddTransient<RandomString>();
