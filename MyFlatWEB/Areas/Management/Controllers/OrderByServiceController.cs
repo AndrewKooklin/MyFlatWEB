@@ -14,10 +14,5 @@ namespace MyFlatWEB.Areas.Management.Controllers
         {
             return View();
         }
-
-        public IActionResult OrdersServiceDetails()
-        {
-            return View();
-        }
     }
 }

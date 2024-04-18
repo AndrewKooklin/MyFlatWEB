@@ -36,6 +36,22 @@ namespace MyFlatWEB.Data.Repositories.API
             return orders;
         }
 
+        public List<OrderModel> GetOrdersByService(string serviceName)
+        {
+            List<OrderModel> orders = new List<OrderModel>();
+            urlRequest = $"{url}" + "OrdersAPI/GetOrdersByService/" + $"{serviceName}";
+
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string json = _httpClient.GetStringAsync(urlRequest).Result;
+                orders = JsonConvert.DeserializeObject<List<OrderModel>>(json);
+            }
+
+            return orders;
+        }
+
         public List<string> GetServiceNames()
         {
             List<string> names = new List<string>();

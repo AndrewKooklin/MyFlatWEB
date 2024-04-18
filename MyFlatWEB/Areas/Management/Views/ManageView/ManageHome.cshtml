@@ -1,6 +1,5 @@
 ﻿@model List<ServiceOrdersCountModel>
 
-
 <div class="container">
     <div class="row">
         <div class="col-5 justify-content-center mt-3">
@@ -23,8 +22,8 @@
                         {
                             <tr>
                                 <td class="serviceName text-left">
-                                    <a asp-controller="OrderByService"
-                                       asp-action="OrdersServiceDetails"
+                                    <a asp-controller="ManageView"
+                                       asp-action="OrdersByService"
                                        asp-route-serviceName="@item.ServiceName"
                                        title="Просмотреть">@item.ServiceName</a>
                                 </td>
@@ -32,7 +31,6 @@
                             </tr>
                         }
                     }
-
                 </tbody>
             </table>
         </div>

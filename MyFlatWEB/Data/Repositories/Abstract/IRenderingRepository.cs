@@ -19,6 +19,8 @@ namespace MyFlatWEB.Data.Repositories.Abstract
 
         List<OrderModel> GetAllOrders();
 
+        List<OrderModel> GetOrdersByService(string serviceName);
+
         Task<bool> ChangeStatusOrder(ChangeStatusModel changeStatusModel);
     }
 }

@@ -21,29 +21,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
             _dataManager = dataManager;
         }
 
-        [HttpPut]
-        [HttpPost]
-        [HttpDelete]
-        public IActionResult ChangeStatus(string id, string status)
-        {
-            ChangeStatusModel changeStatus = new ChangeStatusModel();
-
-            changeStatus.Id = Int32.Parse(id);
-            changeStatus.Status = status;
-
-            bool success = _dataManager.Rendering.ChangeStatusOrder(changeStatus).GetAwaiter().GetResult();
-
-            if (success)
-            {
-                return RedirectToAction("AllOrders", "ManageView");
-            }
-            else
-            {
-                ErrorModel errorModel = new ErrorModel();
-                errorModel.Message = "Server error";
-
-                return View("ErrorView", errorModel);
-            }
-        }
+        
     }
 }

@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MyFlatWEB.Areas.Management.Models;
+using MyFlatWEB.Areas.Management.Models.Rendering;
 using MyFlatWEB.Data;
 using MyFlatWEB.Models;
 using MyFlatWEB.Models.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,6 +17,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
     {
         private DataManager _dataManager;
         private IEnumerable<string> _statusNames;
+        private OrdersModel _ordersModel;
 
         public ManageViewController(DataManager dataManager)
         {
@@ -51,6 +55,66 @@ namespace MyFlatWEB.Areas.Management.Controllers
             ordersModel.Title = "All Orders";
 
             return View(ordersModel);
+        }
+
+        [HttpGet]
+        [Route("OrdersByService/{serviceName?}")]
+        public IActionResult OrdersByService(string serviceName)
+        {
+            _ordersModel = new OrdersModel();
+            _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
+            _ordersModel.StatusNames = _statusNames.Select(i => new SelectListItem
+            {
+                Text = i,
+                Value = i
+            });
+            _ordersModel.OrderModels = _dataManager.Rendering.GetOrdersByService(serviceName);
+            _ordersModel.Title = $"{serviceName}";
+
+            return View(_ordersModel);
+        }
+
+        [HttpGet]
+        [HttpPut]
+        [HttpPost]
+        [HttpDelete]
+        [Route("ChangeStatus/{id?}/{status?}/{service?}")]
+        public IActionResult ChangeStatus(string id, string status, string service)
+        {
+            ChangeStatusModel changeStatus = new ChangeStatusModel();
+
+            changeStatus.Id = Int32.Parse(id);
+            changeStatus.Status = status;
+
+            bool success = _dataManager.Rendering.ChangeStatusOrder(changeStatus).GetAwaiter().GetResult();
+
+            if (success)
+            {
+                if (service.Equals("All Orders"))
+                {
+                    return RedirectToAction("AllOrders", "ManageView");
+                }
+                else
+                {
+                    //OrdersModel ordersModel = new OrdersModel();
+                    //_statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
+                    //ordersModel.StatusNames = _statusNames.Select(i => new SelectListItem
+                    //{
+                    //    Text = i,
+                    //    Value = i
+                    //});
+                    //ordersModel.OrderModels = _dataManager.Rendering.GetOrdersByService(service);
+                    //ordersModel.Title = $"{service}";
+                    return RedirectToAction("OrdersByService", new { serviceName = service });
+                }
+            }
+            else
+            {
+                ErrorModel errorModel = new ErrorModel();
+                errorModel.Message = "Server error";
+
+                return View("ErrorView", errorModel);
+            }
         }
     }
 }

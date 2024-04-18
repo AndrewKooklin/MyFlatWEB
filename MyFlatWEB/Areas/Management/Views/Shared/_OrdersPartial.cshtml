@@ -24,10 +24,11 @@
                     @foreach (var item in Model.OrderModels)
                     {
                         <form class="resp-table-row border-bottom"
-                              asp-controller="Statuses"
+                              asp-controller="ManageView"
                               asp-action="ChangeStatus"
                               asp-route-id="@item.Id"
                               asp-route-status="@Model.StatusName"
+                              asp-route-service="@Model.Title"
                               method="post">
                             <div class="table-body-cell text-center align-content-center border-bottom pl-1 pr-1">
                                 @item.Id
