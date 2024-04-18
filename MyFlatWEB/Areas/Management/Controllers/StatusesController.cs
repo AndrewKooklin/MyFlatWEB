@@ -21,7 +21,9 @@ namespace MyFlatWEB.Areas.Management.Controllers
             _dataManager = dataManager;
         }
 
+        [HttpPut]
         [HttpPost]
+        [HttpDelete]
         public IActionResult ChangeStatus(string id, string status)
         {
             ChangeStatusModel changeStatus = new ChangeStatusModel();

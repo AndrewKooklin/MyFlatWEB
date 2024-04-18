@@ -42,20 +42,27 @@ using MyFlatWEB.Areas.Management;
 #nullable disable
 #nullable restore
 #line 5 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
-using MyFlatWEB.Areas.Management.Models.Rendering;
+using MyFlatWEB.Areas.Management.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 6 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
+using MyFlatWEB.Areas.Management.Models.Rendering;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
 using MyFlatWEB.Models.Rendering;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a71a775d0683b905786c9ff6f02f24d5a26027d7", @"/Areas/Management/Views/ManageView/AllOrders.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8150854dfd246796f648e5d016a95082ad384b10", @"/Areas/Management/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1f80fd1473687b12c2d9de1650c76e404b881d61", @"/Areas/Management/Views/_ViewImports.cshtml")]
     public class Areas_Management_Views_ManageView_AllOrders : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<OrderModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("id", new global::Microsoft.AspNetCore.Html.HtmlString("Select1"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -137,7 +144,7 @@ using MyFlatWEB.Models.Rendering;
 #line hidden
 #nullable disable
             WriteLiteral("                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71a775d0683b905786c9ff6f02f24d5a26027d78513", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71a775d0683b905786c9ff6f02f24d5a26027d78707", async() => {
                 WriteLiteral("\r\n                        <div class=\"table-body-cell text-center align-content-center border-bottom pl-1 pr-1\">\r\n                            ");
 #nullable restore
 #line 39 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\ManageView\AllOrders.cshtml"
@@ -204,7 +211,7 @@ using MyFlatWEB.Models.Rendering;
 #nullable disable
                 WriteLiteral("\r\n                        </div>\r\n");
                 WriteLiteral("                        <div class=\"table-body-cell select-status text-center align-content-center border-bottom\">\r\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71a775d0683b905786c9ff6f02f24d5a26027d712244", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a71a775d0683b905786c9ff6f02f24d5a26027d712438", async() => {
                     WriteLiteral("\r\n                            ");
                 }
                 );
