@@ -10,30 +10,31 @@ namespace MyFlatWEB.Models.Rendering
     public class OrderModel : BaseModel
     {
         [Required]
+        [DisplayFormat(DataFormatString = "{G}")]
         public DateTime DateCreate { get; set; } = DateTime.Now;
 
-        [Required(ErrorMessage = "Заполните поле \"Name\"")]
-        [MinLength(3, ErrorMessage = "Длина не менее 3 символов.")]
+        [Required(ErrorMessage = "Fill in the field \"Name\"")]
+        [MinLength(3, ErrorMessage = "Length of at least 3 characters.")]
         [Display(Name = "Your Name")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Заполните поле \"Email\"")]
-        [EmailAddress(ErrorMessage = "Поле Email формата name@site.com")]
+        [Required(ErrorMessage = "Fill in the field \"Email\"")]
+        [EmailAddress(ErrorMessage = "Email Format Field name@site.com")]
         [Display(Name = "Your Email")]
         public string Email { get; set; }
 
-        //[Required(ErrorMessage = "Заполните поле \"Mobile\"")]
+        //[Required(ErrorMessage = "Fill in the field \"Mobile\"")]
         //[Phone]
-        //[MinLength(11, ErrorMessage = "Длина не менее 11 символов.")]
+        //[MinLength(11, ErrorMessage = "Length of at least 11 characters.")]
         [Display(Name = "Your Mobile")]
         public string Mobile { get; set; }
 
-        [Required(ErrorMessage = "Заполните поле \"Message\"")]
-        [MinLength(5, ErrorMessage = "Длина не менее 5 символов.")]
+        [Required(ErrorMessage = "Fill in the field \"Message\"")]
+        [MinLength(5, ErrorMessage = "Length of at least 5 characters.")]
         [Display(Name = "Message")]
         public string Message { get; set; }
 
-        [Required(ErrorMessage = "Выберите сервис")]
+        [Required(ErrorMessage = "Choose A Service")]
         [Display(Name = "Choose A Service")]
         public string ServiceName { get; set; }
 
