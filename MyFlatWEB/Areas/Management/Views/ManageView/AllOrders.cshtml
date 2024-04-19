@@ -1,5 +1,10 @@
 ﻿@model OrdersModel
 
-<div>
-    <partial name="_OrdersPartial" model="@Model" />
-</div>
+    <div class="container">
+    <div class="row text-left">
+        <partial name="_OrdersByDatePartial" model="@Model" />
+    </div>
+    <div class="row text-left">
+        <partial name="_OrdersPartial" model="@Model" />
+    </div>
+    </div>

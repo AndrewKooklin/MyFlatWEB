@@ -89,3 +89,49 @@ body {
     padding: 16px 15px
 }
 
+.table-row-header {
+    white-space: nowrap;
+}
+
+.table-cell-data {
+    display: table-cell;
+    padding-left: 0.2rem;
+    text-align: center !important;
+    align-content: center !important;
+    background-color: transparent;
+}
+
+.table-cell-button {
+    padding: 0.72rem 1rem;
+    text-align: center !important;
+    align-content: center !important;
+    background-color: #caf3ff;
+    font-weight: 700;
+    border: 2px solid #0cc7ff;
+    border-radius: 0.3rem;
+}
+
+    .table-cell-button:active {
+        border: 2px solid #1a55ff;
+        border-radius: 0.3rem;
+        box-shadow: 0px 0px 4px coral;
+    }
+
+.table-cell-button-last {
+    padding: 0.2rem 1.5rem 0.2rem 1.2rem;
+    width: 23rem;
+    background-color: #caf3ff;
+    font-weight: 700;
+    border: 2px solid #0cc7ff;
+    border-radius: 0.3rem;
+}
+
+    .table-cell-button-last:active {
+        border: 2px solid #1a55ff;
+        border-radius: 0.3rem;
+        box-shadow: 0px 0px 4px coral;
+    }
+
+.input-group-addon{
+    padding: 0 4px;
+}

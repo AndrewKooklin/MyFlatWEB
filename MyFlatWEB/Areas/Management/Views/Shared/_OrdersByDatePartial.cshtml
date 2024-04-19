@@ -1,0 +1,51 @@
+﻿
+
+<div class="container">
+        <div class="row resp-table mt-3">
+            <div class="table-row-header">
+                <div class="resp-table-row">
+                    <div class="table-cell-data">
+                        <button class="table-cell-button"
+                                type="submit"
+                                onclick="Change_status">
+                            Today
+                        </button>
+                    </div>
+                    <div class="table-cell-data">
+                        <button class="table-cell-button"
+                                type="submit"
+                                onclick="Change_status">
+                            Yesterday
+                        </button>
+                    </div>
+                    <div class="table-cell-data">
+                        <button class="table-cell-button"
+                                type="submit"
+                                onclick="Change_status">
+                            Week
+                        </button>
+                    </div>
+                    <div class="table-cell-data">
+                        <button class="table-cell-button"
+                                type="submit"
+                                onclick="Change_status">
+                            Month
+                        </button>
+                    </div>
+                    <div id="period" class="table-cell-data">
+                        <button class="table-cell-button-last"
+                                @*onclick="Change_status"*@>
+                            <partial name="_InputDataPartial" model="@Model" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<script>
+    $('#period .input-daterange').datepicker({
+        format: "dd.mm.yyyy",
+        todayBtn: true
+    });
+</script>
