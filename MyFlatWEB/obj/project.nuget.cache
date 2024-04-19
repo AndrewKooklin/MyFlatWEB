@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dbPKcBuIpdpsNz+GQkaqX61AiNFR2ymLoYCjMXK5iz4q4163C2t0F2Ae1zNf0CsMG60mGlRACVS0+ZZ9e6bj3A==",
+  "dgSpecHash": "sOeK9RQlZWks+mV6B+39YDtHDW1y1dOwcSdZCInTbAlYIE30BHz2KEAfojtHNAsTMvgxsvtua9/D5Z5B2ymeeQ==",
   "success": true,
   "projectFilePath": "C:\\repos\\MyFlatWEB\\MyFlatWEB\\MyFlatWEB.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\bolt9\\.nuget\\packages\\jquery\\1.4.4\\jquery.1.4.4.nupkg.sha512",
+    "C:\\Users\\bolt9\\.nuget\\packages\\jquery.ui.core\\1.8.9\\jquery.ui.core.1.8.9.nupkg.sha512",
+    "C:\\Users\\bolt9\\.nuget\\packages\\jquery.ui.widgets.datepicker\\1.8.9\\jquery.ui.widgets.datepicker.1.8.9.nupkg.sha512",
     "C:\\Users\\bolt9\\.nuget\\packages\\microsoft.aspnet.mvc\\5.0.0\\microsoft.aspnet.mvc.5.0.0.nupkg.sha512",
     "C:\\Users\\bolt9\\.nuget\\packages\\microsoft.aspnet.razor\\3.0.0\\microsoft.aspnet.razor.3.0.0.nupkg.sha512",
     "C:\\Users\\bolt9\\.nuget\\packages\\microsoft.aspnet.webpages\\3.0.0\\microsoft.aspnet.webpages.3.0.0.nupkg.sha512",

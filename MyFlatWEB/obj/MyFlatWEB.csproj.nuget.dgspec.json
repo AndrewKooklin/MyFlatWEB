@@ -75,6 +75,14 @@
             "System.Net.Http.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "jQuery.UI.Core": {
+              "target": "Package",
+              "version": "[1.8.9, )"
+            },
+            "jQuery.UI.Widgets.Datepicker": {
+              "target": "Package",
+              "version": "[1.8.9, )"
             }
           },
           "imports": [

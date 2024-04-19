@@ -8,12 +8,16 @@
   <ItemGroup>
     <Compile Remove="Areas\Management\Pages\**" />
     <Compile Remove="Attributes\**" />
+    <Compile Remove="wwwroot\lib\jquery-ui-1.13.2\**" />
     <Content Remove="Areas\Management\Pages\**" />
     <Content Remove="Attributes\**" />
+    <Content Remove="wwwroot\lib\jquery-ui-1.13.2\**" />
     <EmbeddedResource Remove="Areas\Management\Pages\**" />
     <EmbeddedResource Remove="Attributes\**" />
+    <EmbeddedResource Remove="wwwroot\lib\jquery-ui-1.13.2\**" />
     <None Remove="Areas\Management\Pages\**" />
     <None Remove="Attributes\**" />
+    <None Remove="wwwroot\lib\jquery-ui-1.13.2\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,10 +38,23 @@
     <Content Remove="Views\Shared\Error.cshtml" />
     <Content Remove="Views\Shared\ErrorView.cshtml" />
     <Content Remove="Views\Shared\_ManageLayout.cshtml" />
+    <Content Remove="wwwroot\css\jquery-ui.css" />
+    <Content Remove="wwwroot\css\jquery-ui.js" />
+    <Content Remove="wwwroot\css\jquery-ui.min.css" />
+    <Content Remove="wwwroot\css\jquery-ui.structure.css" />
+    <Content Remove="wwwroot\css\jquery-ui.structure.min.css" />
+    <Content Remove="wwwroot\css\jquery-ui.theme.css" />
+    <Content Remove="wwwroot\css\jquery-ui.theme.min.css" />
     <Content Remove="wwwroot\js\app.js" />
+    <Content Remove="wwwroot\js\DatePickerReady.js" />
+    <Content Remove="wwwroot\js\jquery-ui.js" />
+    <Content Remove="wwwroot\js\jquery-ui.min.js" />
+    <Content Remove="wwwroot\lib\jquery\admin\jquery-1.12.4.min.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="jQuery.UI.Core" Version="1.8.9" />
+    <PackageReference Include="jQuery.UI.Widgets.Datepicker" Version="1.8.9" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.32" />

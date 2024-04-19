@@ -33,8 +33,7 @@
                         </button>
                     </div>
                     <div id="period" class="table-cell-data">
-                        <button class="table-cell-button-last"
-                                @*onclick="Change_status"*@>
+                        <button class="table-cell-button-last">
                             <partial name="_InputDataPartial" model="@Model" />
                         </button>
                     </div>
@@ -42,10 +41,3 @@
             </div>
         </div>
 </div>
-
-<script>
-    $('#period .input-daterange').datepicker({
-        format: "dd.mm.yyyy",
-        todayBtn: true
-    });
-</script>
