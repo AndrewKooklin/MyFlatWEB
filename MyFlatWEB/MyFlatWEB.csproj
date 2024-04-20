@@ -38,6 +38,7 @@
     <Content Remove="Views\Shared\Error.cshtml" />
     <Content Remove="Views\Shared\ErrorView.cshtml" />
     <Content Remove="Views\Shared\_ManageLayout.cshtml" />
+    <Content Remove="wwwroot\css\bootstrap-datetimepicker.min.css" />
     <Content Remove="wwwroot\css\jquery-ui.css" />
     <Content Remove="wwwroot\css\jquery-ui.js" />
     <Content Remove="wwwroot\css\jquery-ui.min.css" />
@@ -46,10 +47,11 @@
     <Content Remove="wwwroot\css\jquery-ui.theme.css" />
     <Content Remove="wwwroot\css\jquery-ui.theme.min.css" />
     <Content Remove="wwwroot\js\app.js" />
+    <Content Remove="wwwroot\js\bootstrap-datepicker.js" />
+    <Content Remove="wwwroot\js\bootstrap-datetimepicker.min.js" />
     <Content Remove="wwwroot\js\DatePickerReady.js" />
     <Content Remove="wwwroot\js\jquery-ui.js" />
     <Content Remove="wwwroot\js\jquery-ui.min.js" />
-    <Content Remove="wwwroot\lib\jquery\admin\jquery-1.12.4.min.js" />
   </ItemGroup>
 
   <ItemGroup>

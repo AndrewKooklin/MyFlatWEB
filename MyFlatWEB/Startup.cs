@@ -20,6 +20,8 @@ using MyFlatWEB.Models.Account;
 using MyFlatWEB.Models.Rendering;
 using MyFlatWEB.Areas.Management.Models.Rendering;
 using MyFlatWEB.Areas.Management.Models;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace MyFlatWEB
 {
@@ -53,6 +55,10 @@ namespace MyFlatWEB
             services.AddTransient<ChangeStatusModel>();
             services.AddTransient<RandomString>();
             services.AddTransient<RandomString>();
+
+            
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,6 +82,8 @@ namespace MyFlatWEB
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            
 
             app.UseEndpoints(endpoints =>
             {
