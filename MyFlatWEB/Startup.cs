@@ -55,7 +55,7 @@ namespace MyFlatWEB
             services.AddTransient<ChangeStatusModel>();
             services.AddTransient<RandomString>();
             services.AddTransient<RandomString>();
-
+            services.AddTransient<InputDataModel>();
             
 
             services.AddMvc();

@@ -1,43 +1,92 @@
-﻿
+﻿@model OrdersModel
+@using System.Globalization;
+
+@{
+    var dateTodayStart = DateTime.Now.Date.ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateTodayNow = DateTime.Now.ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
+
+    var dateYesterdayStart = DateTime.Now.Date.AddDays(-1).AddTicks(-1).ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateYesterdayEnd = DateTime.Now.Date.AddTicks(-1).ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
+
+    var dateWeekEarlier = DateTime.Now.Date.AddDays(-7).ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
+
+    var dateMonthEarlier = DateTime.Now.Date.AddMonths(-1).ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
+}
 
 <div class="container">
-        <div class="row resp-table mt-3">
-            <div class="table-row-header">
-                <div class="resp-table-row">
-                    <div class="table-cell-data">
+    <div class="row resp-table mt-3">
+        <div class="table-row-header">
+            <div class="resp-table-row">
+                <div class="table-cell-data">
+                    <form id="formOrder"
+                          asp-controller="ManageView"
+                          asp-action="OrdersByPeriod"
+                          asp-route-datefrom="@dateTodayStart"
+                          asp-route-dateto="@dateTodayNow"
+                          method="post">
                         <button class="table-cell-button"
-                                type="submit"
-                                onclick="Change_status">
+                                type="submit">
                             Today
                         </button>
-                    </div>
-                    <div class="table-cell-data">
+                    </form>
+                </div>
+                <div class="table-cell-data">
+                    <form id="formOrder"
+                          asp-controller="ManageView"
+                          asp-action="OrdersByPeriod"
+                          asp-route-datefrom="@dateYesterdayStart"
+                          asp-route-dateto="@dateYesterdayEnd"
+                          method="post">
                         <button class="table-cell-button"
-                                type="submit"
-                                onclick="Change_status">
+                                type="submit">
                             Yesterday
                         </button>
-                    </div>
-                    <div class="table-cell-data">
+                    </form>
+                </div>
+                <div class="table-cell-data">
+                    <form id="formOrder"
+                          asp-controller="ManageView"
+                          asp-action="OrdersByPeriod"
+                          asp-route-datefrom="@dateWeekEarlier"
+                          asp-route-dateto="@dateTodayNow"
+                          method="post">
                         <button class="table-cell-button"
-                                type="submit"
-                                onclick="Change_status">
+                                type="submit">
                             Week
                         </button>
-                    </div>
-                    <div class="table-cell-data">
+                    </form>
+                </div>
+                <div class="table-cell-data">
+                    <form id="formOrder"
+                          asp-controller="ManageView"
+                          asp-action="OrdersByPeriod"
+                          asp-route-datefrom="@dateMonthEarlier"
+                          asp-route-dateto="@dateTodayNow"
+                          method="post">
                         <button class="table-cell-button"
-                                type="submit"
-                                onclick="Change_status">
+                                type="submit">
                             Month
                         </button>
-                    </div>
-                    <div id="period" class="table-cell-data">
-                        <button class="table-cell-button-last">
+                    </form>
+                </div>
+                <div id="period" class="table-cell-data">
+                    <form id="formOrder"
+                          asp-controller="ManageView"
+                          asp-action="OrdersByPeriod"
+                          asp-route-datefrom="@Model.DateFrom"
+                          asp-route-dateto="@Model.DateTo"
+                          method="post">
+                        <button class="table-cell-button-last"
+                                @*asp-controller="ManageView"
+                          asp-action="OrdersByPeriod"
+                          asp-route-datefrom="@Model.DateFrom"
+                          asp-route-dateto="@Model.DateTo"*@ type="submit">
                             <partial name="_InputDataPartial" model="@Model" />
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 </div>
+

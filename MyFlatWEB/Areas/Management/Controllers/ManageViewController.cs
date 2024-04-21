@@ -45,6 +45,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         public IActionResult AllOrders()
         {
             OrdersModel ordersModel = new OrdersModel();
+            InputDataModel inputDataModel = new InputDataModel();
             _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
             ordersModel.StatusNames = _statusNames.Select(i => new SelectListItem
             {
@@ -75,6 +76,20 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [HttpGet]
+        [HttpPost]
+        [Route("OrdersByPeriod/{datefrom?}/{dateto?}")]
+        public IActionResult OrdersByPeriod(string datefrom, string dateto)
+        {
+            if(String.IsNullOrEmpty(datefrom) || String.IsNullOrEmpty(dateto))
+            {
+                return RedirectToAction("AllOrders", "ManageView");
+            }
+
+
+            return RedirectToAction("AllOrders", "ManageView");
+        }
+
+        [HttpGet]
         [HttpPut]
         [HttpPost]
         [HttpDelete]
@@ -96,15 +111,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 }
                 else
                 {
-                    //OrdersModel ordersModel = new OrdersModel();
-                    //_statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
-                    //ordersModel.StatusNames = _statusNames.Select(i => new SelectListItem
-                    //{
-                    //    Text = i,
-                    //    Value = i
-                    //});
-                    //ordersModel.OrderModels = _dataManager.Rendering.GetOrdersByService(service);
-                    //ordersModel.Title = $"{service}";
                     return RedirectToAction("OrdersByService", new { serviceName = service });
                 }
             }

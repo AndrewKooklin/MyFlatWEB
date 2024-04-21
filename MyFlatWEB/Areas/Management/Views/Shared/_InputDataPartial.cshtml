@@ -1,69 +1,57 @@
-﻿<html>
+﻿@model OrdersModel
+
+<html>
 <head>
-    <script src="~/lib/jquery/admin/jquery-1.12.4.min.js"></script>
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    @*<link href="~/css/bootstrap-datepicker.css" rel="stylesheet" />*@
     <link href="~/css/bootstrap-datepicker3.css" rel="stylesheet" />
+    <script src="~/lib/jquery/admin/jquery-1.12.4.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/js/bootstrap-datepicker.js"></script>
     <script src="~/js/moment-with-locales.min.js"></script>
     @*<script src="~/js/bootstrap-datepicker.ru.js"></script>*@
+    @*<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />*@
+    @*<link href="~/css/bootstrap-datepicker.css" rel="stylesheet" />*@
 </head>
 <body>
-
-
 </body>
 </html>
-<div class="container d-sm-inline-flex">
-    <div class="input-daterange input-group-data align-content-center">
-        <span class="input-group-addon">Date from</span>
+
+    <div class="container-button">
+        <div class="input-daterange input-group-data align-content-center">
+            <span class="input-data-span">Date from</span>
+        </div>
+        <div id="datefrom" class="input-daterange input-group-data">
+            <input asp-for="DateFrom" type="text" class="input-data input-sm d-inline-flex" />
+        </div>
+        <div class="input-daterange input-group-data align-content-center">
+            <span class="input-data-span">to</span>
+        </div>
+        <div id="dateto" class="input-daterange input-group-data">
+            <input asp-for="DateTo" type="text" class="input-data input-sm d-inline-flex" />
+        </div>
     </div>
-    <div id="datefrom" class="input-daterange input-group-data">
-        <input type="text" class="input-data input-sm d-inline-flex" name="start"  @*data-date-format="dd.MM.yyyy"*@ />
-    </div>
-    <div class="input-daterange input-group-data align-content-center">
-        <span class="input-group-addon">to</span>
-    </div>
-    <div id="dateto" class="input-daterange input-group-data">
-        <input type="text" class="input-data input-sm d-inline-flex" name="end"   @*data-date-format="dd.MM.yyyy"*@ />
-    </div>
-</div>
+
 <script type="text/javascript">
-    $(function () {
-        
-        $('#datefrom').datepicker({
-            format: "dd.mm.yyyy",
-            weekStart: 1,
-            clearBtn: true,
-            language: "ru",
-            autoclose: true,
-            forceParse: false,
-            calendarWeeks: true,
-        });
+
+    $('#datefrom').datepicker({
+        format: "dd.mm.yyyy",
+        weekStart: 1,
+        clearBtn: true,
+        language: "en-US",
+        autoclose: true,
+        forceParse: true,
+        todayHighlight: true
     });
     $('#datefrom').datepicker('show');
-    $(function () {
-        $('#dateto').datepicker({
-            format: 'dd.mm.yyyy',
-            weekStart: 1,
-            clearBtn: true,
-            //language: 'en-US',
-            autoclose: true,
-            forceParse: false,
-            calendarWeeks: true,
-        });
+
+    $('#dateto').datepicker({
+        format: 'dd.mm.yyyy',
+        weekStart: 1,
+        clearBtn: true,
+        language: 'en-US',
+        autoclose: true,
+        forceParse: true,
+        todayHighlight: true
     });
     $('#dateto').datepicker('show');
 
-    function change(input) {
-
-        input = document.getElementById("datafrom").value;
-        var inputValue = input.split('/', 2);
-        var m = inputValue[0];
-        var d = inputValue[1];
-        var y = inputValue[2];
-        var result = d + "." + m + "." + y;
-        document.getElementById("datafrom").innerText = result;
-    } 
-    
 </script>

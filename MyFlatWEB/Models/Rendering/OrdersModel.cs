@@ -12,5 +12,9 @@ namespace MyFlatWEB.Models.Rendering
         public string StatusName { get; set; }
         public List<OrderModel> OrderModels { get; set; }
         public IEnumerable<SelectListItem> StatusNames { get; set; }
+
+        public string DateFrom { get; set; } = "";
+
+        public string DateTo { get; set; } = "";
     }
 }
