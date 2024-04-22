@@ -13,6 +13,19 @@
     var dateMonthEarlier = DateTime.Now.Date.AddMonths(-1).ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
 }
 
+<html>
+<head>
+    <link href="~/css/bootstrap-datepicker3.css" rel="stylesheet" />
+    <script src="~/lib/jquery/admin/jquery-1.12.4.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <script src="~/js/moment-with-locales.min.js"></script>
+
+</head>
+<body>
+</body>
+</html>
+
 <div class="container">
     <div class="row resp-table mt-3">
         <div class="table-row-header">
@@ -69,20 +82,33 @@
                         </button>
                     </form>
                 </div>
-                <div id="period" class="table-cell-data">
+                <div class="table-cell-data-last">
                     <form id="formOrder"
                           asp-controller="ManageView"
                           asp-action="OrdersByPeriod"
                           asp-route-datefrom="@Model.DateFrom"
                           asp-route-dateto="@Model.DateTo"
                           method="post">
-                        <button class="table-cell-button-last"
-                                @*asp-controller="ManageView"
-                          asp-action="OrdersByPeriod"
-                          asp-route-datefrom="@Model.DateFrom"
-                          asp-route-dateto="@Model.DateTo"*@ type="submit">
-                            <partial name="_InputDataPartial" model="@Model" />
-                        </button>
+                            <div class="d-flex align-items-center">
+                                <div class="d-inline-block">
+                                    <button id="periodsubmit"
+                                            class="table-cell-button-last"
+                                            type="submit">
+                                        Date from
+                                    </button>
+                                </div>
+                                <div class="d-inline-block container-button">
+                                    <div id="datefrom" class="d-inline input-daterange input-group-data">
+                                        <input id="datefrom" asp-for="DateFrom" type="text" class="input-data-field input-sm d-inline-flex" />
+                                    </div>
+                                    <div class="d-inline input-daterange input-group-data align-content-center">
+                                        <span class="input-data-span-to">to</span>
+                                    </div>
+                                    <div id="dateto" class="d-inline input-daterange input-group-data">
+                                        <input id="dateto" asp-for="DateTo" type="text" class="input-data-field input-sm d-inline-flex" />
+                                    </div>
+                                </div>
+                            </div>
                     </form>
                 </div>
             </div>
@@ -90,3 +116,40 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    function checkParams() {
+        var dateFrom = $('#datefrom').val();
+        var dateTo = $('#dateto').val();
+
+        if (dateFrom.length != 0 && dateTo.length != 0) {
+            $('#periodsubmit').removeProp('disabled');
+        } else {
+            $('#periodsubmit').attr('disabled', true);
+        }
+    }
+</script>
+<script type="text/javascript">
+
+    $('#datefrom').datepicker({
+        format: "dd.mm.yyyy",
+        weekStart: 1,
+        clearBtn: true,
+        language: "en-US",
+        autoclose: true,
+        forceParse: true,
+        todayHighlight: true
+    });
+    $('#datefrom').datepicker('show');
+
+    $('#dateto').datepicker({
+        format: 'dd.mm.yyyy',
+        weekStart: 1,
+        clearBtn: true,
+        language: 'en-US',
+        autoclose: true,
+        forceParse: true,
+        todayHighlight: true
+    });
+    $('#dateto').datepicker('show');
+
+</script>

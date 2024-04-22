@@ -17,16 +17,16 @@
 
     <div class="container-button">
         <div class="input-daterange input-group-data align-content-center">
-            <span class="input-data-span">Date from</span>
+            <span class="input-data-span-from">Date from</span>
         </div>
         <div id="datefrom" class="input-daterange input-group-data">
-            <input asp-for="DateFrom" type="text" class="input-data input-sm d-inline-flex" />
+            <input id="datefrom" asp-for="DateFrom" type="text" class="input-data-from input-sm d-inline-flex" onkeyup="checkParams()" />
         </div>
         <div class="input-daterange input-group-data align-content-center">
-            <span class="input-data-span">to</span>
+            <span class="input-data-span-to">to</span>
         </div>
         <div id="dateto" class="input-daterange input-group-data">
-            <input asp-for="DateTo" type="text" class="input-data input-sm d-inline-flex" />
+            <input id="dateto" asp-for="DateTo" type="text" class="input-data-to input-sm d-inline-flex" onkeyup="checkParams()"/>
         </div>
     </div>
 

@@ -35,6 +35,7 @@
     <Content Remove="Areas\Management\Views\ManageView\OrdersCountByService.cshtml" />
     <Content Remove="Areas\Management\Views\Shared\Acordion.cshtml" />
     <Content Remove="Areas\Management\Views\Shared\Error.cshtml" />
+    <Content Remove="Areas\Management\Views\Shared\_InputDataPartial.cshtml" />
     <Content Remove="Views\Shared\Error.cshtml" />
     <Content Remove="Views\Shared\ErrorView.cshtml" />
     <Content Remove="Views\Shared\_ManageLayout.cshtml" />

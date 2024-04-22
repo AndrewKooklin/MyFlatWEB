@@ -82,11 +82,17 @@ namespace MyFlatWEB.Areas.Management.Controllers
         {
             if(String.IsNullOrEmpty(datefrom) || String.IsNullOrEmpty(dateto))
             {
+                ModelState.AddModelError(string.Empty, "Fill dates.");
                 return RedirectToAction("AllOrders", "ManageView");
+
+            }
+            else
+            {
+                return Json(true);
             }
 
 
-            return RedirectToAction("AllOrders", "ManageView");
+            //return RedirectToAction("AllOrders", "ManageView");
         }
 
         [HttpGet]

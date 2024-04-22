@@ -660,7 +660,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
   cursor: pointer;
 }
 .input-daterange {
-  width: 100%;
+    width: 100%;
 }
 .input-daterange input {
   text-align: center;

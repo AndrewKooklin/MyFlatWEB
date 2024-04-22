@@ -1,12 +1,14 @@
-﻿ //$(function() {
- //       $("#date1").datepicker({
- //           dateFormat: 'dd-mm-yy',
- //           defaultDate: "24-09-2019"
- //       });
- //});
-$(function () {
-    "use strict";
-    jQuery('#date1').datepicker({
-        dateFormat: 'dd.mm.yyyy'
-    });
-});
+﻿function SetMe() {
+
+    var inputdatefrom = $('#datefrom').value;
+    var inputdateto = $('#dateto').value;
+    var inputvalidate = $('#validate').value;
+
+    if (inputdatefrom.value == "" || inputdateto.value == "") {
+        inputvalidate.value = "Fill dates";
+    }
+    else {
+        inputvalidate.value = "";
+    }
+    return false;
+}
