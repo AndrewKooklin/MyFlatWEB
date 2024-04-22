@@ -52,6 +52,25 @@ namespace MyFlatWEB.Data.Repositories.API
             return orders;
         }
 
+        public async Task<List<OrderModel>> GetOrdersByPeriod(PeriodModel model)
+        {
+            List<OrderModel> orders = new List<OrderModel>();
+            urlRequest = $"{url}" + "OrdersAPI/GetOrdersByPeriod/" + $"{model}";
+
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    result = await response.Content.ReadAsStringAsync();
+                    orders = JsonConvert.DeserializeObject<List<OrderModel>>(result);
+                }
+            }
+
+            return orders;
+        }
+
         public List<string> GetServiceNames()
         {
             List<string> names = new List<string>();

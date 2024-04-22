@@ -7,6 +7,7 @@ using MyFlatWEB.Models;
 using MyFlatWEB.Models.Rendering;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace MyFlatWEB.Areas.Management.Controllers
@@ -78,21 +79,55 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [HttpGet]
         [HttpPost]
         [Route("OrdersByPeriod/{datefrom?}/{dateto?}")]
-        public IActionResult OrdersByPeriod(string datefrom, string dateto)
+        public IActionResult OrdersByPeriod(string datefrom, string dateto, string periodname)
         {
-            if(String.IsNullOrEmpty(datefrom) || String.IsNullOrEmpty(dateto))
+            if (String.IsNullOrEmpty(datefrom) || String.IsNullOrEmpty(dateto))
             {
-                ModelState.AddModelError(string.Empty, "Fill dates.");
-                return RedirectToAction("AllOrders", "ManageView");
+                _ordersModel = new OrdersModel();
+                _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
+                _ordersModel.StatusNames = _statusNames.Select(i => new SelectListItem
+                {
+                    Text = i,
+                    Value = i
+                });
+                _ordersModel.OrderModels = _dataManager.Rendering.GetAllOrders();
+                _ordersModel.Title = $"All Orders";
+
+                return View("AllOrders", _ordersModel);
+            }
+            else if(!String.IsNullOrEmpty(datefrom) || !String.IsNullOrEmpty(dateto))
+            {
+                DateTime startDate = Convert.ToDateTime(datefrom, new CultureInfo("ru-RU"));
+
+                DateTime endDate = Convert.ToDateTime(dateto, new CultureInfo("ru-RU"));
+
+                PeriodModel periodModel = new PeriodModel();
+
+                if (!startDate.Equals(DateTime.MinValue) || !endDate.Equals(DateTime.MinValue))
+                {
+                    periodModel.DateFrom = startDate;
+                    periodModel.DateTo = endDate;
+                }
+                else
+                {
+                    return View("AllOrders", _ordersModel);
+                }
+
+                _ordersModel = new OrdersModel();
+                _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
+                _ordersModel.StatusNames = _statusNames.Select(i => new SelectListItem
+                {
+                    Text = i,
+                    Value = i
+                });
+                _ordersModel.OrderModels = _dataManager.Rendering.GetOrdersByPeriod(periodModel).GetAwaiter().GetResult();
+                _ordersModel.Title = $"Orders per {periodname}";
+
+                return View("AllOrders", _ordersModel);
 
             }
-            else
-            {
-                return Json(true);
-            }
 
-
-            //return RedirectToAction("AllOrders", "ManageView");
+            return RedirectToAction("AllOrders", "ManageView");
         }
 
         [HttpGet]

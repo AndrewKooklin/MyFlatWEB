@@ -36,6 +36,7 @@
                           asp-action="OrdersByPeriod"
                           asp-route-datefrom="@dateTodayStart"
                           asp-route-dateto="@dateTodayNow"
+                          asp-route-periodname="Today"
                           method="post">
                         <button class="table-cell-button"
                                 type="submit">
@@ -49,6 +50,7 @@
                           asp-action="OrdersByPeriod"
                           asp-route-datefrom="@dateYesterdayStart"
                           asp-route-dateto="@dateYesterdayEnd"
+                          asp-route-periodname="Yesterday"
                           method="post">
                         <button class="table-cell-button"
                                 type="submit">
@@ -62,6 +64,7 @@
                           asp-action="OrdersByPeriod"
                           asp-route-datefrom="@dateWeekEarlier"
                           asp-route-dateto="@dateTodayNow"
+                          asp-route-periodname="Week"
                           method="post">
                         <button class="table-cell-button"
                                 type="submit">
@@ -75,6 +78,7 @@
                           asp-action="OrdersByPeriod"
                           asp-route-datefrom="@dateMonthEarlier"
                           asp-route-dateto="@dateTodayNow"
+                          asp-route-periodname="Month"
                           method="post">
                         <button class="table-cell-button"
                                 type="submit">
@@ -88,6 +92,7 @@
                           asp-action="OrdersByPeriod"
                           asp-route-datefrom="@Model.DateFrom"
                           asp-route-dateto="@Model.DateTo"
+                          asp-route-periodname="Period"
                           method="post">
                             <div class="d-flex align-items-center">
                                 <div class="d-inline-block">
