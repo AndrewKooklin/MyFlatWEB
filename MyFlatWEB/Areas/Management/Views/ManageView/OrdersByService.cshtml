@@ -1,5 +1,10 @@
 ﻿@model OrdersModel
 
+<div class="row">
+    <div class="col-5 justify-content-center mt-3">
+        <h3>Total orders : @Model.TotalCountOrders</h3>
+    </div>
+</div>
 <div>
     <partial name="_OrdersPartial" model="@Model" />
 </div>

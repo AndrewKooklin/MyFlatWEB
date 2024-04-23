@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace MyFlatWEB.Areas.Management.Models.Rendering
 {
-    public class ServiceOrdersCountModel
+    public class OrdersByServiceModel
     {
-        public string ServiceName { get; set; }
+        public List<ServiceOrdersCountModel> ServiceOrders { get; set; }
 
-        public int OrdersByServiceCount { get; set; }
+        public int OrdersCount { get; set; }
     }
 }

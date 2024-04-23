@@ -17,13 +17,16 @@ namespace MyFlatWEB.Areas.Management.Controllers
     public class ManageViewController : Controller
     {
         private DataManager _dataManager;
-        private IEnumerable<string> _statusNames;
-        private OrdersModel _ordersModel;
+        int _totalCountOrders;
+        List<OrderModel> _allOrders = new List<OrderModel>();
+        List<string> _statusNamesList = new List<string>();
 
         public ManageViewController(DataManager dataManager)
         {
             _dataManager = dataManager;
-            
+            _allOrders = _dataManager.Rendering.GetAllOrders();
+            _totalCountOrders = _allOrders.Count;
+            _statusNamesList = _dataManager.Rendering.GetStatusNames();
         }
 
         [Route("ManageHome")]
@@ -31,8 +34,18 @@ namespace MyFlatWEB.Areas.Management.Controllers
         {
             //if (UserRoles.Roles.Contains("Admin"))
             //{
+            OrdersByServiceModel model = new OrdersByServiceModel();
 
-                var model = _dataManager.Rendering.GetServiceOrdersCount();
+            model.ServiceOrders = _dataManager.Rendering.GetServiceOrdersCount();
+
+            //int total = 0;
+
+            //foreach (var item in model.ServiceOrders)
+            //{
+            //    total += item.OrdersByServiceCount;
+            //}
+
+            model.OrdersCount = _totalCountOrders;
 
                 return View("ManageHome", model);
             //}
@@ -47,13 +60,14 @@ namespace MyFlatWEB.Areas.Management.Controllers
         {
             OrdersModel ordersModel = new OrdersModel();
             InputDataModel inputDataModel = new InputDataModel();
-            _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
-            ordersModel.StatusNames = _statusNames.Select(i => new SelectListItem
+            //_statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
+            ordersModel.StatusNames = _statusNamesList.AsEnumerable().Select(i => new SelectListItem
             {
                 Text = i,
                 Value = i
             });
-            ordersModel.OrderModels = _dataManager.Rendering.GetAllOrders();
+            ordersModel.OrderModels = _allOrders;
+            ordersModel.TotalCountOrders = _totalCountOrders;
             ordersModel.Title = "All Orders";
 
             return View(ordersModel);
@@ -63,17 +77,19 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("OrdersByService/{serviceName?}")]
         public IActionResult OrdersByService(string serviceName)
         {
-            _ordersModel = new OrdersModel();
-            _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
-            _ordersModel.StatusNames = _statusNames.Select(i => new SelectListItem
+            OrdersModel ordersModel = new OrdersModel();
+            //_statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
+            ordersModel.StatusNames = _statusNamesList.AsEnumerable().Select(i => new SelectListItem
             {
                 Text = i,
                 Value = i
             });
-            _ordersModel.OrderModels = _dataManager.Rendering.GetOrdersByService(serviceName);
-            _ordersModel.Title = $"{serviceName}";
+            ordersModel.OrderModels = _dataManager.Rendering.GetOrdersByService(serviceName);
+            ordersModel.CountOrdersByParameter = ordersModel.OrderModels.Count;
+            ordersModel.TotalCountOrders = _totalCountOrders;
+            ordersModel.Title = $"Service \"{serviceName}\" : {ordersModel.CountOrdersByParameter} order(s)";
 
-            return View(_ordersModel);
+            return View(ordersModel);
         }
 
         [HttpGet]
@@ -81,21 +97,24 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("OrdersByPeriod/{datefrom?}/{dateto?}")]
         public IActionResult OrdersByPeriod(string datefrom, string dateto, string periodname)
         {
+            OrdersModel ordersModel = new OrdersModel();
+
             if (String.IsNullOrEmpty(datefrom) || String.IsNullOrEmpty(dateto))
             {
-                _ordersModel = new OrdersModel();
-                _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
-                _ordersModel.StatusNames = _statusNames.Select(i => new SelectListItem
+                
+                //_statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
+                ordersModel.StatusNames = _statusNamesList.AsEnumerable().Select(i => new SelectListItem
                 {
                     Text = i,
                     Value = i
                 });
-                _ordersModel.OrderModels = _dataManager.Rendering.GetAllOrders();
-                _ordersModel.Title = $"All Orders";
+                ordersModel.OrderModels = _allOrders;
+                ordersModel.TotalCountOrders = _totalCountOrders;
+                ordersModel.Title = $"All Orders";
 
-                return View("AllOrders", _ordersModel);
+                return View("AllOrders", ordersModel);
             }
-            else if(!String.IsNullOrEmpty(datefrom) || !String.IsNullOrEmpty(dateto))
+            else if (!String.IsNullOrEmpty(datefrom) || !String.IsNullOrEmpty(dateto))
             {
                 DateTime startDate = Convert.ToDateTime(datefrom, new CultureInfo("ru-RU"));
 
@@ -110,26 +129,28 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 }
                 else
                 {
-                    return View("AllOrders", _ordersModel);
+                    return View("AllOrders", ordersModel);
                 }
 
-                _ordersModel = new OrdersModel();
-                _statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
-                _ordersModel.StatusNames = _statusNames.Select(i => new SelectListItem
+                ordersModel = new OrdersModel();
+                //_statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
+                ordersModel.StatusNames = _statusNamesList.AsEnumerable().Select(i => new SelectListItem
                 {
                     Text = i,
                     Value = i
                 });
-                _ordersModel.OrderModels = _dataManager.Rendering.GetOrdersByPeriod(periodModel).GetAwaiter().GetResult();
-                if(_ordersModel.OrderModels == null)
+                ordersModel.OrderModels = _dataManager.Rendering.GetOrdersByPeriod(periodModel).GetAwaiter().GetResult();
+                if (ordersModel.OrderModels == null || ordersModel.OrderModels.Count == 0)
                 {
-                    _ordersModel.Title = $"No orders per {periodname}";
-                    return View("AllOrders", _ordersModel);
+                    ordersModel.Title = $"No orders per {periodname}";
+                    ordersModel.TotalCountOrders = _totalCountOrders;
+                    return View("AllOrders", ordersModel);
                 }
-                
-                _ordersModel.Title = $"Orders per {periodname}";
+                ordersModel.TotalCountOrders = _totalCountOrders;
+                ordersModel.CountOrdersByParameter = ordersModel.OrderModels.Count;
+                ordersModel.Title = $"Orders per {periodname} : {ordersModel.CountOrdersByParameter} order(s)";
 
-                return View("AllOrders", _ordersModel);
+                return View("AllOrders", ordersModel);
 
             }
 

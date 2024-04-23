@@ -57,6 +57,7 @@ namespace MyFlatWEB
             services.AddTransient<RandomString>();
             services.AddTransient<InputDataModel>();
             services.AddTransient<PeriodModel>();
+            services.AddTransient<OrdersByServiceModel>();
 
             services.AddMvc();
         }

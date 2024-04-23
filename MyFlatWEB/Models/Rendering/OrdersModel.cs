@@ -19,5 +19,9 @@ namespace MyFlatWEB.Models.Rendering
         public string DateFrom { get; set; } = "";
 
         public string DateTo { get; set; } = "";
+
+        public int TotalCountOrders { get; set; }
+
+        public int CountOrdersByParameter { get; set; }
     }
 }

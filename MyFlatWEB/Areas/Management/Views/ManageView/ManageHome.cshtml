@@ -1,6 +1,11 @@
-﻿@model List<ServiceOrdersCountModel>
+﻿@model OrdersByServiceModel
 
 <div class="container">
+    <div class="row">
+        <div class="col-5 justify-content-center mt-3">
+            <h3>Total orders : @Model.OrdersCount</h3>
+        </div>
+    </div>
     <div class="row">
         <div class="col-5 justify-content-center mt-3">
             <h2>Orders by services</h2>
@@ -16,9 +21,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (Model.Any())
+                    @if (Model.ServiceOrders.Any())
                     {
-                        @foreach (var item in Model)
+                        @foreach (var item in Model.ServiceOrders)
                         {
                             <tr>
                                 <td class="serviceName text-left">
@@ -27,7 +32,7 @@
                                        asp-route-serviceName="@item.ServiceName"
                                        title="Просмотреть">@item.ServiceName</a>
                                 </td>
-                                <td class="orders-count text-center">@item.OrdersCount</td>
+                                <td class="orders-count text-center">@item.OrdersByServiceCount</td>
                             </tr>
                         }
                     }
