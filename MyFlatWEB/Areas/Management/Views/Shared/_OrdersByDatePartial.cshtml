@@ -94,26 +94,26 @@
                           asp-route-dateto="@Model.DateTo"
                           asp-route-periodname="Period"
                           method="post">
-                            <div class="d-flex align-items-center">
-                                <div class="d-inline-block">
-                                    <button id="periodsubmit"
-                                            class="table-cell-button-last"
-                                            type="submit">
-                                        Date from
-                                    </button>
+                        <div class="d-flex align-items-center">
+                            <div class="d-inline-block">
+                                <button id="periodsubmit"
+                                        class="table-cell-button-last"
+                                        type="submit">
+                                    Date from
+                                </button>
+                            </div>
+                            <div class="d-inline-block container-button">
+                                <div id="datefrom" class="d-inline input-daterange input-group-data">
+                                    <input id="datefrom" asp-for="DateFrom" type="text" class="input-data-field input-sm d-inline-flex" />
                                 </div>
-                                <div class="d-inline-block container-button">
-                                    <div id="datefrom" class="d-inline input-daterange input-group-data">
-                                        <input id="datefrom" asp-for="DateFrom" type="text" class="input-data-field input-sm d-inline-flex" />
-                                    </div>
-                                    <div class="d-inline input-daterange input-group-data align-content-center">
-                                        <span class="input-data-span-to">to</span>
-                                    </div>
-                                    <div id="dateto" class="d-inline input-daterange input-group-data">
-                                        <input id="dateto" asp-for="DateTo" type="text" class="input-data-field input-sm d-inline-flex" />
-                                    </div>
+                                <div class="d-inline input-daterange input-group-data align-content-center">
+                                    <span class="input-data-span-to">to</span>
+                                </div>
+                                <div id="dateto" class="d-inline input-daterange input-group-data">
+                                    <input id="dateto" asp-for="DateTo" type="text" class="input-data-field input-sm d-inline-flex" />
                                 </div>
                             </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -121,18 +121,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    function checkParams() {
-        var dateFrom = $('#datefrom').val();
-        var dateTo = $('#dateto').val();
 
-        if (dateFrom.length != 0 && dateTo.length != 0) {
-            $('#periodsubmit').removeProp('disabled');
-        } else {
-            $('#periodsubmit').attr('disabled', true);
-        }
-    }
-</script>
 <script type="text/javascript">
 
     $('#datefrom').datepicker({
@@ -158,3 +147,15 @@
     $('#dateto').datepicker('show');
 
 </script>
+@*<script type="text/javascript">
+        function checkParams() {
+            var dateFrom = $('#datefrom').val();
+            var dateTo = $('#dateto').val();
+
+            if (dateFrom.length != 0 && dateTo.length != 0) {
+                $('#periodsubmit').removeProp('disabled');
+            } else {
+                $('#periodsubmit').attr('disabled', true);
+            }
+        }
+    </script>*@

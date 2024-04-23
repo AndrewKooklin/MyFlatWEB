@@ -10580,9 +10580,14 @@ a.text-dark:focus, a.text-dark:hover {
     }
 
     .manage-accordion .card a{
-        color:aqua;
+        color:#fff;
         text-decoration:none;
     }
+
+        .manage-accordion .card a:hover {
+            color: aqua;
+            text-decoration: none;
+        }
 
     .manage-accordion .card-header {
         border: none;
@@ -10975,13 +10980,13 @@ a.text-dark:focus, a.text-dark:hover {
     margin:0;
 }
 
-@media screen and (min-width:990.1px) {
+@media screen and (min-width:990px) {
     .section-admin {
         margin-left: 220px;
     }
 }
 
-@media(max-width: 990px) and (min-width:1169px) {
+@media(max-width: 990.1px) and (min-width:1169px) {
     .section-admin {
         margin-left: 15px;
     }

@@ -1,0 +1,45 @@
+﻿@model
+
+<section id="headerMenu">
+    <div class="row align-items-center">
+        <div class="col-md-5 col-lg-10">
+            <div class="">
+                <h3>Top menu links</h3>
+            </div>
+            <div class="row resp-table mt-3">
+                <div class="table-row-header">
+                    <div class="resp-table-row">
+                        @if (Model.OrderModels.Any())
+                        {
+                            @foreach (var item in Model.OrderModels)
+                            {
+                                <div class="table-cell-data">
+                                    <form id="formOrder"
+                                          asp-controller="ManageHomePage"
+                                          asp-action="ChangeLinkTopMenu"
+                                          asp-route-id=""
+                                          asp-route-value=""
+                                          method="post">
+                                        <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
+                                        <div class="d-inline input-daterange input-group-data">
+                                            <input id="datefrom"
+                                                   asp-for=""
+                                                   type="text"
+                                                   class="input-data-field input-sm d-inline-flex" />
+                                        </div>
+                                        <div>
+                                            <button class="table-cell-button"
+                                                    type="submit">
+                                                Edit
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

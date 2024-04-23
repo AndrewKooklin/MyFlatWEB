@@ -274,3 +274,21 @@ body {
         font-weight: 700;
     }
 }
+
+.link-left-menu {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.link-left-menu:hover{
+    font-size: 16px;
+    color: aqua;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration:none;
+}
+
+
+
