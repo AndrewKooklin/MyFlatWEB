@@ -63,8 +63,12 @@ namespace MyFlatWEB.Data.Repositories.API
                 _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
                 {
-                    result = await response.Content.ReadAsStringAsync();
-                    orders = JsonConvert.DeserializeObject<List<OrderModel>>(result);
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    if (String.IsNullOrEmpty(apiResponse))
+                    {
+                        return null;
+                    }
+                    orders = JsonConvert.DeserializeObject<List<OrderModel>>(apiResponse);
                 }
             }
 
@@ -118,7 +122,7 @@ namespace MyFlatWEB.Data.Repositories.API
 
         public async Task<bool> SaveOrder(OrderModel order)
         {
-            urlRequest = $"{url}" + "Orders/SaveOrder/" + $"{order}";
+            urlRequest = $"{url}" + "OrdersAPI/SaveOrder/" + $"{order}";
             using (_httpClient = new HttpClient())
             {
                 _httpClient.DefaultRequestHeaders.Accept.Clear();

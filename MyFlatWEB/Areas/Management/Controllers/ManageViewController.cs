@@ -121,6 +121,12 @@ namespace MyFlatWEB.Areas.Management.Controllers
                     Value = i
                 });
                 _ordersModel.OrderModels = _dataManager.Rendering.GetOrdersByPeriod(periodModel).GetAwaiter().GetResult();
+                if(_ordersModel.OrderModels == null)
+                {
+                    _ordersModel.Title = $"No orders per {periodname}";
+                    return View("AllOrders", _ordersModel);
+                }
+                
                 _ordersModel.Title = $"Orders per {periodname}";
 
                 return View("AllOrders", _ordersModel);

@@ -10,7 +10,8 @@ namespace MyFlatWEB.Models.Rendering
     public class OrderModel : BaseModel
     {
         [Required]
-        [DisplayFormat(DataFormatString = "{G}")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime DateCreate { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = "Fill in the field \"Name\"")]

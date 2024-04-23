@@ -2,15 +2,15 @@
 @using System.Globalization;
 
 @{
-    var dateTodayStart = DateTime.Now.Date.ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
-    var dateTodayNow = DateTime.Now.ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateTodayStart = DateTime.Now.Date.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.GetCultureInfo("en-US"));
+    var dateTodayNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
 
-    var dateYesterdayStart = DateTime.Now.Date.AddDays(-1).AddTicks(-1).ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
-    var dateYesterdayEnd = DateTime.Now.Date.AddTicks(-1).ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateYesterdayStart = DateTime.Now.Date.AddDays(-1).ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateYesterdayEnd = DateTime.Now.Date.AddTicks(-1).ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
 
-    var dateWeekEarlier = DateTime.Now.Date.AddDays(-7).ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateWeekEarlier = DateTime.Now.Date.AddDays(-7).ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
 
-    var dateMonthEarlier = DateTime.Now.Date.AddMonths(-1).ToString("G", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateMonthEarlier = DateTime.Now.Date.AddMonths(-1).ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
 }
 
 <html>
