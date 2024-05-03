@@ -22,6 +22,7 @@ using MyFlatWEB.Areas.Management.Models.Rendering;
 using MyFlatWEB.Areas.Management.Models;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using MyFlatWEB.Areas.Management.Models.EditPages;
 
 namespace MyFlatWEB
 {
@@ -46,6 +47,7 @@ namespace MyFlatWEB
             services.AddRazorPages();
             services.AddTransient<IAccountRepository, APIAccountRepository>();
             services.AddTransient<IRenderingRepository, APIRenderingRepository>();
+            services.AddTransient<IPageEditorRepository, APIPageEditorRepository>();
             services.AddTransient<DataManager>();
             services.AddTransient<ErrorModel>();
             services.AddTransient<UserRolesModel>();
@@ -54,10 +56,12 @@ namespace MyFlatWEB
             services.AddTransient<OrdersModel>();
             services.AddTransient<ChangeStatusModel>();
             services.AddTransient<RandomString>();
-            services.AddTransient<RandomString>();
             services.AddTransient<InputDataModel>();
             services.AddTransient<PeriodModel>();
             services.AddTransient<OrdersByServiceModel>();
+            services.AddTransient<HomePagePlaceholderModel>();
+            services.AddTransient<RandomPhraseModel>();
+            services.AddTransient<TopMenuLinkNameModel>();
 
             services.AddMvc();
         }

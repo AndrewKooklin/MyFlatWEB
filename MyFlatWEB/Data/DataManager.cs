@@ -12,11 +12,15 @@ namespace MyFlatWEB.Data
 
         public IRenderingRepository Rendering { get; set; }
 
+        public IPageEditorRepository PageEditor { get; set; }
+
         public DataManager(IAccountRepository accounts,
-                           IRenderingRepository rendering)
+                           IRenderingRepository rendering,
+                           IPageEditorRepository pageEditor)
         {
             Accounts = accounts;
             Rendering = rendering;
+            PageEditor = pageEditor;
         }
     }
 }
