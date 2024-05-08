@@ -8,6 +8,8 @@ namespace MyFlatWEB.Data.Repositories.Abstract
 {
     public interface IPageEditorRepository
     {
-        HomePagePlaceholderModel GetHomePagePlaceholder(); 
+        HomePagePlaceholderModel GetHomePagePlaceholder();
+
+        Task<bool> ChangeNameLinkTopMenu(TopMenuLinkNameModel model);
     }
 }

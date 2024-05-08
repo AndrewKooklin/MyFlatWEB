@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace MyFlatWEB.Data.Repositories.API
@@ -18,6 +19,7 @@ namespace MyFlatWEB.Data.Repositories.API
         HttpResponseMessage response;
         string result;
         bool apiResponseConvert;
+
 
         public HomePagePlaceholderModel GetHomePagePlaceholder()
         {
@@ -33,6 +35,23 @@ namespace MyFlatWEB.Data.Repositories.API
             }
 
             return phm;
+        }
+
+        public async Task<bool> ChangeNameLinkTopMenu(TopMenuLinkNameModel model)
+        {
+            urlRequest = $"{url}" + "HomePageEditAPI/ChangeNameLinkTopMenu/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
         }
     }
 }

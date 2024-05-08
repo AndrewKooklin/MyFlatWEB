@@ -1,4 +1,7 @@
-﻿@*@model*@
+﻿@model HomePagePlaceholderModel
+@{ 
+    string linkNameValue = "";
+}
 
 <section id="topArea">
     <div id="topMenu" class="row text-left">
@@ -9,22 +12,24 @@
             <div class="row resp-table mt-3 text-left">
                 <div class="table-row-header">
                     <div class="resp-table-row">
-                        @*@if (Model.OrderModels.Any())
+                        @if (Model.LinkNames.Any())
                         {
-                            @foreach (var item in Model.OrderModels)
-                            {*@
+                            @foreach (var item in Model.LinkNames)
+                            {
                                 <div class="table-cell-data">
                                     <form id="formOrder"
                                           asp-controller="ManageHomePage"
                                           asp-action="ChangeNameLinkTopMenu"
-                                          asp-route-id=""
-                                          asp-route-value=""
+                                          asp-route-id="@item.Id"
+                                          asp-route-linkName="@linkNameValue"
                                           method="post">
                                         <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
                                         <div class="d-inline input-daterange input-group-data">
                                             <input id="datefrom"
                                                    @*asp-for=""*@
+                                                   placeholder="@item.LinkName"
                                                    type="text"
+                                                   value="@linkNameValue"
                                                    class="input-data-field input-sm d-inline-flex" />
                                         </div>
                                         <div>
@@ -35,8 +40,8 @@
                                         </div>
                                     </form>
                                 </div>
-                            @*}
-                        }*@
+                            }
+                        }
                     </div>
                 </div>
             </div>
