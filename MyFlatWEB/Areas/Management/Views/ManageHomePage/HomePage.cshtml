@@ -1,6 +1,8 @@
 ﻿@model HomePagePlaceholderModel
 @{ 
     string linkNameValue = "";
+    string randomPhrase = "";
+    string changePhrase = "";
 }
 
 <section id="topArea">
@@ -55,19 +57,23 @@
             <div class="row mt-3 text-left">
                 <div class="col">
                     <form id="formOrder"
-                          asp-route-id=""
-                          asp-route-value=""
+                          asp-route-id="0"
+                          asp-route-phrase="@randomPhrase"
                           method="post">
-                        <div class="row">
+                        <div class="mt-2">
+                            <h4>Add random phrase</h4>
+                        </div>
+                        <div class="row mt-2">
                             <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
                             <div class="input-daterange input-group-data">
                                 <input id="datefrom"
                                        @*asp-for=""*@
                                        type="text"
-                                       class="input-data-field input-sm d-inline-flex" />
+                                       class="input-data-field input-sm d-inline-flex"
+                                       value="@randomPhrase"/>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mt-2">
                             <div class="d-inline">
                                 <button class="table-cell-button"
                                         type="submit"
@@ -81,22 +87,22 @@
                 </div>
                 <div class="table-row-header">
                     <div class="resp-table-row">
-                        @*@if (Model.OrderModels.Any())
+                        @if (Model.RandomPhrases.Any())
                         {
-                            @foreach (var item in Model.OrderModels)
-                            {*@
+                            @foreach (var item in Model.RandomPhrases)
+                            {
                                 <div class="table-cell-data">
                                     <form id="formOrder"
-                                          asp-route-id=""
-                                          asp-route-value=""
                                           method="post">
                                         <div class="row">
                                             <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
                                             <div class="input-daterange input-group-data">
                                                 <input id="datefrom"
                                                        @*asp-for=""*@
+                                                       placeholder="@item.Phrase"
                                                        type="text"
-                                                       class="input-data-field input-sm d-inline-flex" />
+                                                       class="input-data-field input-sm d-inline-flex"
+                                                       value="@changePhrase"/>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -104,7 +110,9 @@
                                                 <button class="table-cell-button"
                                                         type="submit"
                                                         asp-controller="ManageHomePage"
-                                                        asp-action="ChangeRandomPhrase">
+                                                        asp-action="ChangeRandomPhrase"
+                                                        asp-route-id="@item.Id"
+                                                        asp-route-changePhrase="@changePhrase">
                                                     Edit
                                                 </button>
                                             </div>
@@ -112,6 +120,7 @@
                                                 <button class="table-cell-button"
                                                         asp-controller="ManageHomePage"
                                                         asp-action="DeleteRandomPhrase"
+                                                        asp-route-id="@item.Id"
                                                         type="submit">
                                                     Delete
                                                 </button>
@@ -119,8 +128,8 @@
                                         </div>
                                     </form>
                                 </div>
-                            @*}
-                        }*@
+                            }
+                        }
                     </div>
                 </div>
             </div>

@@ -17,6 +17,7 @@ namespace MyFlatWEB.Data.Repositories.API
         private string url = @"https://localhost:44388/";
         string urlRequest = "";
         HttpResponseMessage response;
+        string apiResponse = "";
         string result;
         bool apiResponseConvert;
 
@@ -46,7 +47,58 @@ namespace MyFlatWEB.Data.Repositories.API
                 _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public async Task<bool> AddRandomPhrase(RandomPhraseModel model)
+        {
+            urlRequest = $"{url}" + "HomePageEditAPI/AddRandomPhrase/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public async Task<bool> ChangeRandomPhrase(RandomPhraseModel model)
+        {
+            urlRequest = $"{url}" + "HomePageEditAPI/ChangeRandomPhrase/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public async Task<bool> DeleteRandomPhrase(int id)
+        {
+            urlRequest = $"{url}" + "HomePageEditAPI/DeleteRandomPhrase/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, id))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
                     apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
                 }
             }

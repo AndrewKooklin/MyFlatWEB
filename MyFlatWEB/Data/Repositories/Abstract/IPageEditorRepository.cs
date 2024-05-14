@@ -11,5 +11,11 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         HomePagePlaceholderModel GetHomePagePlaceholder();
 
         Task<bool> ChangeNameLinkTopMenu(TopMenuLinkNameModel model);
+
+        Task<bool> AddRandomPhrase(RandomPhraseModel model);
+
+        Task<bool> ChangeRandomPhrase(RandomPhraseModel model);
+
+        Task<bool> DeleteRandomPhrase(int id);
     }
 }
