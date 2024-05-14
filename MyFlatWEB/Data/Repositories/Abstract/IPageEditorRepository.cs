@@ -17,5 +17,9 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         Task<bool> ChangeRandomPhrase(RandomPhraseModel model);
 
         Task<bool> DeleteRandomPhrase(int id);
+
+        Task<bool> ChangeLeftCentralAreaText(HomePagePlaceholderModel model);
+
+        Task<bool> ChangeMainImage(HomePagePlaceholderModel model);
     }
 }

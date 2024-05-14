@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyFlatWEB.Areas.Management.Models;
 using MyFlatWEB.Areas.Management.Models.EditPages;
@@ -92,6 +94,56 @@ namespace MyFlatWEB.Areas.Management.Controllers
         public IActionResult DeleteRandomPhrase(int id)
         {
             var result = _dataManager.PageEditor.DeleteRandomPhrase(id).GetAwaiter().GetResult();
+
+            if (result)
+            {
+                return View("HomePage");
+            }
+            else
+            {
+                ErrorModel error = new ErrorModel();
+                error.Message = "Server error";
+                return View("ErrorView", error);
+            }
+        }
+
+        
+        [Route("ChangeLeftCentralAreaText")]
+        public IActionResult ChangeLeftCentralAreaText(int id, string leftCentralAreaPhrase)
+        {
+            HomePagePlaceholderModel hphm = new HomePagePlaceholderModel { Id = id, 
+                                                                            LeftCentralAreaText = leftCentralAreaPhrase };
+
+            var result = _dataManager.PageEditor.ChangeLeftCentralAreaText(hphm).GetAwaiter().GetResult();
+
+            if (result)
+            {
+                return View("HomePage");
+            }
+            else
+            {
+                ErrorModel error = new ErrorModel();
+                error.Message = "Server error";
+                return View("ErrorView", error);
+            }
+        }
+
+        [Route("ChangeMainImage")]
+        public async Task<IActionResult> ChangeMainImage(HomePagePlaceholderModel model, List<IFormFile> image)
+        {
+            foreach(var item in image)
+            {
+                if(item.Length > 0)
+                {
+                    using(var stream = new MemoryStream())
+                    {
+                        await item.CopyToAsync(stream);
+                        model.MainPicture = stream.ToArray();
+                    }
+                }
+            }
+
+            var result = _dataManager.PageEditor.ChangeMainImage(model).GetAwaiter().GetResult();
 
             if (result)
             {
