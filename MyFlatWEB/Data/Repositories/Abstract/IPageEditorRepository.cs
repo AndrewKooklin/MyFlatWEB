@@ -21,5 +21,9 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         Task<bool> ChangeLeftCentralAreaText(HomePagePlaceholderModel model);
 
         Task<bool> ChangeMainImage(HomePagePlaceholderModel model);
+
+        Task<bool> ChangeBottomAreaHeader(HomePagePlaceholderModel model);
+
+        Task<bool> ChangeBottomAreaContent(HomePagePlaceholderModel model);
     }
 }

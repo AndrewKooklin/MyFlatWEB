@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
     public class ManageHomePageController : Controller
     {
         private DataManager _dataManager;
+        private static readonly Encoding encoding = Encoding.UTF8;
 
         public ManageHomePageController(DataManager dataManager)
         {
@@ -25,6 +27,12 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("HomePage")]
         public IActionResult HomePage()
         {
+            //byte[] photo = System.IO.File.ReadAllBytes(@"C:\repos\MyFlatWEB\MyFlatWEB\wwwroot\Images\hand-draft.webp");
+
+            //string photoStr = Convert.ToBase64String(photo);
+
+            //string m = "";
+
             var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
 
             return View(placeHolder);
@@ -129,21 +137,66 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [Route("ChangeMainImage")]
-        public async Task<IActionResult> ChangeMainImage(HomePagePlaceholderModel model, List<IFormFile> image)
+        public async Task<IActionResult> ChangeMainImage(List<IFormFile> image)
         {
-            foreach(var item in image)
+            HomePagePlaceholderModel hphm = new HomePagePlaceholderModel();
+            hphm = _dataManager.PageEditor.GetHomePagePlaceholder();
+
+            foreach (var item in image)
             {
                 if(item.Length > 0)
                 {
                     using(var stream = new MemoryStream())
                     {
                         await item.CopyToAsync(stream);
-                        model.MainPicture = stream.ToArray();
+                        hphm.MainPicture = stream.ToArray();
                     }
                 }
             }
 
-            var result = _dataManager.PageEditor.ChangeMainImage(model).GetAwaiter().GetResult();
+            var result = _dataManager.PageEditor.ChangeMainImage(hphm).GetAwaiter().GetResult();
+
+            if (result)
+            {
+                return View("HomePage");
+            }
+            else
+            {
+                ErrorModel error = new ErrorModel();
+                error.Message = "Server error";
+                return View("ErrorView", error);
+            }
+        }
+
+        [Route("ChangeBottomAreaHeader")]
+        public IActionResult ChangeBottomAreaHeader(string bottomHeader)
+        {
+            HomePagePlaceholderModel hphm = new HomePagePlaceholderModel();
+            hphm = _dataManager.PageEditor.GetHomePagePlaceholder();
+            hphm.BottomAreaHeader = bottomHeader;
+
+            var result = _dataManager.PageEditor.ChangeBottomAreaHeader(hphm).GetAwaiter().GetResult();
+
+            if (result)
+            {
+                return View("HomePage");
+            }
+            else
+            {
+                ErrorModel error = new ErrorModel();
+                error.Message = "Server error";
+                return View("ErrorView", error);
+            }
+        }
+
+        [Route("ChangeBottomAreaContent")]
+        public IActionResult ChangeBottomAreaContent(string bottomContent)
+        {
+            HomePagePlaceholderModel hphm = new HomePagePlaceholderModel();
+            hphm = _dataManager.PageEditor.GetHomePagePlaceholder();
+            hphm.BottomAreaHeader = bottomContent;
+
+            var result = _dataManager.PageEditor.ChangeBottomAreaContent(hphm).GetAwaiter().GetResult();
 
             if (result)
             {

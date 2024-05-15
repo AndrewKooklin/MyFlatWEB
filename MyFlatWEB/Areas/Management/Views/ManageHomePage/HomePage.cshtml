@@ -1,11 +1,10 @@
 ﻿@model HomePagePlaceholderModel
-@using System.IO
   
 @{ 
     string linkNameValue = "";
     string randomPhrase = "";
     string changePhrase = "";
-    string leftCentralAreaPhrase = "";
+    string leftCentralAreaText = "";
     IFormFile formFile = null;
     byte[] image = null;
     string bottomAreaHeader = "";
@@ -15,7 +14,7 @@
 <section id="topArea">
     <div id="topMenu" class="row text-left">
         <div class="col-md-5 col-lg-10">
-            <div class="text-left">
+            <div class="text-left mt-3">
                 <h3>Top menu links</h3>
             </div>
             <div class="row resp-table mt-3 text-left">
@@ -56,9 +55,9 @@
             </div>
         </div>
     </div>
-    <div id="randomString">
+    <div id="randomString" class="row text-left">
         <div class="col-md-5 col-lg-10">
-            <div class="text-left">
+            <div class="text-left mt-2">
                 <h3>Random phrase</h3>
             </div>
             <div class="row mt-3 text-left">
@@ -144,10 +143,10 @@
     </div>
 </section>
 <section id="centralArea">
-    <div class="row align-items-start">
+    <div id="centralAreaContent" class="row text-left">
         <div id="leftPhrase" class="col-md-7 col-lg-6 text-md-start text-left py-6">
-            <div class="">
-                <h3>Left side phrase</h3>
+            <div class="mt-2">
+                <h3>Central area left side text</h3>
             </div>
             <div class="col">
                 <form id="formOrder"
@@ -160,7 +159,7 @@
                                    placeholder="@Model.LeftCentralAreaText"
                                    type="text"
                                    class="input-data-field input-sm d-inline-flex"
-                                   value="@leftCentralAreaPhrase"/>
+                                   value="@leftCentralAreaText"/>
                                       
                         </div>
                     </div>
@@ -171,7 +170,7 @@
                                     asp-controller="ManageHomePage"
                                     asp-action="ChangeLeftCentralAreaText"
                                     asp-route-id="@Model.Id"
-                                    asp-route-leftCentralAreaPhrase="@leftCentralAreaPhrase">
+                                    asp-route-leftCentralAreaPhrase="@leftCentralAreaText">
                                 Change
                             </button>
                         </div>
@@ -180,7 +179,7 @@
             </div>
         </div>
         <div id="rigthImage" class="col-md-5 col-lg-6 order-0 order-md-1 text-end">
-            <div class="">
+            <div class="mt-2">
                 <h3>Main image</h3>
             </div>
             <img class="pt-7 pt-md-0 w-50" src="~/Images/hand-draft.webp" width="170">
@@ -192,9 +191,10 @@
                     <div class="input-daterange input-group-data">
                         <input id="mainImage"
                                asp-for="@Model.MainPicture"
-                               name="imageInput"
+                               class="input-data-field input-sm d-inline-flex"
+                               name="image"
                                type="file"
-                               class="input-data-field input-sm d-inline-flex">
+                               value="@formFile">
                     </div>
                 </div>
                 <div class="row">
@@ -202,7 +202,9 @@
                         <button class="table-cell-button"
                                 type="submit"
                                 asp-controller="ManageHomePage"
-                                asp-action="ChangeMainImage">
+                                asp-action="ChangeMainImage"
+                                asp-route-id="@Model.Id"
+                                asp-route-image="@formFile">
                             Change
                         </button>
                     </div>
@@ -212,67 +214,67 @@
     </div>
 </section>
 <section id="bottomArea">
-    <div class="row text-left">
-        <h3>Bottom header left text</h3>
-    </div>
-    <div class="row text-left">
-        <form id="formOrder"
-              method="post">
-            <div class="row">
-                <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
-                <div class="input-daterange input-group-data">
-                    <input id="datefrom"
-                              @*asp-for=""*@
-                              type="text"
-                              placeholder="@Model.BottomAreaHeader"
-                              class="input-data-field input-sm d-inline-flex"
-                              value="@bottomAreaHeader"/>
+    <div id="bottomAreaContent" class="row text-left mb-4">
+        <div class="row text-left mt-2">
+            <h3>Bottom header left text</h3>
+        </div>
+        <div class="row text-left">
+            <form id="formOrder"
+                  method="post">
+                <div class="row">
+                    <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
+                    <div class="input-daterange input-group-data">
+                        <input id="datefrom"
+                               @*asp-for=""*@
+                               type="text"
+                               placeholder="@Model.BottomAreaHeader"
+                               class="input-data-field input-sm d-inline-flex"
+                               value="@bottomAreaHeader" />
 
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="d-inline">
-                    <button class="table-cell-button"
-                            type="submit"
-                            asp-controller="ManageHomePage"
-                            asp-action="ChangeBottomAreaHeader"
-                            asp-route-id="@Model.Id"
-                            asp-route-bottomHeader="@bottomAreaHeader">
-                        Change
-                    </button>
+                <div class="row">
+                    <div class="d-inline">
+                        <button class="table-cell-button"
+                                type="submit"
+                                asp-controller="ManageHomePage"
+                                asp-action="ChangeBottomAreaHeader"
+                                asp-route-bottomHeader="@bottomAreaHeader">
+                            Change
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
-    <div class="row text-left">
-        <h3>Bottom content text</h3>
-    </div>
-    <div class="row text-left">
-        <form id="formOrder"
-              method="post">
-            <div class="row">
-                <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
-                <div class="input-daterange input-group-data">
-                    <input id="datefrom"
-                              @*asp-for=""*@
-                              type="text"
-                              placeholder="@Model.BottomAreaContent"
-                              class="input-data-field input-sm d-inline-flex"
-                              value="@bottomAreaContent"/>
+            </form>
+        </div>
+        <div class="row text-left">
+            <h3>Bottom content text</h3>
+        </div>
+        <div class="row text-left">
+            <form id="formOrder"
+                  method="post">
+                <div class="row">
+                    <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
+                    <div class="input-daterange input-group-data">
+                        <input id="datefrom"
+                               @*asp-for=""*@
+                               type="text"
+                               placeholder="@Model.BottomAreaContent"
+                               class="input-data-field input-sm d-inline-flex"
+                               value="@bottomAreaContent" />
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="">
-                    <button class="table-cell-button"
-                            type="submit"
-                            asp-controller="ManageHomePage"
-                            asp-action="ChangeBottomAreaContent"
-                            asp-route-id="@Model.Id"
-                            asp-route-bottomContent="@bottomAreaContent">
-                        Change
-                    </button>
+                <div class="row">
+                    <div class="">
+                        <button class="table-cell-button"
+                                type="submit"
+                                asp-controller="ManageHomePage"
+                                asp-action="ChangeBottomAreaContent"
+                                asp-route-bottomContent="@bottomAreaContent">
+                            Change
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </section>
