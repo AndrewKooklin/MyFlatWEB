@@ -290,5 +290,49 @@ body {
     text-decoration:none;
 }
 
+.btn-manage {
+    background-color: #48abe0;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 50%;
+}
+
+    .btn-manage:hover {
+        background-color: #65b9e6;
+    }
+
+    .btn-manage:active {
+        box-shadow: 0 0 2px darkslategray;
+        transform: translateY(2px);
+    }
+
+.btn-manage-edit {
+    margin: 2px;
+    padding: 2px;
+    height: 25px;
+    width: 25px;
+    font-size: 12px;
+}
+
+.btn-manage-add-phrase {
+    margin: 0;
+    padding: 2px;
+    height: 25px;
+    width: 25px;
+    font-size: 14px;
+    vertical-align: text-top;
+}
+
+.section-border {
+    background-color: #9498ff;
+    height: 1px;
+}
+
+.input-random-phrase{
+    width:auto;
+}
 
 

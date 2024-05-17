@@ -1,6 +1,7 @@
 ﻿@model HomePagePlaceholderModel
-  
-@{ 
+
+@{
+    Layout = "~/Areas/Management/Views/Shared/_ManageLayout.cshtml";
     string linkNameValue = "";
     string randomPhrase = "";
     string changePhrase = "";
@@ -11,156 +12,196 @@
     string bottomAreaContent = "";
 }
 
-<section id="topArea">
-    <div id="topMenu" class="row text-left">
-        <div class="col-md-5 col-lg-10">
-            <div class="text-left mt-3">
-                <h3>Top menu links</h3>
-            </div>
-            <div class="row resp-table mt-3 text-left">
-                <div class="table-row-header">
-                    <div class="resp-table-row">
-                        @if (Model.LinkNames.Any())
-                        {
-                            @foreach (var item in Model.LinkNames)
+<div class="ml-3">
+    <section id="topArea">
+        <div id="topMenu" class="row text-left">
+            <div class="col-md-5 col-lg-10">
+                <div class="text-left mt-3">
+                    <h3>Top menu links</h3>
+                </div>
+                <div class="row resp-table mt-3 mb-1 ml-1">
+                    <div class="table-row-header">
+                        <div class="resp-table-row">
+                            @if (Model.LinkNames.Any())
                             {
-                                <div class="table-cell-data">
-                                    <form id="formOrder"
-                                          asp-controller="ManageHomePage"
-                                          asp-action="ChangeNameLinkTopMenu"
-                                          asp-route-id="@item.Id"
-                                          asp-route-linkName="@linkNameValue"
-                                          method="post">
-                                        <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
-                                        <div class="d-inline input-daterange input-group-data">
-                                            <input id="datefrom"
-                                                   @*asp-for=""*@
-                                                   placeholder="@item.LinkName"
-                                                   type="text"
-                                                   value="@linkNameValue"
-                                                   class="input-data-field input-sm d-inline-flex" />
-                                        </div>
-                                        <div>
-                                            <button class="table-cell-button"
-                                                    type="submit">
-                                                Edit
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
+                                @foreach (var item in Model.LinkNames)
+                                {
+                                    <div class="table-cell-data">
+                                        <form id="formOrder"
+                                              method="post">
+                                            <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
+                                            <div class="d-inline input-daterange input-group-data">
+                                                <input id="datefrom"
+                                                       @*asp-for=""*@
+                                                       placeholder="@item.LinkName"
+                                                       type="text"
+                                                       value="@linkNameValue"
+                                                       class="input-data-field input-sm d-inline-flex" />
+                                            </div>
+                                            <div class="text-right">
+                                                <button class="btn btn-manage btn-manage-edit"
+                                                        type="submit"
+                                                        asp-controller="ManageHomePage"
+                                                        asp-action="ChangeNameLinkTopMenu"
+                                                        asp-route-id="@item.Id"
+                                                        asp-route-linkName="@linkNameValue"
+                                                        title="Edit">
+                                                    🖉
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                }
                             }
-                        }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="randomString" class="row text-left">
-        <div class="col-md-5 col-lg-10">
-            <div class="text-left mt-2">
-                <h3>Random phrase</h3>
+        <hr class="section-border" />
+        <div id="randomString" class="row text-left">
+            <div class="col-md-5 col-lg-10">
+                <div class="text-left mt-3">
+                    <h3>Random phrase</h3>
+                </div>
+                <div class="row mt-3 text-left">
+                    <div class="col">
+                        <form id="formOrder"
+                              asp-route-id="0"
+                              asp-route-phrase="@randomPhrase"
+                              method="post">
+                            <div class="mt-2">
+                                <h4>Add random phrase</h4>
+                            </div>
+                            <div class="mt-2 ml-3">
+                                <div class="row text-danger" asp-validation-summary="All"></div>
+                                <div class="row align-content-start justify-content-start">
+                                    <div class="col-8 input-daterange input-group-data p-0">
+                                        <input id="datefrom"
+                                               @*asp-for=""*@
+                                               type="text"
+                                               class="input-random-phrase"
+                                               value="@randomPhrase" />
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn btn-manage btn-manage-add-phrase"
+                                                type="submit"
+                                                asp-controller="ManageHomePage"
+                                                asp-action="AddRandomPhrase"
+                                                title="Add phrase">
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="table-row-header">
+                        <div class="resp-table-row">
+                            @if (Model.RandomPhrases.Any())
+                            {
+                                @foreach (var item in Model.RandomPhrases)
+                                {
+                                    <div class="table-cell-data">
+                                        <form id="formOrder"
+                                              method="post">
+                                            <div class="row">
+                                                <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
+                                                <div class="">
+                                                    <input id="datefrom"
+                                                           @*asp-for=""*@
+                                                           placeholder="@item.Phrase"
+                                                           type="text"
+                                                           class="input-random-phrase"
+                                                           value="@changePhrase" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="d-inline">
+                                                    <button class="btn btn-manage btn-manage-edit"
+                                                            type="submit"
+                                                            asp-controller="ManageHomePage"
+                                                            asp-action="ChangeRandomPhrase"
+                                                            asp-route-id="@item.Id"
+                                                            asp-route-changePhrase="@changePhrase"
+                                                            title="Edit phrase">
+                                                        🖉
+                                                    </button>
+                                                </div>
+                                                <div class="d-inline">
+                                                    <button class="btn btn-manage btn-manage-edit"
+                                                            asp-controller="ManageHomePage"
+                                                            asp-action="DeleteRandomPhrase"
+                                                            asp-route-id="@item.Id"
+                                                            type="submit"
+                                                            title="Delete phrase">
+                                                        🗑
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row mt-3 text-left">
+        </div>
+    </section>
+    <section id="centralArea">
+        <div id="centralAreaContent" class="row text-left">
+            <div id="leftPhrase" class="col-md-7 col-lg-6 text-md-start text-left py-6">
+                <div class="mt-2">
+                    <h3>Central area left side text</h3>
+                </div>
                 <div class="col">
                     <form id="formOrder"
-                          asp-route-id="0"
-                          asp-route-phrase="@randomPhrase"
                           method="post">
-                        <div class="mt-2">
-                            <h4>Add random phrase</h4>
-                        </div>
-                        <div class="row mt-2">
+                        <div class="row">
                             <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
                             <div class="input-daterange input-group-data">
-                                <input id="datefrom"
+                                <input id="leftPhrase"
                                        @*asp-for=""*@
+                                       placeholder="@Model.LeftCentralAreaText"
                                        type="text"
                                        class="input-data-field input-sm d-inline-flex"
-                                       value="@randomPhrase"/>
+                                       value="@leftCentralAreaText" />
+
                             </div>
                         </div>
-                        <div class="row mt-2">
+                        <div class="row">
                             <div class="d-inline">
                                 <button class="table-cell-button"
                                         type="submit"
                                         asp-controller="ManageHomePage"
-                                        asp-action="AddRandomPhrase">
-                                    Add
+                                        asp-action="ChangeLeftCentralAreaText"
+                                        asp-route-id="@Model.Id"
+                                        asp-route-leftCentralAreaPhrase="@leftCentralAreaText">
+                                    Change
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="table-row-header">
-                    <div class="resp-table-row">
-                        @if (Model.RandomPhrases.Any())
-                        {
-                            @foreach (var item in Model.RandomPhrases)
-                            {
-                                <div class="table-cell-data">
-                                    <form id="formOrder"
-                                          method="post">
-                                        <div class="row">
-                                            <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
-                                            <div class="input-daterange input-group-data">
-                                                <input id="datefrom"
-                                                       @*asp-for=""*@
-                                                       placeholder="@item.Phrase"
-                                                       type="text"
-                                                       class="input-data-field input-sm d-inline-flex"
-                                                       value="@changePhrase"/>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="d-inline">
-                                                <button class="table-cell-button"
-                                                        type="submit"
-                                                        asp-controller="ManageHomePage"
-                                                        asp-action="ChangeRandomPhrase"
-                                                        asp-route-id="@item.Id"
-                                                        asp-route-changePhrase="@changePhrase">
-                                                    Edit
-                                                </button>
-                                            </div>
-                                            <div class="d-inline">
-                                                <button class="table-cell-button"
-                                                        asp-controller="ManageHomePage"
-                                                        asp-action="DeleteRandomPhrase"
-                                                        asp-route-id="@item.Id"
-                                                        type="submit">
-                                                    Delete
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            }
-                        }
-                    </div>
+            </div>
+            <div id="rigthImage" class="col-md-5 col-lg-6 order-0 order-md-1 text-end">
+                <div class="mt-2">
+                    <h3>Main image</h3>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="centralArea">
-    <div id="centralAreaContent" class="row text-left">
-        <div id="leftPhrase" class="col-md-7 col-lg-6 text-md-start text-left py-6">
-            <div class="mt-2">
-                <h3>Central area left side text</h3>
-            </div>
-            <div class="col">
+                <img class="pt-7 pt-md-0 w-50" src="~/Images/hand-draft.webp" width="170">
                 <form id="formOrder"
-                      method="post">
+                      method="post"
+                      enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
                         <div class="input-daterange input-group-data">
-                            <input id="leftPhrase"
-                                   @*asp-for=""*@
-                                   placeholder="@Model.LeftCentralAreaText"
-                                   type="text"
+                            <input id="mainImage"
+                                   asp-for="@Model.MainPicture"
                                    class="input-data-field input-sm d-inline-flex"
-                                   value="@leftCentralAreaText"/>
-                                      
+                                   name="image"
+                                   type="file"
+                                   value="@formFile">
                         </div>
                     </div>
                     <div class="row">
@@ -168,9 +209,9 @@
                             <button class="table-cell-button"
                                     type="submit"
                                     asp-controller="ManageHomePage"
-                                    asp-action="ChangeLeftCentralAreaText"
+                                    asp-action="ChangeMainImage"
                                     asp-route-id="@Model.Id"
-                                    asp-route-leftCentralAreaPhrase="@leftCentralAreaText">
+                                    asp-route-image="@formFile">
                                 Change
                             </button>
                         </div>
@@ -178,103 +219,70 @@
                 </form>
             </div>
         </div>
-        <div id="rigthImage" class="col-md-5 col-lg-6 order-0 order-md-1 text-end">
-            <div class="mt-2">
-                <h3>Main image</h3>
+    </section>
+    <section id="bottomArea">
+        <div id="bottomAreaContent" class="row text-left mb-4">
+            <div class="row text-left mt-2">
+                <h3>Bottom header left text</h3>
             </div>
-            <img class="pt-7 pt-md-0 w-50" src="~/Images/hand-draft.webp" width="170">
-            <form id="formOrder"
-                  method="post"
-                  enctype="multipart/form-data">
-                <div class="row">
-                    <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
-                    <div class="input-daterange input-group-data">
-                        <input id="mainImage"
-                               asp-for="@Model.MainPicture"
-                               class="input-data-field input-sm d-inline-flex"
-                               name="image"
-                               type="file"
-                               value="@formFile">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="d-inline">
-                        <button class="table-cell-button"
-                                type="submit"
-                                asp-controller="ManageHomePage"
-                                asp-action="ChangeMainImage"
-                                asp-route-id="@Model.Id"
-                                asp-route-image="@formFile">
-                            Change
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
-<section id="bottomArea">
-    <div id="bottomAreaContent" class="row text-left mb-4">
-        <div class="row text-left mt-2">
-            <h3>Bottom header left text</h3>
-        </div>
-        <div class="row text-left">
-            <form id="formOrder"
-                  method="post">
-                <div class="row">
-                    <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
-                    <div class="input-daterange input-group-data">
-                        <input id="datefrom"
-                               @*asp-for=""*@
-                               type="text"
-                               placeholder="@Model.BottomAreaHeader"
-                               class="input-data-field input-sm d-inline-flex"
-                               value="@bottomAreaHeader" />
+            <div class="row text-left">
+                <form id="formOrder"
+                      method="post">
+                    <div class="row">
+                        <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
+                        <div class="input-daterange input-group-data">
+                            <input id="datefrom"
+                                   @*asp-for=""*@
+                                   type="text"
+                                   placeholder="@Model.BottomAreaHeader"
+                                   class="input-data-field input-sm d-inline-flex"
+                                   value="@bottomAreaHeader" />
 
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="d-inline">
-                        <button class="table-cell-button"
-                                type="submit"
-                                asp-controller="ManageHomePage"
-                                asp-action="ChangeBottomAreaHeader"
-                                asp-route-bottomHeader="@bottomAreaHeader">
-                            Change
-                        </button>
+                    <div class="row">
+                        <div class="d-inline">
+                            <button class="table-cell-button"
+                                    type="submit"
+                                    asp-controller="ManageHomePage"
+                                    asp-action="ChangeBottomAreaHeader"
+                                    asp-route-bottomHeader="@bottomAreaHeader">
+                                Change
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
+            <div class="row text-left">
+                <h3>Bottom content text</h3>
+            </div>
+            <div class="row text-left">
+                <form id="formOrder"
+                      method="post">
+                    <div class="row">
+                        <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
+                        <div class="input-daterange input-group-data">
+                            <input id="datefrom"
+                                   @*asp-for=""*@
+                                   type="text"
+                                   placeholder="@Model.BottomAreaContent"
+                                   class="input-data-field input-sm d-inline-flex"
+                                   value="@bottomAreaContent" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="">
+                            <button class="table-cell-button"
+                                    type="submit"
+                                    asp-controller="ManageHomePage"
+                                    asp-action="ChangeBottomAreaContent"
+                                    asp-route-bottomContent="@bottomAreaContent">
+                                Change
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="row text-left">
-            <h3>Bottom content text</h3>
-        </div>
-        <div class="row text-left">
-            <form id="formOrder"
-                  method="post">
-                <div class="row">
-                    <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
-                    <div class="input-daterange input-group-data">
-                        <input id="datefrom"
-                               @*asp-for=""*@
-                               type="text"
-                               placeholder="@Model.BottomAreaContent"
-                               class="input-data-field input-sm d-inline-flex"
-                               value="@bottomAreaContent" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="">
-                        <button class="table-cell-button"
-                                type="submit"
-                                asp-controller="ManageHomePage"
-                                asp-action="ChangeBottomAreaContent"
-                                asp-route-bottomContent="@bottomAreaContent">
-                            Change
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
