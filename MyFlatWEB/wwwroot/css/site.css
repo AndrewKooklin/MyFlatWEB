@@ -302,19 +302,51 @@ body {
 
     .btn-manage:hover {
         background-color: #65b9e6;
+        color: #040a5d;
+        cursor: pointer;
     }
 
     .btn-manage:active {
         box-shadow: 0 0 2px darkslategray;
         transform: translateY(2px);
+        cursor: pointer;
+        color: #040a5d;
     }
 
-.btn-manage-edit {
+.btn-manage-edit, 
+.btn-manage-delete {
     margin: 2px;
     padding: 2px;
     height: 25px;
     width: 25px;
     font-size: 12px;
+    cursor: pointer;
+}
+
+    .btn-manage-edit:hover {
+        background-color: #65b9e6;
+        color: #040a5d;
+        cursor: pointer;
+    }
+
+    .btn-manage-edit:active {
+        box-shadow: 0 0 2px darkslategray;
+        transform: translateY(2px);
+        cursor: pointer;
+        color: #040a5d;
+    }
+
+.btn-manage-delete:hover {
+    background-color: #65b9e6;
+    color: #8b86ff;
+    cursor: pointer;
+}
+
+.btn-manage-delete:active {
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+    cursor: pointer;
+    color: #8b86ff;
 }
 
 .btn-manage-add-phrase {
@@ -335,4 +367,80 @@ body {
     width:auto;
 }
 
+.central-area-text{
+    width: 16rem;
+}
 
+.input-central-area-text {
+    width: 13rem;
+}
+
+.select-image {
+    width: auto;
+    border: none;
+    outline: none;
+    display: none;
+}
+
+.btn-change-image,
+.btn-change-text {
+    background-color: #48abe0;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 3px;
+}
+
+    .btn-change-image:hover,
+    .btn-change-text:hover{
+        background-color: #65b9e6;
+        color: #040a5d;
+        cursor: pointer;
+    }
+
+.btn-choose-file {
+    background-color: #484747;
+    color: white;
+    padding: 3px 10px;
+    border: none;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 3px;
+}
+
+    .btn-choose-file:hover {
+        background-color: #acadae;
+        color: #040a5d;
+        cursor: pointer;
+    }
+
+.input-bottom-header {
+    min-width: 19rem;
+    min-height: 2rem;
+    padding: 3px;
+    margin: 0;
+}
+
+.input-bottom-content {
+    min-width: 19rem;
+    min-height: 7rem;
+    padding: 3px;
+    margin: 0;
+}
+
+.label-choose-image{
+    margin-left: 7px;
+    padding-top: 3px;
+    font-size: 16px;
+    color: #1b6ec2;
+}
+
+.label-not-choose-image {
+    margin-left: 7px;
+    padding-top: 3px;
+    font-size: 16px;
+    color: #e50000;
+}
