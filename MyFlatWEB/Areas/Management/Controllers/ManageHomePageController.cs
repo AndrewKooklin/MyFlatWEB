@@ -41,21 +41,43 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("ChangeNameLinkTopMenu")]
         public IActionResult ChangeNameLinkTopMenu(int id, string linkName)
         {
-            TopMenuLinkNameModel linkModel = new TopMenuLinkNameModel();
-            linkModel.Id = id;
-            linkModel.LinkName = linkName;
-
-            bool change = _dataManager.PageEditor.ChangeNameLinkTopMenu(linkModel).GetAwaiter().GetResult();
-
-            if (change)
+            if (String.IsNullOrEmpty(linkName))
             {
-                return View("HomePage");
+                var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                var topMenuLinks = placeHolder.LinkNames.ToList();
+                foreach(var item in topMenuLinks)
+                {
+                    if(item.Id == id)
+                    {
+                        item.InputError = "Fill field";
+                    }
+                    else
+                    {
+                        item.InputError = "";
+                    }
+                }
+                
+                return View("HomePage", placeHolder);
             }
             else
             {
-                ErrorModel error = new ErrorModel();
-                error.Message = "Server error";
-                return View("ErrorView", error);
+                TopMenuLinkNameModel linkModel = new TopMenuLinkNameModel();
+                linkModel.Id = id;
+                linkModel.LinkName = linkName;
+
+                bool change = _dataManager.PageEditor.ChangeNameLinkTopMenu(linkModel).GetAwaiter().GetResult();
+
+                if (change)
+                {
+                    var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                    return View("HomePage", placeHolder);
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
             }
         }
 

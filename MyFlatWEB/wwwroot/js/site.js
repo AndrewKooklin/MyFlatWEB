@@ -1,4 +1,20 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function ShowErrorInputNameTopLink(click_id) {
 
-// Write your JavaScript code.
+    var input = document.getElementById(click_id);
+    var inputValue = input.value;
+    var label = input.previousElementSibling;
+
+    if (inputValue == "") {
+        label.textContent = "Fill field";
+    }
+    else {
+        label.textContent = "";
+    }
+}
+
+function DeleteError(id) {
+    var input = document.getElementById(id);
+    var label = input.previousElementSibling;
+    label.textContent = "";
+    input.value = null;
+}

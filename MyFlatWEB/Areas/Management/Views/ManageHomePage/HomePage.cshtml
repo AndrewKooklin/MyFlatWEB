@@ -34,27 +34,26 @@
                         {
                             <div class="mr-1 p-0">
                                 <form id="formOrder"
+                                      asp-controller="ManageHomePage"
+                                      asp-action="ChangeNameLinkTopMenu"
+                                      asp-route-id="@item.Id"
                                       method="post">
-                                    <div class="row text-danger" asp-validation-summary="All"></div>
-                                    <div class="row ml-1 mr-1">
-                                        <input id="datefrom"
-                                               @*asp-for=""*@
-                                               placeholder="@item.LinkName"
-                                               type="text"
-                                               value="@linkNameValue"
-                                               class="input-data-field input-sm" />
-                                    </div>
-                                    <div class="row justify-content-end mr-1">
-                                        <button class="btn-manage btn-manage-edit"
-                                                type="submit"
-                                                asp-controller="ManageHomePage"
-                                                asp-action="ChangeNameLinkTopMenu"
-                                                asp-route-id="@item.Id"
-                                                asp-route-linkName="@linkNameValue"
-                                                title="Edit">
-                                            🖉
-                                        </button>
-                                    </div>
+                                    <label for="linkName" class="text-danger label-name-link" style="height:1.2rem;width:5rem;">
+                                        @item.InputError
+                                    </label>
+                                    <input id="#@item.Id"
+                                           name="linkName"
+                                           placeholder="@item.LinkName"
+                                           type="text"
+                                           class="input-data-field input-sm ml-1 mr-1"
+                                           oninput="ShowErrorInputNameTopLink(this.id)"
+                                           onblur="DeleteError(this.id)"/>
+                                    <button id="@item.Id"
+                                            class="btn-manage btn-manage-edit btn-edit-link justify-content-end mr-1"
+                                            type="submit"
+                                            title="Edit link name">
+                                        🖉
+                                    </button>
                                 </form>
                             </div>
                         }
