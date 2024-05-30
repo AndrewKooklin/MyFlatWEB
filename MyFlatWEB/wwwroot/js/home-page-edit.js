@@ -1,6 +1,6 @@
-﻿function ShowErrorInputNameTopLink(click_id) {
+﻿function ShowError(id) {
 
-    var input = document.getElementById(click_id);
+    var input = document.getElementById(id);
     var inputValue = input.value;
     var label = input.previousElementSibling;
 
@@ -12,7 +12,7 @@
     }
 }
 
-function DeleteError(id) {
+function HideError(id) {
     var input = document.getElementById(id);
     var label = input.previousElementSibling;
     label.textContent = "";

@@ -33,25 +33,29 @@
                         @foreach (var item in Model.LinkNames)
                         {
                             <div class="mr-1 p-0">
-                                <form id="formOrder"
+                                <form id="formNameLink"
                                       asp-controller="ManageHomePage"
                                       asp-action="ChangeNameLinkTopMenu"
                                       asp-route-id="@item.Id"
                                       method="post">
-                                    <label for="linkName" class="text-danger label-name-link" style="height:1.2rem;width:5rem;">
-                                        @item.InputError
+                                    <label id="!@item.Id"
+                                           for="linkName" 
+                                           class="text-danger label-name-link" 
+                                           style="height:1.2rem;width:5rem;">
+                                        @*@item.InputError*@
                                     </label>
-                                    <input id="#@item.Id"
+                                    <input id="!!@item.Id"
                                            name="linkName"
                                            placeholder="@item.LinkName"
                                            type="text"
                                            class="input-data-field input-sm ml-1 mr-1"
-                                           oninput="ShowErrorInputNameTopLink(this.id)"
-                                           onblur="DeleteError(this.id)"/>
-                                    <button id="@item.Id"
+                                           oninput="ShowError(this.id)"
+                                           onblur="HideError(this.id)"/>
+                                    <button id="!!!@item.Id"
                                             class="btn-manage btn-manage-edit btn-edit-link justify-content-end mr-1"
                                             type="submit"
-                                            title="Edit link name">
+                                            title="Edit link name"
+                                            onclick="ShowError(this.id)">
                                         🖉
                                     </button>
                                 </form>
@@ -72,76 +76,60 @@
                 </div>
                 <div class="row text-left">
                     <div class="col">
-                        <form id="formOrder"
-                              asp-route-id="0"
-                              asp-route-phrase="@randomPhrase"
+                        <form id="formAddPhrase"
+                              asp-controller="ManageHomePage"
+                              asp-action="AddRandomPhrase"
                               method="post">
-                            <div class="row ml-2">
-                                <div class="col">
-                                    <div class="row text-danger" asp-validation-summary="All"></div>
-                                    <div class="row align-content-start justify-content-start">
-                                        <div class="p-0">
-                                            <input id="datefrom"
-                                                   @*asp-for=""*@
-                                                   type="text"
-                                                   class="input-random-phrase"
-                                                   value="@randomPhrase" />
-                                        </div>
-                                        <div class="ml-1">
-                                            <button class="btn-manage btn-manage-add-phrase"
-                                                    type="submit"
-                                                    asp-controller="ManageHomePage"
-                                                    asp-action="AddRandomPhrase"
-                                                    title="Add phrase">
-                                                +
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <label for="rPhrase" class="text-danger label-name-link" style="height:1.2rem;width:5rem;">
+                            </label>
+                            <input id="rPhrase"
+                                   name="phrase"
+                                   type="text"
+                                   class="input-random-phrase"
+                                   value="@randomPhrase"
+                                   oninput="ShowError(this.id)"
+                                   onblur="HideError(this.id)"/>
+                            <button class="btn-manage btn-manage-edit justify-content-end mr-1 btn-manage-add-phrase"
+                                    type="submit"
+                                    title="Add phrase">
+                                +
+                            </button>
                         </form>
                     </div>
                 </div>
                 <div class="row d-inline-flex justify-content-start ml-1">
+
                     @if (Model.RandomPhrases.Any())
                     {
                         @foreach (var item in Model.RandomPhrases)
                         {
                             <div class="mr-1 p-0">
-                                <form id="formOrder"
+                                <form id="formChangePhrase"
+                                      asp-route-id="@item.Id"
                                       method="post">
-                                    <div class="row text-danger" asp-validation-summary="All"></div>
-                                    <div class="row ml-1 mr-1">
-                                        <input id="datefrom"
-                                               @*asp-for=""*@
-                                               placeholder="@item.Phrase"
-                                               type="text"
-                                               class="input-random-phrase"
-                                               value="@changePhrase" />
-                                    </div>
-                                    <div class="row mt-1 mr-1 justify-content-end">
-                                        <div class="d-inline">
-                                            <button class="btn-manage btn-manage-edit"
-                                                    type="submit"
-                                                    asp-controller="ManageHomePage"
-                                                    asp-action="ChangeRandomPhrase"
-                                                    asp-route-id="@item.Id"
-                                                    asp-route-changePhrase="@changePhrase"
-                                                    title="Edit phrase">
-                                                🖉
-                                            </button>
-                                        </div>
-                                        <div class="d-inline">
-                                            <button class="btn-manage btn-manage-delete"
-                                                    asp-controller="ManageHomePage"
-                                                    asp-action="DeleteRandomPhrase"
-                                                    asp-route-id="@item.Id"
-                                                    type="submit"
-                                                    title="Delete phrase">
-                                                🗑
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <label for="changePhrase" class="text-danger label-name-link" style="height:1.2rem;width:5rem;">
+                                    </label>
+                                    <input id="changePhrase"
+                                           name="changePhrase"
+                                           placeholder="@item.Phrase"
+                                           type="text"
+                                           class="input-random-phrase"
+                                           oninput="ShowError(this.id)"
+                                           onblur="HideError(this.id)"/>
+                                    <button class="btn-manage btn-manage-edit"
+                                            type="submit"
+                                            asp-controller="ManageHomePage"
+                                            asp-action="ChangeRandomPhrase"
+                                            title="Edit phrase">
+                                        🖉
+                                    </button>
+                                    <button class="btn-manage btn-manage-delete"
+                                            asp-controller="ManageHomePage"
+                                            asp-action="DeleteRandomPhrase"
+                                            type="submit"
+                                            title="Delete phrase">
+                                        🗑
+                                    </button>
                                 </form>
                             </div>
                         }

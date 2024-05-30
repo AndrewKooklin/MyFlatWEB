@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MyFlatWEB.Areas.Management.Models.EditPages
 {
@@ -32,10 +30,7 @@ namespace MyFlatWEB.Areas.Management.Models.EditPages
         [MaxLength(500, ErrorMessage = "Maximum length 500 chars")]
         public string BottomAreaContent { get; set; }
 
-        //[NotMapped]
-        //public string JavaScriptToRun { get; set; }
-
-        //[NotMapped]
-        //public string LinkName { get; set; }
+        [NotMapped]
+        public string InputError { get; set; }
     }
 }

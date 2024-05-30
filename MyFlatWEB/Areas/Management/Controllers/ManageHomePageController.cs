@@ -84,20 +84,32 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("AddRandomPhrase")]
         public IActionResult AddRandomPhrase(string phrase)
         {
-            RandomPhraseModel rpm = new RandomPhraseModel();
-            rpm.Phrase = phrase;
-
-            var result = _dataManager.PageEditor.AddRandomPhrase(rpm).GetAwaiter().GetResult();
-
-            if (result)
+            if (String.IsNullOrEmpty(phrase))
             {
-                return View("HomePage");
+                //placeHolder.InputError = "Fill field";
+                HomePagePlaceholderModel placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+
+                return View("HomePage", placeHolder);
             }
             else
             {
-                ErrorModel error = new ErrorModel();
-                error.Message = "Server error";
-                return View("ErrorView", error);
+                RandomPhraseModel rpm = new RandomPhraseModel();
+                rpm.Phrase = phrase;
+
+                var result = _dataManager.PageEditor.AddRandomPhrase(rpm).GetAwaiter().GetResult();
+
+                if (result)
+                {
+                    //placeHolder.InputError = "";
+                    HomePagePlaceholderModel placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                    return View("HomePage", placeHolder);
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
             }
         }
 
