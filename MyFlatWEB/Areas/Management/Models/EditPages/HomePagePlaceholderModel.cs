@@ -30,7 +30,7 @@ namespace MyFlatWEB.Areas.Management.Models.EditPages
         [MaxLength(500, ErrorMessage = "Maximum length 500 chars")]
         public string BottomAreaContent { get; set; }
 
-        [NotMapped]
-        public string InputError { get; set; }
+        //[NotMapped]
+        //public string InputError { get; set; }
     }
 }

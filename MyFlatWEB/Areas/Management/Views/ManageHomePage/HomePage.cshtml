@@ -10,6 +10,7 @@
     byte[] image = null;
     string bottomAreaHeader = "";
     string bottomAreaContent = "";
+
 }
 
 <html>
@@ -42,7 +43,7 @@
                                            for="linkName" 
                                            class="text-danger label-name-link" 
                                            style="height:1.2rem;width:5rem;">
-                                        @*@item.InputError*@
+                                        @item.InputError
                                     </label>
                                     <input id="!!@item.Id"
                                            name="linkName"
@@ -50,12 +51,12 @@
                                            type="text"
                                            class="input-data-field input-sm ml-1 mr-1"
                                            oninput="ShowError(this.id)"
+                                           onfocus="ShowError(this.id)"
                                            onblur="HideError(this.id)"/>
-                                    <button id="!!!@item.Id"
+                                    <button id="@item.Id"
                                             class="btn-manage btn-manage-edit btn-edit-link justify-content-end mr-1"
                                             type="submit"
-                                            title="Edit link name"
-                                            onclick="ShowError(this.id)">
+                                            title="Edit link name">
                                         🖉
                                     </button>
                                 </form>
@@ -74,30 +75,33 @@
                 <div class="mt-2">
                     <h4>Add random phrase</h4>
                 </div>
-                <div class="row text-left">
-                    <div class="col">
+                <div class="row d-inline-flex justify-content-start ml-1">
                         <form id="formAddPhrase"
                               asp-controller="ManageHomePage"
                               asp-action="AddRandomPhrase"
                               method="post">
-                            <label for="rPhrase" class="text-danger label-name-link" style="height:1.2rem;width:5rem;">
+                            <label id="#rPhrase"
+                                   for="rPhrase" 
+                                   class="row text-danger label-name-link" 
+                                   style="height:1.2rem;width:5rem;">
                             </label>
-                            <input id="rPhrase"
+                            <input id="##rPhrase"
                                    name="phrase"
                                    type="text"
                                    class="input-random-phrase"
                                    value="@randomPhrase"
                                    oninput="ShowError(this.id)"
+                                   onfocus="ShowError(this.id)"
                                    onblur="HideError(this.id)"/>
-                            <button class="btn-manage btn-manage-edit justify-content-end mr-1 btn-manage-add-phrase"
+                            <button id="rPhrase"
+                                    class="btn-manage justify-content-end mr-1 mb-1 btn-manage-add-phrase"
                                     type="submit"
                                     title="Add phrase">
                                 +
                             </button>
                         </form>
-                    </div>
                 </div>
-                <div class="row d-inline-flex justify-content-start ml-1">
+                <div class="row d-inline-flex justify-content-start ml-1 mt-1">
 
                     @if (Model.RandomPhrases.Any())
                     {
@@ -105,31 +109,41 @@
                         {
                             <div class="mr-1 p-0">
                                 <form id="formChangePhrase"
-                                      asp-route-id="@item.Id"
                                       method="post">
-                                    <label for="changePhrase" class="text-danger label-name-link" style="height:1.2rem;width:5rem;">
-                                    </label>
-                                    <input id="changePhrase"
-                                           name="changePhrase"
-                                           placeholder="@item.Phrase"
-                                           type="text"
-                                           class="input-random-phrase"
-                                           oninput="ShowError(this.id)"
-                                           onblur="HideError(this.id)"/>
-                                    <button class="btn-manage btn-manage-edit"
-                                            type="submit"
-                                            asp-controller="ManageHomePage"
-                                            asp-action="ChangeRandomPhrase"
-                                            title="Edit phrase">
-                                        🖉
-                                    </button>
-                                    <button class="btn-manage btn-manage-delete"
-                                            asp-controller="ManageHomePage"
-                                            asp-action="DeleteRandomPhrase"
-                                            type="submit"
-                                            title="Delete phrase">
-                                        🗑
-                                    </button>
+                                    <div class="">
+                                        <label id="$@item.Id"
+                                               for="changePhrase" 
+                                               class="row text-danger label-name-link" 
+                                               style="height:1.2rem;width:5rem;">
+                                            @item.InputError
+                                        </label>
+                                        <input id="$$@item.Id"
+                                               name="changePhrase"
+                                               placeholder="@item.Phrase"
+                                               type="text"
+                                               class="row input-random-phrase"
+                                               onfocus="ShowError(this.id)"
+                                               oninput="ShowError(this.id)"
+                                               onblur="HideError(this.id)"/>
+                                        <div class="row justify-content-end btns-random-phrase">
+                                            <button class="btn-manage btn-manage-edit"
+                                                    type="submit"
+                                                    asp-controller="ManageHomePage"
+                                                    asp-action="ChangeRandomPhrase"
+                                                    asp-route-id="@item.Id"
+                                                    title="Edit phrase">
+                                                🖉
+                                            </button>
+                                            <button class="btn-manage btn-manage-delete mr-1"
+                                                    asp-controller="ManageHomePage"
+                                                    asp-action="DeleteRandomPhrase"
+                                                    asp-route-id="@item.Id"
+                                                    type="submit"
+                                                    title="Delete phrase">
+                                                🗑
+                                            </button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         }

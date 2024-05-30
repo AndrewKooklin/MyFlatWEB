@@ -38,6 +38,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
             return View(placeHolder);
         }
 
+
         [Route("ChangeNameLinkTopMenu")]
         public IActionResult ChangeNameLinkTopMenu(int id, string linkName)
         {
@@ -45,9 +46,9 @@ namespace MyFlatWEB.Areas.Management.Controllers
             {
                 var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
                 var topMenuLinks = placeHolder.LinkNames.ToList();
-                foreach(var item in topMenuLinks)
+                foreach (var item in topMenuLinks)
                 {
-                    if(item.Id == id)
+                    if (item.Id == id)
                     {
                         item.InputError = "Fill field";
                     }
@@ -56,7 +57,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
                         item.InputError = "";
                     }
                 }
-                
+
                 return View("HomePage", placeHolder);
             }
             else
@@ -86,7 +87,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
         {
             if (String.IsNullOrEmpty(phrase))
             {
-                //placeHolder.InputError = "Fill field";
                 HomePagePlaceholderModel placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
 
                 return View("HomePage", placeHolder);
@@ -100,7 +100,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
 
                 if (result)
                 {
-                    //placeHolder.InputError = "";
                     HomePagePlaceholderModel placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
                     return View("HomePage", placeHolder);
                 }
@@ -116,19 +115,41 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("ChangeRandomPhrase")]
         public IActionResult ChangeRandomPhrase(int id, string changePhrase)
         {
-            RandomPhraseModel rpm = new RandomPhraseModel { Id = id, Phrase = changePhrase};
-
-            var result = _dataManager.PageEditor.ChangeRandomPhrase(rpm).GetAwaiter().GetResult();
-
-            if (result)
+            if (String.IsNullOrEmpty(changePhrase))
             {
-                return View("HomePage");
+                var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                var randomPhrases = placeHolder.RandomPhrases.ToList();
+                foreach (var item in randomPhrases)
+                {
+                    if (item.Id == id)
+                    {
+                        item.InputError = "Fill field";
+                    }
+                    else
+                    {
+                        item.InputError = "";
+                    }
+                }
+
+                return View("HomePage", placeHolder);
             }
             else
             {
-                ErrorModel error = new ErrorModel();
-                error.Message = "Server error";
-                return View("ErrorView", error);
+                RandomPhraseModel rpm = new RandomPhraseModel { Id = id, Phrase = changePhrase };
+
+                var result = _dataManager.PageEditor.ChangeRandomPhrase(rpm).GetAwaiter().GetResult();
+
+                if (result)
+                {
+                    HomePagePlaceholderModel placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                    return View("HomePage", placeHolder);
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
             }
         }
 
@@ -139,7 +160,8 @@ namespace MyFlatWEB.Areas.Management.Controllers
 
             if (result)
             {
-                return View("HomePage");
+                HomePagePlaceholderModel placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                return View("HomePage", placeHolder);
             }
             else
             {

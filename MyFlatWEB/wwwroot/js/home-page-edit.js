@@ -18,3 +18,18 @@ function HideError(id) {
     label.textContent = "";
     input.value = null;
 }
+
+//function BtnClickShowError(id) {
+
+//    var button = document.getElementById(id);
+//    var input = button.previousElementSibling;
+//    var inputValue = button.previousElementSibling.value;
+//    var label = input.previousElementSibling;
+
+//    if (inputValue == "") {
+//        label.textContent = "Fill field";
+//    }
+//    else {
+//        label.textContent = "";
+//    }
+//}
