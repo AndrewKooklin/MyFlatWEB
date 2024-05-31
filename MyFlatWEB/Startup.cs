@@ -23,6 +23,8 @@ using MyFlatWEB.Areas.Management.Models;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using MyFlatWEB.Areas.Management.Models.EditPages;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 
 namespace MyFlatWEB
 {
@@ -62,9 +64,16 @@ namespace MyFlatWEB
             services.AddTransient<HomePagePlaceholderModel>();
             services.AddTransient<RandomPhraseModel>();
             services.AddTransient<TopMenuLinkNameModel>();
-
+            services.AddTransient<PhraseModel>();
+            
             services.AddMvc();
+
+            services.AddRouting(options =>
+            {
+                options.ConstraintMap.Add("HomePagePlaceholderModel", typeof(HomePagePlaceholderModel));
+            });
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -100,6 +109,15 @@ namespace MyFlatWEB
                     pattern: "{controller=Home}/{action=Index}/{id?}/{param?}");
                 endpoints.MapRazorPages();
             });
+        }
+
+        internal class ProvaRouteConstraint : IRouteConstraint
+        {
+            public bool Match(HttpContext? httpContext, IRouter? route, string routeKey,
+                              RouteValueDictionary values, RouteDirection routeDirection)
+            {
+                return false;
+            }
         }
     }
 }

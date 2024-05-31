@@ -2,8 +2,8 @@
 
 @{
     Layout = "~/Areas/Management/Views/Shared/_ManageLayout.cshtml";
-    string linkNameValue = "";
-    string randomPhrase = "";
+    string linkName = "";
+    string newRandomPhrase = "";
     string changePhrase = "";
     string leftCentralAreaText = "";
     IFormFile formFile = null;
@@ -43,16 +43,12 @@
                                            for="linkName" 
                                            class="text-danger label-name-link" 
                                            style="height:1.2rem;width:5rem;">
-                                        @item.InputError
+                                        @item.InputLinkNameError
                                     </label>
-                                    <input id="!!@item.Id"
-                                           name="linkName"
+                                    <input asp-for="@linkName"
                                            placeholder="@item.LinkName"
                                            type="text"
-                                           class="input-data-field input-sm ml-1 mr-1"
-                                           oninput="ShowError(this.id)"
-                                           onfocus="ShowError(this.id)"
-                                           onblur="HideError(this.id)"/>
+                                           class="input-data-field input-sm ml-1 mr-1"/>
                                     <button id="@item.Id"
                                             class="btn-manage btn-manage-edit btn-edit-link justify-content-end mr-1"
                                             type="submit"
@@ -84,15 +80,11 @@
                                    for="rPhrase" 
                                    class="row text-danger label-name-link" 
                                    style="height:1.2rem;width:5rem;">
+                                @Model.InputAddPhraseError
                             </label>
-                            <input id="##rPhrase"
-                                   name="phrase"
+                            <input name="phrase"
                                    type="text"
-                                   class="input-random-phrase"
-                                   value="@randomPhrase"
-                                   oninput="ShowError(this.id)"
-                                   onfocus="ShowError(this.id)"
-                                   onblur="HideError(this.id)"/>
+                                   class="input-random-phrase"/>
                             <button id="rPhrase"
                                     class="btn-manage justify-content-end mr-1 mb-1 btn-manage-add-phrase"
                                     type="submit"
@@ -109,33 +101,27 @@
                         {
                             <div class="mr-1 p-0">
                                 <form id="formChangePhrase"
+                                      asp-controller="ManageHomePage"
                                       method="post">
                                     <div class="">
-                                        <label id="$@item.Id"
-                                               for="changePhrase" 
+                                        <label id="$@item.Id" 
                                                class="row text-danger label-name-link" 
                                                style="height:1.2rem;width:5rem;">
-                                            @item.InputError
+                                            @item.InputChangePhraseError
                                         </label>
-                                        <input id="$$@item.Id"
-                                               name="changePhrase"
-                                               placeholder="@item.Phrase"
+                                        <input asp-for="@changePhrase"
                                                type="text"
-                                               class="row input-random-phrase"
-                                               onfocus="ShowError(this.id)"
-                                               oninput="ShowError(this.id)"
-                                               onblur="HideError(this.id)"/>
+                                               placeholder="@item.Phrase"
+                                               class="row input-random-phrase"/>
                                         <div class="row justify-content-end btns-random-phrase">
                                             <button class="btn-manage btn-manage-edit"
-                                                    type="submit"
-                                                    asp-controller="ManageHomePage"
                                                     asp-action="ChangeRandomPhrase"
                                                     asp-route-id="@item.Id"
+                                                    type="submit"
                                                     title="Edit phrase">
                                                 🖉
                                             </button>
                                             <button class="btn-manage btn-manage-delete mr-1"
-                                                    asp-controller="ManageHomePage"
                                                     asp-action="DeleteRandomPhrase"
                                                     asp-route-id="@item.Id"
                                                     type="submit"

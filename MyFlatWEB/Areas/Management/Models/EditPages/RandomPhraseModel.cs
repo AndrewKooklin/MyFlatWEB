@@ -12,6 +12,6 @@ namespace MyFlatWEB.Areas.Management.Models.EditPages
         public string Phrase { get; set; }
 
         [NotMapped]
-        public string InputError { get; set; }
+        public string InputChangePhraseError { get; set; }
     }
 }

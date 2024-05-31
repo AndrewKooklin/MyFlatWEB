@@ -1,6 +1,6 @@
-﻿function ShowError(id) {
+﻿function ShowError(name) {
 
-    var input = document.getElementById(id);
+    var input = document.getElementsByClassName(name)[0];
     var inputValue = input.value;
     var label = input.previousElementSibling;
 
@@ -12,8 +12,8 @@
     }
 }
 
-function HideError(id) {
-    var input = document.getElementById(id);
+function HideError(name) {
+    var input = document.getElementsByClassName(name)[0];
     var label = input.previousElementSibling;
     label.textContent = "";
     input.value = null;

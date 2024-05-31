@@ -1,4 +1,5 @@
-﻿using MyFlatWEB.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using MyFlatWEB.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,6 +12,10 @@ namespace MyFlatWEB.Areas.Management.Models.EditPages
         public List<TopMenuLinkNameModel> LinkNames { get; set; }
 
         public List<RandomPhraseModel> RandomPhrases { get; set; }
+
+        [NotMapped]
+        [BindProperty]
+        public string InputAddPhraseError { get; set; }
 
         [Required]
         [MinLength(3, ErrorMessage = "Minimum length 3 chars")]

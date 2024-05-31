@@ -24,6 +24,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
             _dataManager = dataManager;
         }
 
+        
         [Route("HomePage")]
         public IActionResult HomePage()
         {
@@ -39,6 +40,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
 
+        [HttpPost]
         [Route("ChangeNameLinkTopMenu")]
         public IActionResult ChangeNameLinkTopMenu(int id, string linkName)
         {
@@ -50,11 +52,11 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 {
                     if (item.Id == id)
                     {
-                        item.InputError = "Fill field";
+                        item.InputLinkNameError = "Fill field";
                     }
                     else
                     {
-                        item.InputError = "";
+                        item.InputLinkNameError = "";
                     }
                 }
 
@@ -82,12 +84,14 @@ namespace MyFlatWEB.Areas.Management.Controllers
             }
         }
 
+        [HttpPost]
         [Route("AddRandomPhrase")]
         public IActionResult AddRandomPhrase(string phrase)
         {
             if (String.IsNullOrEmpty(phrase))
             {
                 HomePagePlaceholderModel placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                placeHolder.InputAddPhraseError = "Fill field";
 
                 return View("HomePage", placeHolder);
             }
@@ -101,6 +105,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 if (result)
                 {
                     HomePagePlaceholderModel placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                    placeHolder.InputAddPhraseError = "";
                     return View("HomePage", placeHolder);
                 }
                 else
@@ -112,6 +117,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
             }
         }
 
+        [HttpPost]
         [Route("ChangeRandomPhrase")]
         public IActionResult ChangeRandomPhrase(int id, string changePhrase)
         {
@@ -119,15 +125,16 @@ namespace MyFlatWEB.Areas.Management.Controllers
             {
                 var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
                 var randomPhrases = placeHolder.RandomPhrases.ToList();
+                
                 foreach (var item in randomPhrases)
                 {
                     if (item.Id == id)
                     {
-                        item.InputError = "Fill field";
+                        item.InputChangePhraseError = "Fill field";
                     }
                     else
                     {
-                        item.InputError = "";
+                        item.InputChangePhraseError = "";
                     }
                 }
 
