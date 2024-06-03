@@ -256,48 +256,82 @@ namespace MyFlatWEB.Areas.Management.Controllers
                     return View("ErrorView", error);
                 }
             }
-
         }
 
         [Route("ChangeBottomAreaHeader")]
-        public IActionResult ChangeBottomAreaHeader(string bottomHeader)
+        public async  Task<IActionResult> ChangeBottomAreaHeader(string bottomAreaHeader)
         {
-            HomePagePlaceholderModel hphm = new HomePagePlaceholderModel();
-            hphm = _dataManager.PageEditor.GetHomePagePlaceholder();
-            hphm.BottomAreaHeader = bottomHeader;
+            var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
 
-            var result = _dataManager.PageEditor.ChangeBottomAreaHeader(hphm).GetAwaiter().GetResult();
-
-            if (result)
+            if (String.IsNullOrEmpty(bottomAreaHeader))
             {
-                return View("HomePage");
+                ViewBag.InputBottomHeaderError = "Fill field";
+
+                return View("HomePage", placeHolder);
+            }
+            else if (bottomAreaHeader.Length < 3)
+            {
+                ViewBag.InputBottomHeaderError = "At least 3 characters";
+
+                return View("HomePage", placeHolder);
             }
             else
             {
-                ErrorModel error = new ErrorModel();
-                error.Message = "Server error";
-                return View("ErrorView", error);
+                placeHolder.BottomAreaHeader = bottomAreaHeader;
+
+                var result = await _dataManager.PageEditor.ChangeBottomAreaHeader(placeHolder);
+
+                if (result)
+                {
+                    ViewBag.InputBottomHeaderError = "";
+                    placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                    return View("HomePage", placeHolder);
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
             }
         }
 
+
         [Route("ChangeBottomAreaContent")]
-        public IActionResult ChangeBottomAreaContent(string bottomContent)
+        public async Task<IActionResult> ChangeBottomAreaContent(string bottomAreaContent)
         {
-            HomePagePlaceholderModel hphm = new HomePagePlaceholderModel();
-            hphm = _dataManager.PageEditor.GetHomePagePlaceholder();
-            hphm.BottomAreaHeader = bottomContent;
+            var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
 
-            var result = _dataManager.PageEditor.ChangeBottomAreaContent(hphm).GetAwaiter().GetResult();
-
-            if (result)
+            if (String.IsNullOrEmpty(bottomAreaContent))
             {
-                return View("HomePage");
+                ViewBag.InputBottomTextError = "Fill field";
+
+                return View("HomePage", placeHolder);
+            }
+            else if (bottomAreaContent.Length < 3 || bottomAreaContent.Length > 500)
+            {
+                ViewBag.InputBottomTextError = "Text from 3 to 500 characters";
+
+                return View("HomePage", placeHolder);
             }
             else
             {
-                ErrorModel error = new ErrorModel();
-                error.Message = "Server error";
-                return View("ErrorView", error);
+                placeHolder.BottomAreaHeader = bottomAreaContent;
+
+                var result = await _dataManager.PageEditor.ChangeBottomAreaContent(placeHolder);
+
+                if (result)
+                {
+                    ViewBag.InputBottomTextError = "";
+                    placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                    return View("HomePage", placeHolder);
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
             }
         }
     }

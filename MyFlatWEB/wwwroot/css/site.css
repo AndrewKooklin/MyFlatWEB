@@ -385,6 +385,15 @@ body {
     margin-left: 0.3rem;
 }
 
+.btn-change-status:hover {
+    color: #071354;
+    background-color: #8ccdf7;
+    border-color: #8ccdf7;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
 .select-image {
     width: auto;
     border: none;

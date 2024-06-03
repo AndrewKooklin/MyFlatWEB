@@ -10,6 +10,8 @@
     string bottomAreaHeader = "";
     string bottomAreaContent = "";
     string LeftAreaText = ViewBag.InputLeftCentralAreaPhrase;
+    string BottomHeader = ViewBag.InputBottomHeaderError;
+    string BottomText = ViewBag.InputBottomTextError;
 
 }
 
@@ -239,21 +241,23 @@
             <div class="text-left mt-2">
                 <form id="bottomAreaHeader"
                       method="post">
-                    <div class="text-danger" asp-validation-summary="All"></div>
+                    <div class="row text-left">
+                        <label class="text-danger label-input-central-area"
+                               style="height:1.2rem;width:9rem;">
+                            @BottomHeader
+                        </label>
+                    </div>
                     <div class="mt-1">
-                        <textarea id="bottomHeader"
+                        <textarea asp-for="@bottomAreaHeader"
                                   cols="40"
                                   rows="2"
-                                  @*asp-for=""*@
-                                  placeholder="@Model.BottomAreaHeader"
-                                  value="@bottomAreaHeader"></textarea>
+                                  placeholder="@Model.BottomAreaHeader"></textarea>
                     </div>
                     <div class="mt-1">
                         <button class="btn-change-text"
                                 type="submit"
                                 asp-controller="ManageHomePage"
                                 asp-action="ChangeBottomAreaHeader"
-                                asp-route-bottomHeader="@bottomAreaHeader"
                                 title="Change header">
                             Change
                         </button>
@@ -266,21 +270,23 @@
             <div class="text-left mt-2">
                 <form id="bottomAreaContent"
                       method="post">
-                    <div class="text-danger" asp-validation-summary="All"></div>
+                    <div class="row text-left">
+                        <label class="text-danger label-input-central-area"
+                               style="height:1.2rem;width:9rem;">
+                            @BottomText
+                        </label>
+                    </div>
                     <div class="mt-1">
-                        <textarea id="bottomContent"
+                        <textarea asp-for="@bottomAreaContent"
                                   cols="50"
                                   rows="9"
-                                  @*asp-for=""*@
-                                  placeholder="@Model.BottomAreaContent"
-                                  value="@bottomAreaContent"></textarea>
+                                  placeholder="@Model.BottomAreaContent"></textarea>
                     </div>
                     <div class="mt-1">
                         <button class="btn-change-text"
                                 type="submit"
                                 asp-controller="ManageHomePage"
                                 asp-action="ChangeBottomAreaContent"
-                                asp-route-bottomContent="@bottomAreaContent"
                                 title="Change text">
                             Change
                         </button>
