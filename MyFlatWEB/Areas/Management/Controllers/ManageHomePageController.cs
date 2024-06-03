@@ -29,12 +29,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("HomePage")]
         public IActionResult HomePage()
         {
-            //byte[] photo = System.IO.File.ReadAllBytes(@"C:\repos\MyFlatWEB\MyFlatWEB\wwwroot\Images\hand-draft.webp");
-
-            //string photoStr = Convert.ToBase64String(photo);
-
-            //string m = "";
-
             var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
 
             return View(placeHolder);
