@@ -3,13 +3,13 @@
 @{
     Layout = "~/Areas/Management/Views/Shared/_ManageLayout.cshtml";
     string linkName = "";
-    string newRandomPhrase = "";
     string changePhrase = "";
     string leftCentralAreaText = "";
     IFormFile formFile = null;
     byte[] image = null;
     string bottomAreaHeader = "";
     string bottomAreaContent = "";
+    string LeftAreaText = ViewBag.InputLeftCentralAreaPhrase;
 
 }
 
@@ -40,15 +40,15 @@
                                       asp-route-id="@item.Id"
                                       method="post">
                                     <label id="!@item.Id"
-                                           for="linkName" 
-                                           class="text-danger label-name-link" 
+                                           for="linkName"
+                                           class="text-danger label-name-link"
                                            style="height:1.2rem;width:5rem;">
                                         @item.InputLinkNameError
                                     </label>
                                     <input asp-for="@linkName"
                                            placeholder="@item.LinkName"
                                            type="text"
-                                           class="input-data-field input-sm ml-1 mr-1"/>
+                                           class="input-data-field input-sm ml-1 mr-1" />
                                     <button id="@item.Id"
                                             class="btn-manage btn-manage-edit btn-edit-link justify-content-end mr-1"
                                             type="submit"
@@ -72,26 +72,26 @@
                     <h4>Add random phrase</h4>
                 </div>
                 <div class="row d-inline-flex justify-content-start ml-1">
-                        <form id="formAddPhrase"
-                              asp-controller="ManageHomePage"
-                              asp-action="AddRandomPhrase"
-                              method="post">
-                            <label id="#rPhrase"
-                                   for="rPhrase" 
-                                   class="row text-danger label-name-link" 
-                                   style="height:1.2rem;width:5rem;">
-                                @Model.InputAddPhraseError
-                            </label>
-                            <input name="phrase"
-                                   type="text"
-                                   class="input-random-phrase"/>
-                            <button id="rPhrase"
-                                    class="btn-manage justify-content-end mr-1 mb-1 btn-manage-add-phrase"
-                                    type="submit"
-                                    title="Add phrase">
-                                +
-                            </button>
-                        </form>
+                    <form id="formAddPhrase"
+                          asp-controller="ManageHomePage"
+                          asp-action="AddRandomPhrase"
+                          method="post">
+                        <label id="#rPhrase"
+                               for="rPhrase"
+                               class="row text-danger label-name-link"
+                               style="height:1.2rem;width:5rem;">
+                            @Model.InputAddPhraseError
+                        </label>
+                        <input name="phrase"
+                               type="text"
+                               class="input-random-phrase" />
+                        <button id="rPhrase"
+                                class="btn-manage justify-content-end mr-1 mb-1 btn-manage-add-phrase"
+                                type="submit"
+                                title="Add phrase">
+                            +
+                        </button>
+                    </form>
                 </div>
                 <div class="row d-inline-flex justify-content-start ml-1 mt-1">
 
@@ -104,15 +104,15 @@
                                       asp-controller="ManageHomePage"
                                       method="post">
                                     <div class="">
-                                        <label id="$@item.Id" 
-                                               class="row text-danger label-name-link" 
+                                        <label id="$@item.Id"
+                                               class="row text-danger label-name-link"
                                                style="height:1.2rem;width:5rem;">
                                             @item.InputChangePhraseError
                                         </label>
                                         <input asp-for="@changePhrase"
                                                type="text"
                                                placeholder="@item.Phrase"
-                                               class="row input-random-phrase"/>
+                                               class="row input-random-phrase" />
                                         <div class="row justify-content-end btns-random-phrase">
                                             <button class="btn-manage btn-manage-edit"
                                                     asp-action="ChangeRandomPhrase"
@@ -150,22 +150,24 @@
                 <div class="col">
                     <form id="formOrder"
                           method="post">
-                        <div class="row text-danger" asp-validation-summary="All"></div>
+                        <div class="row text-left">
+                            <label class="text-danger label-input-central-area"
+                                   style="height:1.2rem;width:9rem;">
+                                @LeftAreaText
+                            </label>
+                        </div>
                         <div class="row central-area-text">
-                            <input id="leftPhrase"
-                                   @*asp-for=""*@
+                            <input asp-for="@leftCentralAreaText"
                                    placeholder="@Model.LeftCentralAreaText"
                                    type="text"
-                                   class="input-data-field input-sm input-central-area-text"
-                                   value="@leftCentralAreaText" />
+                                   class="input-data-field input-sm input-central-area-text"/>
                         </div>
-                        <div class="row input-central-area-text mt-1 mr-1 justify-content-end">
+                        <div class="row button-change-central-text justify-content-end">
                             <button class="btn-manage btn-manage-edit"
                                     type="submit"
                                     asp-controller="ManageHomePage"
                                     asp-action="ChangeLeftCentralAreaText"
                                     asp-route-id="@Model.Id"
-                                    asp-route-leftCentralAreaPhrase="@leftCentralAreaText"
                                     title="Edit">
                                 🖉
                             </button>
@@ -178,14 +180,19 @@
                     <h3>Main image</h3>
                 </div>
                 <div class="row ml-1">
-                    <img class="pt-7 pt-md-0" src="~/Images/hand-draft.webp" width="280" height="150">
+                    @if (Model.MainPicture != null)
+                    {
+                        <img class="pt-7 pt-md-0" 
+                             src="data:image;base64,@(Convert.ToBase64String(Model.MainPicture))" 
+                             width="280" 
+                             height="150">
+                    }
                 </div>
                 <div class="row ml-4">
                     <form id="formOrder"
                           method="post"
                           enctype="multipart/form-data">
-                        <div class="row text-danger" asp-validation-summary="All"></div>
-                        <div class="row">
+                        <div class="row mt-1">
                             <label id="choose-file-label"
                                    for="mainImage"
                                    class="btn-choose-file"
@@ -197,7 +204,6 @@
                                    accept=".jpg, .jpeg, .png, .webp"
                                    placeholder="Choose image"
                                    class="select-image"
-                                   asp-for="@Model.MainPicture"
                                    name="image"
                                    value="@formFile"
                                    alt="Choose image">

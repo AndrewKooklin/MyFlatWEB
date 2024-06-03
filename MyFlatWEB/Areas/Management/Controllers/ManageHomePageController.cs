@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -180,55 +181,82 @@ namespace MyFlatWEB.Areas.Management.Controllers
 
         
         [Route("ChangeLeftCentralAreaText")]
-        public IActionResult ChangeLeftCentralAreaText(int id, string leftCentralAreaPhrase)
+        public IActionResult ChangeLeftCentralAreaText(int id, string leftCentralAreaText)
         {
-            HomePagePlaceholderModel hphm = new HomePagePlaceholderModel { Id = id, 
-                                                                            LeftCentralAreaText = leftCentralAreaPhrase };
-
-            var result = _dataManager.PageEditor.ChangeLeftCentralAreaText(hphm).GetAwaiter().GetResult();
-
-            if (result)
+            if (String.IsNullOrEmpty(leftCentralAreaText))
             {
-                return View("HomePage");
+                var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                ViewBag.InputLeftCentralAreaPhrase = "Fill field";
+
+                return View("HomePage", placeHolder);
+            }
+            else if (leftCentralAreaText.Length < 3)
+            {
+                var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                ViewBag.InputLeftCentralAreaPhrase = "At least 3 characters";
+
+                return View("HomePage", placeHolder);
             }
             else
             {
-                ErrorModel error = new ErrorModel();
-                error.Message = "Server error";
-                return View("ErrorView", error);
+                HomePagePlaceholderModel hphm = new HomePagePlaceholderModel
+                {
+                    Id = id,
+                    LeftCentralAreaText = leftCentralAreaText
+                };
+
+                var result = _dataManager.PageEditor.ChangeLeftCentralAreaText(hphm).GetAwaiter().GetResult();
+
+                if (result)
+                {
+                    var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                    ViewBag.InputLeftCentralAreaPhrase = "";
+                    return View("HomePage", placeHolder);
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
             }
         }
 
         [Route("ChangeMainImage")]
-        public async Task<IActionResult> ChangeMainImage(List<IFormFile> image)
+        public async Task<IActionResult> ChangeMainImage(IFormFile image)
         {
-            HomePagePlaceholderModel hphm = new HomePagePlaceholderModel();
-            hphm = _dataManager.PageEditor.GetHomePagePlaceholder();
+            var placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
 
-            foreach (var item in image)
+            if (image == null)
             {
-                if(item.Length > 0)
-                {
-                    using(var stream = new MemoryStream())
-                    {
-                        await item.CopyToAsync(stream);
-                        hphm.MainPicture = stream.ToArray();
-                    }
-                }
-            }
-
-            var result = _dataManager.PageEditor.ChangeMainImage(hphm).GetAwaiter().GetResult();
-
-            if (result)
-            {
-                return View("HomePage");
+                return View("HomePage", placeHolder);
             }
             else
             {
-                ErrorModel error = new ErrorModel();
-                error.Message = "Server error";
-                return View("ErrorView", error);
+                placeHolder.MainPicture = new byte[image.Length];
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(image.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)image.Length);
+                }
+                
+                placeHolder.MainPicture = imageData;
+
+                var result = await _dataManager.PageEditor.ChangeMainImage(placeHolder);
+
+                if (result)
+                {
+                    placeHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+                    return View("HomePage", placeHolder);
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
             }
+
         }
 
         [Route("ChangeBottomAreaHeader")]
