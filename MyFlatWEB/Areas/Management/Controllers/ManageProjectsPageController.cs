@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyFlatWEB.Areas.Management.Models;
 using MyFlatWEB.Areas.Management.Models.EditPages;
 using MyFlatWEB.Data;
+using MyFlatWEB.Models.Rendering;
 
 namespace MyFlatWEB.Areas.Management.Controllers
 {
@@ -25,9 +26,22 @@ namespace MyFlatWEB.Areas.Management.Controllers
             _dataManager = dataManager;
         }
 
-        public IActionResult Index()
+        [Route("Projects")]
+        public IActionResult Projects()
         {
-            return View();
+            return View("ProjectsPage");
+        }
+
+        [Route("AddProject")]
+        public IActionResult AddProject()
+        {
+            return View("AddProjectPage");
+        }
+
+        [Route("AddProjectToDB")]
+        public IActionResult AddProjectToDB(ProjectModel model, IFormFile image)
+        {
+            return View("AddProjectPage");
         }
     }
 }

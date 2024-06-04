@@ -291,16 +291,14 @@
                                     <div class="card mt-1">
                                         <div class="card-header p-0" id="headingThree">
                                             <h2 class="mb-0">
-                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
-                                                        data-toggle="collapse"
-                                                        data-target="#collapseThree"
-                                                        aria-expanded="false"
-                                                        aria-controls="collapseThree">
-                                                    <div class="heading d-flex align-items-center">
-                                                        <h3 class="mb-0 ml-3 p-3">Projects</h3>
-                                                    </div>
-                                                    @*<i class="fa-manage" aria-hidden="true"></i>*@
-                                                </button>
+                                                <a class="link-left-menu d-flex pr-4
+                                                   align-items-center justify-content-between
+                                                   btn-link collapsed mb-0 ml-3 p-3"
+                                                   asp-area="Management"
+                                                   asp-controller="ManageProjectsPage"
+                                                   asp-action="Projects">
+                                                    Projects
+                                                </a>
                                             </h2>
                                         </div>
                                     </div>

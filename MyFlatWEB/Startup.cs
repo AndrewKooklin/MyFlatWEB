@@ -65,13 +65,16 @@ namespace MyFlatWEB
             services.AddTransient<RandomPhraseModel>();
             services.AddTransient<TopMenuLinkNameModel>();
             services.AddTransient<PhraseModel>();
-            
+            services.AddTransient<ProjectModel>();
+
             services.AddMvc();
 
-            services.AddRouting(options =>
-            {
-                options.ConstraintMap.Add("HomePagePlaceholderModel", typeof(HomePagePlaceholderModel));
-            });
+            services.AddRouting();
+
+            //services.AddRouting(options =>
+            //{
+            //    options.ConstraintMap.Add("HomePagePlaceholderModel", typeof(HomePagePlaceholderModel));
+            //});
         }
 
 
@@ -111,13 +114,13 @@ namespace MyFlatWEB
             });
         }
 
-        internal class ProvaRouteConstraint : IRouteConstraint
-        {
-            public bool Match(HttpContext? httpContext, IRouter? route, string routeKey,
-                              RouteValueDictionary values, RouteDirection routeDirection)
-            {
-                return false;
-            }
-        }
+        //internal class ProvaRouteConstraint : IRouteConstraint
+        //{
+        //    public bool Match(HttpContext? httpContext, IRouter? route, string routeKey,
+        //                      RouteValueDictionary values, RouteDirection routeDirection)
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

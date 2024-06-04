@@ -1,5 +1,21 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Edit Projects Page";
 }
+
+<div class="container">
+    <section id="addProject">
+        <div class="row text-left mt-3">
+            <h3>Add new project</h3>
+        </div>
+        <div class="row">
+            <a class="btn btn-primary" 
+               asp-area="Management" 
+               asp-controller="ManageProjectsPage" 
+               asp-action="AddProject">Add</a>
+        </div>
+    </section>
+
+    <section id="editProjects">
+
+    </section>
+</div>
