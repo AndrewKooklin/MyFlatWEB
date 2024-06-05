@@ -32,5 +32,7 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         Task<bool> AddProjectToDB(ProjectModel model);
 
         ProjectModel GetProjectById(int id);
+
+        Task<bool> ChangeProject(ProjectModel model);
     }
 }

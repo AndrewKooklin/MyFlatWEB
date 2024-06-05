@@ -223,5 +223,22 @@ namespace MyFlatWEB.Data.Repositories.API
 
             return project;
         }
+
+        public async Task<bool> ChangeProject(ProjectModel model)
+        {
+            urlRequest = $"{url}" + "ProjectsPageEditAPI/ChangeProject/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }

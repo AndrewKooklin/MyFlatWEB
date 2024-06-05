@@ -42,27 +42,14 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("AddProjectToDB")]
         public async Task<IActionResult> AddProjectToDB(ProjectModel model, IFormFile image)
         {
-            if (String.IsNullOrEmpty(model.ProjectHeader))
+            if (String.IsNullOrEmpty(model.ProjectHeader) ||
+                String.IsNullOrEmpty(model.ProjectDescription) ||
+                image == null)
             {
-                ViewBag.HeaderText = "Fill field";
-                return View("AddProjectPage");
-            }
-            else if(String.IsNullOrEmpty(model.ProjectDescription))
-            {
-                ViewBag.DescriptionText = "Fill field";
-                return View("AddProjectPage");
-            }
-            else if (image == null)
-            {
-                ViewBag.HeaderText = "";
-                ViewBag.DescriptionText = "";
                 return View("AddProjectPage");
             }
             else
             {
-                ViewBag.HeaderText = "";
-                ViewBag.DescriptionText = "";
-
                 model.ProjectImage = new byte[image.Length];
                 byte[] imageData = null;
                 using (var binaryReader = new BinaryReader(image.OpenReadStream()))
@@ -86,7 +73,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
                     return View("ErrorView", error);
                 }
             }
-            
         }
 
         [Route("ChangeProjectPage")]
@@ -96,6 +82,40 @@ namespace MyFlatWEB.Areas.Management.Controllers
             return View("ChangeProjectPage", project);
         }
 
-        
+        [Route("ChangeProject")]
+        public async Task<IActionResult> ChangeProject(ProjectModel model, IFormFile image)
+        {
+            if (String.IsNullOrEmpty(model.ProjectHeader) ||
+                String.IsNullOrEmpty(model.ProjectDescription) ||
+                image == null)
+            {
+                return View("AddProjectPage");
+            }
+            else
+            {
+                model.ProjectImage = new byte[image.Length];
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(image.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)image.Length);
+                }
+
+                model.ProjectImage = imageData;
+
+                bool result = await _dataManager.PageEditor.ChangeProject(model);
+
+                if (result)
+                {
+                    var projects = _dataManager.PageEditor.GetProjectsFromDB();
+                    return View("ProjectsPage", projects);
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
+            }
+        }
     }
 }
