@@ -47,7 +47,6 @@ namespace MyFlatWEB
             services.AddDefaultIdentity<IdentityUser>()
                     .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-            services.AddRazorPages();
             services.AddTransient<IAccountRepository, APIAccountRepository>();
             services.AddTransient<IRenderingRepository, APIRenderingRepository>();
             services.AddTransient<IPageEditorRepository, APIPageEditorRepository>();

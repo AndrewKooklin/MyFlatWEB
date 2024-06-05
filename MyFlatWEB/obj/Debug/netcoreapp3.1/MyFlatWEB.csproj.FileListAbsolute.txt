@@ -457,7 +457,6 @@ C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\refs\System.ServiceProcess.
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\refs\System.Text.Encoding.CodePages.dll
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\refs\System.Text.Encoding.dll
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\refs\System.Text.Encoding.Extensions.dll
-C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\refs\System.Text.Encodings.Web.dll
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\refs\System.Text.RegularExpressions.dll
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\refs\System.Threading.Channels.dll
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\refs\System.Threading.dll
@@ -493,3 +492,4 @@ C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.csproj.CoreCompil
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.MvcApplicationPartsAssemblyInfo.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.MvcApplicationPartsAssemblyInfo.cache
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.csprojAssemblyReference.cache
+C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
