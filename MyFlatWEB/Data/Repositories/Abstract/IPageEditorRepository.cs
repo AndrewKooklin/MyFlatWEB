@@ -1,4 +1,5 @@
 ﻿using MyFlatWEB.Areas.Management.Models.EditPages;
+using MyFlatWEB.Models.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,5 +26,7 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         Task<bool> ChangeBottomAreaHeader(HomePagePlaceholderModel model);
 
         Task<bool> ChangeBottomAreaContent(HomePagePlaceholderModel model);
+
+        Task<bool> AddProjectToDB(ProjectModel model);
     }
 }

@@ -41,7 +41,39 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("AddProjectToDB")]
         public IActionResult AddProjectToDB(ProjectModel model, IFormFile image)
         {
-            return View("AddProjectPage");
+            if (String.IsNullOrEmpty(model.ProjectHeader))
+            {
+                ViewBag.HeaderText = "Fill field";
+                return View("AddProjectPage");
+            }
+            else if(String.IsNullOrEmpty(model.ProjectDescription))
+            {
+                ViewBag.DescriptionText = "Fill field";
+                return View("AddProjectPage");
+            }
+            else if (image == null)
+            {
+                ViewBag.HeaderText = "";
+                ViewBag.DescriptionText = "";
+                return View("AddProjectPage");
+            }
+            else
+            {
+                ViewBag.HeaderText = "";
+                ViewBag.DescriptionText = "";
+
+                model.ProjectImage = new byte[image.Length];
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(image.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)image.Length);
+                }
+
+                model.ProjectImage = imageData;
+
+                return View("ProjectsPage");
+            }
+            
         }
     }
 }

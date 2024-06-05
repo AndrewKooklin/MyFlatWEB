@@ -6,6 +6,7 @@
     string HeaderLabelText = ViewBag.HeaderText;
     string DescriptionLabelText = ViewBag.DescriptionText;
     IFormFile formFile = null;
+    string image = "";
 }
 
 <html>
@@ -28,46 +29,54 @@
                   method="post"
                   enctype="multipart/form-data">
                 <div class="row mt-1">
+                    <h3>Header</h3>
                     <label class="text-danger label-name-link"
                            style="height:1.2rem;width:5rem;">
                         @HeaderLabelText
                     </label>
+                </div>
+                <div>
                     <input asp-for="@Model.ProjectHeader"
                            type="text"
+                           placeholder="Add header"
                            class="input-data-field input-sm ml-1 mr-1" />
                 </div>
                 <div class="row mt-1">
+                    <h3>Description</h3>
                     <label class="text-danger label-name-link"
                            style="height:1.2rem;width:5rem;">
                         @DescriptionLabelText
                     </label>
+                </div>
+                <div>
                     <textarea asp-for="@Model.ProjectDescription"
                               cols="40"
-                              rows="10"></textarea>
+                              rows="10"
+                              placeholder="Add description"></textarea>
                 </div>
-                <div class="row mt-1">
+                <div class="mt-1">
                     <label id="choose-file-label"
-                           for="mainImage"
+                           for="Image"
                            class="btn-choose-file"
                            title="Choose image">
                         Choose image
                     </label>
-                    <input id="image"
+                    <input id="Image"
                            type="file"
                            accept=".jpg, .jpeg, .png, .webp"
                            placeholder="Choose image"
                            class="select-image"
                            name="image"
                            value="@formFile"
-                           alt="Choose image">
+                           alt="Choose image"/>
                     <label id="choose-file-text"
                            class="label-not-choose-image">
-                        Image not choosed
+                        Image not choosed !
                     </label>
                 </div>
-                <button class="btn-manage btn-manage-edit btn-edit-link justify-content-end mr-1"
+                <button class="btn btn-primary justify-content-end mr-1"
                         type="submit"
-                        title="Edit link name">
+                        title="Add project">
                     Add
                 </button>
             </form>
@@ -78,9 +87,9 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        $('#image').change(function () {
+        $('#Image').change(function () {
             var i = $(this).prev('label').clone();
-            var file = $('#image')[0].files[0].name;
+            var file = $('#Image')[0].files[0].name;
             $(this).prev('label').text(file);
             $(this).next('label').removeClass('label-not-choose-image');
             $(this).next('label').addClass('label-choose-image');
