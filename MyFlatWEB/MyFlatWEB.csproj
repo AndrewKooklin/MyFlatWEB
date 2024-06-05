@@ -39,7 +39,6 @@
     <Content Remove="Areas\Management\Views\Shared\_InputDataPartial.cshtml" />
     <Content Remove="Views\Shared\Error.cshtml" />
     <Content Remove="Views\Shared\ErrorView.cshtml" />
-    <Content Remove="Views\Shared\_ManageLayout.cshtml" />
     <Content Remove="wwwroot\css\bootstrap-datetimepicker.min.css" />
     <Content Remove="wwwroot\css\jquery-ui.css" />
     <Content Remove="wwwroot\css\jquery-ui.js" />
@@ -63,6 +62,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.32" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.32" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.32" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.32">
       <PrivateAssets>all</PrivateAssets>

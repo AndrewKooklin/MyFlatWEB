@@ -25,6 +25,7 @@ using Microsoft.AspNetCore.Localization;
 using MyFlatWEB.Areas.Management.Models.EditPages;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.FileProviders;
 
 namespace MyFlatWEB
 {
@@ -70,6 +71,8 @@ namespace MyFlatWEB
             services.AddMvc();
 
             services.AddRouting();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+
 
             //services.AddRouting(options =>
             //{
