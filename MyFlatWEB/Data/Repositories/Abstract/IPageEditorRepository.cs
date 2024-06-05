@@ -27,6 +27,10 @@ namespace MyFlatWEB.Data.Repositories.Abstract
 
         Task<bool> ChangeBottomAreaContent(HomePagePlaceholderModel model);
 
+        List<ProjectModel> GetProjectsFromDB();
+
         Task<bool> AddProjectToDB(ProjectModel model);
+
+        ProjectModel GetProjectById(int id);
     }
 }

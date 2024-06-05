@@ -29,7 +29,8 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("Projects")]
         public IActionResult Projects()
         {
-            return View("ProjectsPage");
+            var projects = _dataManager.PageEditor.GetProjectsFromDB();
+            return View("ProjectsPage", projects);
         }
 
         [Route("AddProject")]
@@ -39,7 +40,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [Route("AddProjectToDB")]
-        public IActionResult AddProjectToDB(ProjectModel model, IFormFile image)
+        public async Task<IActionResult> AddProjectToDB(ProjectModel model, IFormFile image)
         {
             if (String.IsNullOrEmpty(model.ProjectHeader))
             {
@@ -71,9 +72,30 @@ namespace MyFlatWEB.Areas.Management.Controllers
 
                 model.ProjectImage = imageData;
 
-                return View("ProjectsPage");
+                bool result = await _dataManager.PageEditor.AddProjectToDB(model);
+
+                if (result)
+                {
+                    var projects = _dataManager.PageEditor.GetProjectsFromDB();
+                    return View("ProjectsPage", projects);
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
             }
             
         }
+
+        [Route("ChangeProjectPage")]
+        public IActionResult ChangeProjectPage(int id)
+        {
+            var project = _dataManager.PageEditor.GetProjectById(id) ;
+            return View("ChangeProjectPage", project);
+        }
+
+        
     }
 }

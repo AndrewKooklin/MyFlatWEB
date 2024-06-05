@@ -489,3 +489,51 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+.all-projects{
+    width:55rem;
+}
+
+.card-project {
+    width: 13rem;
+    margin: 0.6rem 0 0 0.3rem;
+}
+
+.img-project {
+    width: 100%;
+    height: 8rem;
+    margin: 0;
+    padding: 0;
+}
+
+.label-header-project {
+    width: 100%;
+    height: 1.5rem;
+    background-color: #eeeaea;
+    color: darkblue;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    padding: 2px;
+}
+
+.btns-card-project{
+    width: 100%;
+    padding-right: 0.2rem;
+}
+
+.label-project {
+    width: 10rem;
+    height: 1.5rem;
+    color: darkblue;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.input-project-header{
+    width:20rem;
+}
+
+.input-project-desc {
+    width: 30rem;
+}

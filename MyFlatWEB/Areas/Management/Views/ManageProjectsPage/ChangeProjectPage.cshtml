@@ -1,12 +1,9 @@
 ﻿@model ProjectModel
 
 @{
-    ViewData["Title"] = "Add Project";
+    ViewData["Title"] = "Change Project";
 
-    string HeaderLabelText = ViewBag.HeaderText;
-    string DescriptionLabelText = ViewBag.DescriptionText;
     IFormFile formFile = null;
-    string image = "";
 }
 
 <html>
@@ -23,12 +20,13 @@
         <div class="col">
             <section id="addProject">
                 <div class="row text-left pt-3 ml-1">
-                    <h3>Add new project</h3>
+                    <h3>Change project</h3>
                 </div>
                 <div class="row mt-2 d-block">
-                    <form id="addProjectModel"
+                    <form id="changeProject"
                           asp-controller="ManageProjectsPage"
-                          asp-action="AddProjectToDB"
+                          asp-action="ChangeProject"
+                          asp-route-id="@Model.Id"
                           method="post"
                           enctype="multipart/form-data">
                         <div class="ml-3">
@@ -41,8 +39,8 @@
                             <div class="">
                                 <input asp-for="@Model.ProjectHeader"
                                        type="text"
-                                       placeholder="Add header"
-                                       class="form-control mr-1 input-project-header" />
+                                       placeholder="@Model.ProjectHeader"
+                                       class="form-control mr-1 input-project-header"/>
                             </div>
                         </div>
                         <div class="mt-1 ml-3 d-block">
@@ -56,7 +54,7 @@
                                 <textarea asp-for="@Model.ProjectDescription"
                                           cols="40"
                                           rows="5"
-                                          placeholder="Add description"
+                                          placeholder="@Model.ProjectDescription"
                                           class="form-control input-project-desc"></textarea>
                             </div>
                         </div>
@@ -66,6 +64,13 @@
                                        class="mt-1 label-project">Project Image</label>
                                 <span asp-validation-for="@Model.ProjectImage"
                                       class="text-danger"></span>
+                            </div>
+                            <div class="mt-1">
+                                @if (Model.ProjectImage != null)
+                                {
+                                    <img class="img-project"
+                                         src="data:image;base64,@(Convert.ToBase64String(Model.ProjectImage))">
+                                }
                             </div>
                             <div class="mt-1">
                                 <label id="choose-file-label"
@@ -91,8 +96,8 @@
                         <div class="mt-3 ml-3">
                             <button class="btn btn-primary justify-content-end mr-1"
                                     type="submit"
-                                    title="Add project">
-                                Add
+                                    title="Change project">
+                                Change
                             </button>
                         </div>
                     </form>
@@ -101,18 +106,3 @@
         </div>
     </div>
 </div>
-
-@*<script type="text/javascript">
-
-    $(document).ready(function () {
-        $('#Image').change(function () {
-            var i = $(this).prev('label').clone();
-            var file = $('#Image')[0].files[0].name;
-            $(this).prev('label').text(file);
-            $(this).next('label').removeClass('label-not-choose-image');
-            $(this).next('label').addClass('label-choose-image');
-            $(this).next('label').text("Image choosed");
-        });
-    });
-
-</script>*@
