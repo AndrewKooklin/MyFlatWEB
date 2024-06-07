@@ -257,5 +257,21 @@ namespace MyFlatWEB.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public List<ServiceModel> GetServicesFromDB()
+        {
+            List<ServiceModel> projects = new List<ServiceModel>();
+
+            urlRequest = $"{url}" + "ServicesPageEditAPI/GetServicesFromDB";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                projects = JsonConvert.DeserializeObject<List<ServiceModel>>(result);
+            }
+
+            return projects;
+        }
     }
 }
