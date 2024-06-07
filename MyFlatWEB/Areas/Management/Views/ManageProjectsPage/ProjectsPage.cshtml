@@ -9,16 +9,17 @@
             <h3>Add new project</h3>
         </div>
         <div class="row ml-3">
-            <a class="btn btn-primary"
+            <a class="btn btn-primary btn-effect"
                asp-area="Management"
                asp-controller="ManageProjectsPage"
-               asp-action="AddProject">Add</a>
+               asp-action="AddProject"
+               title="Add project">Add</a>
         </div>
     </section>
 
     <section id="editProjects">
         <div class="row mt-3 ml-1">
-            <h2>Edit projects</h2>
+            <h3>Edit projects</h3>
         </div>
 
         <div class="row d-inline-flex justify-content-start ml-1 mt-1 all-projects">
@@ -55,7 +56,7 @@
                                     🖉
                                 </button>
                                 <button class="btn-manage btn-manage-delete mr-1"
-                                        asp-action="DeleteProject"
+                                        asp-action="DeleteProjectById"
                                         asp-route-id="@item.Id"
                                         type="submit"
                                         title="Delete project">

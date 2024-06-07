@@ -541,3 +541,14 @@ body {
 .img-project-change{
     width: 13rem;
 }
+
+.btn-effect {
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-effect:hover {
+    background-color:#99ceff;
+    color:#040a5d;
+}

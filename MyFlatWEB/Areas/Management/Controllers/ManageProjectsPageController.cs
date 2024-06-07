@@ -79,9 +79,10 @@ namespace MyFlatWEB.Areas.Management.Controllers
         public IActionResult ChangeProjectPage(int id)
         {
             var project = _dataManager.PageEditor.GetProjectById(id) ;
+            ViewBag.FileName = "Choose image";
             return View("ChangeProjectPage", project);
         }
-
+        
         [Route("ChangeProject")]
         public async Task<IActionResult> ChangeProject(ProjectModel model, IFormFile image)
         {
@@ -89,10 +90,12 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 String.IsNullOrEmpty(model.ProjectDescription) ||
                 image == null)
             {
-                return View("AddProjectPage");
+                ViewBag.FileName = "Choose image";
+                return View("ChangeProjectPage", model);
             }
             else
             {
+                ViewBag.FileName = image.FileName;
                 model.ProjectImage = new byte[image.Length];
                 byte[] imageData = null;
                 using (var binaryReader = new BinaryReader(image.OpenReadStream()))
@@ -117,5 +120,24 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 }
             }
         }
+
+        [Route("DeleteProjectById")]
+        public async Task<IActionResult> DeleteProjectById(int id)
+        {
+            bool result = await _dataManager.PageEditor.DeleteProjectById(id);
+
+            if (result)
+            {
+                var projects = _dataManager.PageEditor.GetProjectsFromDB();
+                return RedirectToAction("ProjectsPage", projects);
+            }
+            else
+            {
+                ErrorModel error = new ErrorModel();
+                error.Message = "Server error";
+                return View("ErrorView", error);
+            }
+        }
+        
     }
 }

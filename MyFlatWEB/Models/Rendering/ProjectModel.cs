@@ -12,6 +12,8 @@ namespace MyFlatWEB.Models.Rendering
         [Display(Name = "Project Image")]
         public byte[] ProjectImage { get; set; }
 
+        //public string ProjectImageName { get; set; }
+
         [Required(ErrorMessage = "Fill in the field \"Header\"")]
         [MinLength(3, ErrorMessage = "Length of at least 3 characters.")]
         [Display(Name = "Project Header")]
