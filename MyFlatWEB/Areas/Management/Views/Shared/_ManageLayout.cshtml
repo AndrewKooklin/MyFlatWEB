@@ -23,14 +23,19 @@
                    asp-area=""
                    asp-controller="Home"
                    asp-action="Index">
-                    <img class="mt-2 pt-md-0 main-logo" src="~/Images/kind.png" width="60" height="45" alt="header-logo">
+                    <img class="mt-2 pt-md-0 main-logo" 
+                         src="~/Images/kind.png" 
+                         width="60" 
+                         height="45" 
+                         alt="header-logo">
                 </a>
             </div>
             <div id="accordion" class="manage-accordion w-100">
                 <div class="card mt-1">
                     <div class="card-header p-0" id="headingOne">
                         <h2 class="mb-0">
-                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                            <button class="d-flex pr-4 align-items-center justify-content-between 
+                                           btn btn-link collapsed"
                                     data-toggle="collapse"
                                     data-target="#collapseOne"
                                     aria-expanded="false"
@@ -61,7 +66,9 @@
                                 <li>
                                     <a asp-area="Management"
                                        asp-controller="ManageView"
-                                       asp-action="AllOrders" class="d-flex justify-content-between align-items-center">
+                                       asp-action="AllOrders" 
+                                       class="d-flex justify-content-between 
+                                              align-items-center">
                                         <p>All orders</p>
                                         <i class="ion-ios-arrow-forward"></i>
                                     </a>
@@ -105,7 +112,7 @@
                                                    align-items-center justify-content-between
                                                    btn-link collapsed mb-0 ml-3 p-3"
                                asp-area="Management"
-                               asp-controller="ManageProjectsPage"
+                               asp-controller="ManageServicesPage"
                                asp-action="Services">
                                 Services
                             </a>
@@ -116,10 +123,10 @@
                     <div class="card-header p-0" id="headingFive">
                         <h2 class="mb-0">
                             <a class="link-left-menu d-flex pr-4
-                                                   align-items-center justify-content-between
-                                                   btn-link collapsed mb-0 ml-3 p-3"
+                                      align-items-center justify-content-between
+                                      btn-link collapsed mb-0 ml-3 p-3"
                                asp-area="Management"
-                               asp-controller="ManageProjectsPage"
+                               asp-controller="ManageBlogsPage"
                                asp-action="Blogs">
                                 Blogs
                             </a>
@@ -129,11 +136,11 @@
                 <div class="card mt-1">
                     <div class="card-header p-0" id="headingSix">
                         <h2 class="mb-0">
-                            <a class="link-left-menu d-flex pr-4
-                                                   align-items-center justify-content-between
-                                                   btn-link collapsed mb-0 ml-3 p-3"
+                            <a class="link-left-menu d-flex pr-4 
+                               align-items-center justify-content-between 
+                               btn-link collapsed mb-0 ml-3 p-3"
                                asp-area="Management"
-                               asp-controller="ManageProjectsPage"
+                               asp-controller="ManageContactsPage"
                                asp-action="Contacts">
                                 Contacts
                             </a>
@@ -143,7 +150,8 @@
                 <div class="card mt-1">
                     <div class="card-header p-0" id="headingSeven">
                         <h2 class="mb-0">
-                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                            <button class="d-flex pr-4 align-items-center justify-content-between 
+                                    btn btn-link collapsed"
                                     data-toggle="collapse"
                                     data-target="#collapseSeven"
                                     aria-expanded="false"
@@ -181,7 +189,8 @@
                 <div class="card mt-1">
                     <div class="card-header p-0" id="headingEight">
                         <h2 class="mb-0">
-                            <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                            <button class="d-flex pr-4 align-items-center justify-content-between 
+                                    btn btn-link collapsed"
                                     data-toggle="collapse"
                                     data-target="#collapseEight"
                                     aria-expanded="false"
@@ -219,19 +228,29 @@
                 <div id="mobile" class="container mean-container">
                     <nav class="navbar navbar-expand-xxl navbar-toggleable-sm navbar-light mb-3">
                         <div class="container">
-                            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                            <a class="navbar-brand" 
+                               asp-area="" 
+                               asp-controller="Home" 
+                               asp-action="Index">
                                 <img class="pt-7 pt-md-0" src="~/Images/kind.png" width="60" alt="header-logo">
                             </a>
-                            <button class="navbar-toggler bg-blue" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler bg-blue" 
+                                    type="button" 
+                                    data-toggle="collapse" 
+                                    data-target=".navbar-collapse" 
+                                    aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" 
+                                    aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="navbar-collapse collapse d-xl-inline-flex">
-                                <div id="accordion" class="manage-accordion w-100">
+                                <div id="accordion" 
+                                     class="manage-accordion w-100">
                                     <div class="card mt-1">
                                         <div class="card-header p-0" id="headingOne">
                                             <h2 class="mb-0">
-                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                <button class="d-flex pr-4 align-items-center 
+                                                        justify-content-between btn btn-link collapsed"
                                                         data-toggle="collapse"
                                                         data-target="#collapseOne"
                                                         aria-expanded="false"
@@ -253,7 +272,8 @@
                                                     <li class="">
                                                         <a asp-controller="ManageView" 
                                                            asp-action="ManageHome" 
-                                                           class="d-flex justify-content-between align-items-center">
+                                                           class="d-flex justify-content-between 
+                                                                  align-items-center">
                                                             <p>Orders by service</p>
                                                             <i class="ion-ios-arrow-forward"></i>
                                                         </a>
@@ -261,7 +281,8 @@
                                                     <li>
                                                         <a asp-controller="ManageView" 
                                                            asp-action="AllOrders" 
-                                                           class="d-flex justify-content-between align-items-center">
+                                                           class="d-flex justify-content-between 
+                                                                  align-items-center">
                                                             <p>All orders</p>
                                                             <i class="ion-ios-arrow-forward"></i>
                                                         </a>
@@ -343,7 +364,8 @@
                                     <div class="card mt-1">
                                         <div class="card-header p-0" id="headingSeven">
                                             <h2 class="mb-0">
-                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                <button class="d-flex pr-4 align-items-center 
+                                                        justify-content-between btn btn-link collapsed"
                                                         data-toggle="collapse"
                                                         data-target="#collapseSeven"
                                                         aria-expanded="false"
@@ -363,13 +385,15 @@
                                             <div class="card-body p-0">
                                                 <ul>
                                                     <li>
-                                                        <a href="#" class="d-flex justify-content-between align-items-center">
+                                                        <a href="#" class="d-flex justify-content-between 
+                                                                           align-items-center">
                                                             <p>Add user</p>
                                                             <i class="ion-ios-arrow-forward"></i>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="#" class="d-flex justify-content-between align-items-center">
+                                                        <a href="#" class="d-flex justify-content-between 
+                                                                           align-items-center">
                                                             <p>Add role to user</p>
                                                             <i class="ion-ios-arrow-forward"></i>
                                                         </a>
@@ -381,7 +405,8 @@
                                     <div class="card mt-1">
                                         <div class="card-header p-0" id="headingEight">
                                             <h2 class="mb-0">
-                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                <button class="d-flex pr-4 align-items-center 
+                                                               justify-content-between btn btn-link collapsed"
                                                         data-toggle="collapse"
                                                         data-target="#collapseEight"
                                                         aria-expanded="false"
@@ -401,7 +426,8 @@
                                             <div class="card-body p-0">
                                                 <ul>
                                                     <li>
-                                                        <a href="#" class="d-flex justify-content-between align-items-center">
+                                                        <a href="#" class="d-flex justify-content-between 
+                                                                           align-items-center">
                                                             <p>Add role</p>
                                                             <i class="ion-ios-arrow-forward"></i>
                                                         </a>

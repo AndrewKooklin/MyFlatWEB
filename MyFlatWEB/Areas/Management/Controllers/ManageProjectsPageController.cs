@@ -128,8 +128,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
 
             if (result)
             {
-                var projects = _dataManager.PageEditor.GetProjectsFromDB();
-                return RedirectToAction("ProjectsPage", projects);
+                return RedirectToAction("Projects", "ManageProjectsPage");
             }
             else
             {

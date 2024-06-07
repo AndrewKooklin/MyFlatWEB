@@ -36,5 +36,7 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         Task<bool> ChangeProject(ProjectModel model);
 
         Task<bool> DeleteProjectById(int id);
+
+        List<ServiceModel> GetServicesFromDB();
     }
 }
