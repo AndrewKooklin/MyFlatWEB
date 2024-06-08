@@ -41,12 +41,16 @@ namespace MyFlatWEB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddRouting();
+            services.AddControllersWithViews();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                     .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews();
+            
             services.AddTransient<IAccountRepository, APIAccountRepository>();
             services.AddTransient<IRenderingRepository, APIRenderingRepository>();
             services.AddTransient<IPageEditorRepository, APIPageEditorRepository>();
@@ -54,8 +58,8 @@ namespace MyFlatWEB
             services.AddTransient<ErrorModel>();
             services.AddTransient<UserRolesModel>();
             services.AddTransient<UserRoles>();
-            services.AddTransient<ServicesModel>();
             services.AddTransient<OrdersModel>();
+            services.AddTransient<ServicesModel>();
             services.AddTransient<ChangeStatusModel>();
             services.AddTransient<RandomString>();
             services.AddTransient<InputDataModel>();
@@ -66,17 +70,10 @@ namespace MyFlatWEB
             services.AddTransient<TopMenuLinkNameModel>();
             services.AddTransient<PhraseModel>();
             services.AddTransient<ProjectModel>();
-
-            services.AddMvc();
-
-            services.AddRouting();
-            services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddTransient<ServiceModel>();
+            services.AddTransient<PostModel>();
 
 
-            //services.AddRouting(options =>
-            //{
-            //    options.ConstraintMap.Add("HomePagePlaceholderModel", typeof(HomePagePlaceholderModel));
-            //});
         }
 
 
@@ -115,14 +112,5 @@ namespace MyFlatWEB
                 endpoints.MapRazorPages();
             });
         }
-
-        //internal class ProvaRouteConstraint : IRouteConstraint
-        //{
-        //    public bool Match(HttpContext? httpContext, IRouter? route, string routeKey,
-        //                      RouteValueDictionary values, RouteDirection routeDirection)
-        //    {
-        //        return false;
-        //    }
-        //}
     }
 }
