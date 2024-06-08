@@ -62,7 +62,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 if (result)
                 {
                     var posts = _dataManager.PageEditor.GetPostsFromDB();
-                    return View("ProjectsPage", posts);
+                    return View("PostsPage", posts);
                 }
                 else
                 {
@@ -78,7 +78,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         {
             var post = _dataManager.PageEditor.GetPostById(id);
             ViewBag.FileName = "Choose image";
-            return View("ChangeProjectPage", post);
+            return View("ChangePostPage", post);
         }
 
         [Route("ChangePost")]

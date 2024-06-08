@@ -1,5 +1,83 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<PostModel>
 @{
+    ViewData["Title"] = "Edit Posts Page";
 }
+
+<div class="ml-3">
+    <section id="addPost">
+        <div class="row text-left pt-3 ml-1">
+            <h3>Add new post</h3>
+        </div>
+        <div class="row ml-3">
+            <a class="btn btn-primary btn-effect"
+               asp-area="Management"
+               asp-controller="ManageBlogPage"
+               asp-action="AddPost"
+               title="Add post">Add</a>
+        </div>
+    </section>
+
+    <section id="editPosts">
+        <div class="row mt-3 ml-1">
+            <h3>Edit posts</h3>
+        </div>
+
+        <div class="row d-inline-flex justify-content-start ml-1 mt-1 all-projects">
+
+            @if (Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="card-project">
+                        <form id="formChangePost"
+                              asp-controller="ManageBlogPage"
+                              asp-route-id="@item.Id"
+                              method="post">
+                            <div class="d-block">
+                                <div class="posting-data">
+                                    <label>
+                                        @item.PostingDate.ToString("dd MMMM yyyy")
+                                    </label>
+                                </div>
+                                <div class="">
+                                    @if (item.PostImage != null)
+                                    {
+                                        <img class="img-project"
+                                             src="data:image;base64,@(Convert.ToBase64String(item.PostImage))">
+                                    }
+                                </div>
+                                <div class="label-header-project">
+                                    <label>
+                                        @item.PostHeader
+                                    </label>
+                                </div>
+                                <div class="post-desc">
+                                    <p>
+                                        @item.PostDescription
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text-right btns-card-project">
+                                <button class="btn-manage btn-manage-edit"
+                                        asp-action="ChangePostPage"
+                                        asp-route-id="@item.Id"
+                                        type="submit"
+                                        title="Edit post">
+                                    🖉
+                                </button>
+                                <button class="btn-manage btn-manage-delete mr-1"
+                                        asp-action="DeletePostById"
+                                        asp-route-id="@item.Id"
+                                        type="submit"
+                                        title="Delete post">
+                                    🗑
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                }
+            }
+        </div>
+    </section>
+</div>
+

@@ -87,7 +87,7 @@ namespace MyFlatWEB.Controllers
             return View();
         }
 
-        public IActionResult Blogs()
+        public IActionResult Blog()
         {
             return View();
         }
