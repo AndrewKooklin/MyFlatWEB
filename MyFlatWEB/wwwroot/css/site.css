@@ -499,6 +499,11 @@ body {
     margin: 0.6rem 0 0 0.3rem;
 }
 
+.card-service {
+    width: 43rem;
+    margin: 0.6rem 0 0 0.3rem;
+}
+
 .img-project {
     width: 100%;
     height: 8rem;
@@ -520,6 +525,12 @@ body {
 .btns-card-project{
     width: 100%;
     padding-right: 0.2rem;
+}
+
+.btns-card-service {
+    width: 5rem;
+    display: flex;
+    justify-items:
 }
 
 .label-project {
@@ -551,4 +562,10 @@ body {
 .btn-effect:hover {
     background-color:#99ceff;
     color:#040a5d;
+}
+
+.card-service-header{
+    width: 40rem;
+    display:block;
+    border-radius: 2rem;
 }

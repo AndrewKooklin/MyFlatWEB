@@ -12,7 +12,7 @@
             <a class="btn btn-primary btn-effect"
                asp-area="Management"
                asp-controller="ManageServicesPage"
-               asp-action="AddService"
+               asp-action="AddServicePage"
                title="Add service">Add</a>
         </div>
     </section>
@@ -28,27 +28,44 @@
             {
                 @foreach (var item in Model)
                 {
-                    <div class="card-project">
+                    <div class="card-service">
                         <form id="formChangeService"
                               asp-controller="ManageServicesPage"
                               asp-route-id="@item.Id"
                               method="post">
-                            <div class="d-inline-block">
-                                <div class="d-block">
                                     <div class="card mt-1">
-                                        <div class="card-header p-0" id="heading-@item.Id">
-                                            <h2 class="mb-0">
-                                                <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
-                                                        data-toggle="collapse"
-                                                        data-target="#collapse-@item.Id"
-                                                        aria-expanded="false"
-                                                        aria-controls="collapse-@item.Id">
-                                                    <div class="heading d-flex align-items-center">
-                                                        <h3 class="mb-0 ml-3 p-3">@item.ServiceName</h3>
-                                                    </div>
-                                                    <i class="fa" aria-hidden="true"></i>
+                                        <div class="d-flex">
+                                            <div class="card-service-header p-0" id="heading-@item.Id">
+                                                <h2 class="mb-0">
+                                                    <button class="d-flex pr-4 align-items-center justify-content-between btn btn-link collapsed"
+                                                            data-toggle="collapse"
+                                                            data-target="#collapse-@item.Id"
+                                                            aria-expanded="false"
+                                                            aria-controls="collapse-@item.Id"
+                                                            type="button">
+                                                        <div class="heading d-flex align-items-center">
+                                                            <h5 class="mb-0 ml-3 p-3">@item.ServiceName</h5>
+                                                        </div>
+                                                        <i class="fa" aria-hidden="true"></i>
+                                                    </button>
+                                                </h2>
+                                            </div>
+                                            <div class="text-left btns-card-service">
+                                                <button class="btn-manage btn-manage-edit"
+                                                        asp-action="ChangeServicePage"
+                                                        asp-route-id="@item.Id"
+                                                        type="submit"
+                                                        title="Edit service">
+                                                    🖉
                                                 </button>
-                                            </h2>
+                                                <button class="btn-manage btn-manage-delete mr-1"
+                                                        asp-action="DeleteServiceById"
+                                                        asp-route-id="@item.Id"
+                                                        type="submit"
+                                                        title="Delete service">
+                                                    🗑
+                                                </button>
+                                            </div>
                                         </div>
                                         <div id="collapse-@item.Id"
                                              class="collapse"
@@ -62,24 +79,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="text-right btns-card-project">
-                                    <button class="btn-manage btn-manage-edit"
-                                            asp-action="ChangeServicePage"
-                                            asp-route-id="@item.Id"
-                                            type="submit"
-                                            title="Edit service">
-                                        🖉
-                                    </button>
-                                    <button class="btn-manage btn-manage-delete mr-1"
-                                            asp-action="DeleteServiceById"
-                                            asp-route-id="@item.Id"
-                                            type="submit"
-                                            title="Delete service">
-                                        🗑
-                                    </button>
-                                </div>
-                            </div>
+                                
                         </form>
                     </div>
                 }

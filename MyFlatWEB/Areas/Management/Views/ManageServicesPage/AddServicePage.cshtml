@@ -1,0 +1,73 @@
+﻿@model ServiceModel
+
+@{
+    ViewData["Title"] = "Add Service";
+
+    string HeaderLabelText = ViewBag.HeaderText;
+    string DescriptionLabelText = ViewBag.DescriptionText;
+}
+
+<html>
+<head>
+    <script src="~/lib/jquery/admin/jquery-1.12.4.min.js"></script>
+    <script src="~/js/change-label-image.js"></script>
+</head>
+<body>
+</body>
+</html>
+
+<div class="ml-3">
+    <div class="row">
+        <div class="col">
+            <section id="addService">
+                <div class="row text-left pt-3 ml-1">
+                    <h3>Add new service</h3>
+                </div>
+                <div class="row mt-2 d-block">
+                    <form id="addProjectModel"
+                          asp-controller="ManageServicesPage"
+                          asp-action="AddServiceToDB"
+                          method="post"
+                          enctype="multipart/form-data">
+                        <div class="ml-3">
+                            <div class="">
+                                <label asp-for="@Model.ServiceName"
+                                       class="label-project">Service Name</label>
+                                <span asp-validation-for="@Model.ServiceName"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="">
+                                <input asp-for="@Model.ServiceName"
+                                       type="text"
+                                       placeholder="Add service name"
+                                       class="form-control mr-1 input-project-header" />
+                            </div>
+                        </div>
+                        <div class="mt-1 ml-3 d-block">
+                            <div class="">
+                                <label asp-for="@Model.ServiceDescription"
+                                       class="mt-1 label-project">Service Description</label>
+                                <span asp-validation-for="@Model.ServiceDescription"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="">
+                                <textarea asp-for="@Model.ServiceDescription"
+                                          cols="40"
+                                          rows="5"
+                                          placeholder="Add description"
+                                          class="form-control input-project-desc"></textarea>
+                            </div>
+                        </div>
+                        <div class="mt-3 ml-3">
+                            <button class="btn btn-primary btn-effect justify-content-end mr-1"
+                                    type="submit"
+                                    title="Add service">
+                                Add
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
