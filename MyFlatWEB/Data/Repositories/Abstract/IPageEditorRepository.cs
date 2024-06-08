@@ -46,5 +46,15 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         Task<bool> ChangeService(ServiceModel model);
 
         Task<bool> DeleteServiceById(int id);
+
+        List<PostModel> GetPostsFromDB();
+
+        Task<bool> AddPostToDB(PostModel model);
+
+        PostModel GetPostById(int id);
+
+        Task<bool> ChangePost(PostModel model);
+
+        Task<bool> DeletePostById(int id);
     }
 }

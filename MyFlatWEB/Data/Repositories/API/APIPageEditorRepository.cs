@@ -340,5 +340,88 @@ namespace MyFlatWEB.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public List<PostModel> GetPostsFromDB()
+        {
+            List<PostModel> posts = new List<PostModel>();
+
+            urlRequest = $"{url}" + "BlogPageEditAPI/GetPostsFromDB";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                posts = JsonConvert.DeserializeObject<List<PostModel>>(result);
+            }
+
+            return posts;
+        }
+
+        public async Task<bool> AddPostToDB(PostModel model)
+        {
+            urlRequest = $"{url}" + "BlogPageEditAPI/AddPostToDB/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public PostModel GetPostById(int id)
+        {
+            PostModel post = new PostModel();
+
+            urlRequest = $"{url}" + "BlogPageEditAPI/GetPostById/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                post = JsonConvert.DeserializeObject<PostModel>(result);
+            }
+
+            return post;
+        }
+
+        public async Task<bool> ChangePost(PostModel model)
+        {
+            urlRequest = $"{url}" + "BlogPageEditAPI/ChangePost/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public async Task<bool> DeletePostById(int id)
+        {
+            urlRequest = $"{url}" + "BlogPageEditAPI/DeletePostById/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, id))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }

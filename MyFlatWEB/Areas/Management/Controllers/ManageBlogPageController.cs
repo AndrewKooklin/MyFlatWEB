@@ -23,7 +23,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("Blog")]
         public IActionResult Blog()
         {
-            var posts = _dataManager.PageEditor.GetProjectsFromDB();
+            var posts = _dataManager.PageEditor.();
             return View("BlogPage", posts);
         }
     }
