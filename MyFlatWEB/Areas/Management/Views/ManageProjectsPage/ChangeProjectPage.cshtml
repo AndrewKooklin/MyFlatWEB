@@ -20,15 +20,12 @@
 <div class="ml-3">
     <div class="row">
         <div class="col">
-            <section id="addProject">
+            <section id="changeProjectSection">
                 <div class="row text-left pt-3 ml-1">
                     <h3>Change project</h3>
                 </div>
                 <div class="row mt-2 d-block">
                     <form id="changeProject"
-                          asp-controller="ManageProjectsPage"
-                          asp-action="ChangeProject"
-                          asp-route-id="@Model.Id"
                           method="post"
                           enctype="multipart/form-data">
                         <div class="ml-3">
@@ -104,7 +101,10 @@
                                     title="Cancel change">
                                 Cancel
                             </button>
-                            <button class="btn btn-primary btn-effect justify-content-end mr-1"
+                            <button asp-controller="ManageProjectsPage"
+                                    asp-action="ChangeProject"
+                                    asp-route-id="@Model.Id"
+                                    class="btn btn-primary btn-effect justify-content-end mr-1"
                                     type="submit"
                                     title="Change project">
                                 Change

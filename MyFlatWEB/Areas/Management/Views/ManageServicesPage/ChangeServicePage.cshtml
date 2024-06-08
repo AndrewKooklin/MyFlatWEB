@@ -1,5 +1,86 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ServiceModel
+
 @{
+    ViewData["Title"] = "Change Service";
+
+    IFormFile formFile = ViewBag.FormFile;
+
+    string fileName = ViewBag.FileName;
 }
+
+<html>
+<head>
+    <script src="~/lib/jquery/admin/jquery-1.12.4.min.js"></script>
+    <script src="~/js/change-label-image.js"></script>
+</head>
+<body>
+</body>
+</html>
+
+<div class="ml-3">
+    <div class="row">
+        <div class="col">
+            <section id="changeServiceSection">
+                <div class="row text-left pt-3 ml-1">
+                    <h3>Change service</h3>
+                </div>
+                <div class="row mt-2 d-block">
+                    <form id="changeService"
+                          asp-controller="ManageServicesPage"
+                          asp-action="ChangeService"
+                          asp-route-id="@Model.Id"
+                          method="post"
+                          enctype="multipart/form-data">
+                        <div class="ml-3">
+                            <div class="">
+                                <label asp-for="@Model.ServiceName"
+                                       class="label-project">Service Name</label>
+                                <span asp-validation-for="@Model.ServiceName"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="">
+                                <input asp-for="@Model.ServiceName"
+                                       type="text"
+                                       placeholder="@Model.ServiceName"
+                                       class="form-control mr-1 input-project-header" />
+                            </div>
+                        </div>
+                        <div class="mt-1 ml-3 d-block">
+                            <div class="">
+                                <label asp-for="@Model.ServiceDescription"
+                                       class="mt-1 label-project">Service Description</label>
+                                <span asp-validation-for="@Model.ServiceDescription"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="">
+                                <textarea asp-for="@Model.ServiceDescription"
+                                          cols="40"
+                                          rows="5"
+                                          placeholder="@Model.ServiceDescription"
+                                          class="form-control input-project-desc"></textarea>
+                            </div>
+                        </div>
+                        <div class="d-inline-block mt-3 ml-3">
+                            <button asp-controller="ManageServicesPage"
+                                    asp-action="Services"
+                                    class="btn btn-primary btn-effect justify-content-end mr-1"
+                                    type="submit"
+                                    title="Cancel change">
+                                Cancel
+                            </button>
+                            <button asp-controller="ManageServicesPage"
+                                    asp-action="ChangeService"
+                                    asp-route-id="@Model.Id"
+                                    class="btn btn-primary btn-effect justify-content-end mr-1"
+                                    type="submit"
+                                    title="Change service">
+                                Change
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
