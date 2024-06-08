@@ -137,6 +137,5 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 return View("ErrorView", error);
             }
         }
-        
     }
 }
