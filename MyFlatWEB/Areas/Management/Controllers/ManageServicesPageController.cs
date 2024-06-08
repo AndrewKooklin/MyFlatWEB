@@ -80,8 +80,8 @@ namespace MyFlatWEB.Areas.Management.Controllers
 
                 if (result)
                 {
-                    var service = _dataManager.PageEditor.GetServicesFromDB();
-                    return View("ProjectsPage", service);
+                    var services = _dataManager.PageEditor.GetServicesFromDB();
+                    return View("ServicesPage", services);
                 }
                 else
                 {

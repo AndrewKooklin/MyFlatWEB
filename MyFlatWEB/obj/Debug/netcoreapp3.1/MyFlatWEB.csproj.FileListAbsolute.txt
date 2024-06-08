@@ -495,3 +495,5 @@ C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\MyFlatWEB.csprojAssemblyRef
 C:\repos\MyFlatWEB\MyFlatWEB\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageProjectsPage\ChangeProjectPage.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageServicesPage\ServicesPage.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageServicesPage\AddServicePage.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageServicesPage\ChangeServicePage.cshtml.g.cs

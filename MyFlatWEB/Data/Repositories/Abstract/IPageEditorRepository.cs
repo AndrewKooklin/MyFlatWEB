@@ -41,7 +41,7 @@ namespace MyFlatWEB.Data.Repositories.Abstract
 
         Task<bool> AddServiceToDB(ServiceModel model);
 
-        ProjectModel GetServiceById(int id);
+        ServiceModel GetServiceById(int id);
 
         Task<bool> ChangeService(ServiceModel model);
 

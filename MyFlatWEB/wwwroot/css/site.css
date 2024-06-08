@@ -356,7 +356,11 @@ body {
     font-size: 14px;
 }
 
-.btns-random-phrase{
+.list-phrases{
+    width: 51rem;
+}
+
+.btns-random-phrase {
     width: 12rem;
     margin-left: 0.4rem;
 }
@@ -530,7 +534,11 @@ body {
 .btns-card-service {
     width: 5rem;
     display: flex;
-    justify-items:
+    align-items:center;
+}
+
+.service-desc{
+    width: 38rem;
 }
 
 .label-project {
