@@ -56,5 +56,9 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         Task<bool> ChangePost(PostModel model);
 
         Task<bool> DeletePostById(int id);
+
+        ContactModel GetContactsFromDB();
+
+        List<SocialModel> GetSocialLinksFromDB();
     }
 }
