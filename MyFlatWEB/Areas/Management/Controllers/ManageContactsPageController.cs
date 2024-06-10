@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MyFlatWEB.Areas.Management.Models;
 using MyFlatWEB.Areas.Management.Models.EditPages;
 using MyFlatWEB.Data;
+using MyFlatWEB.Models.Rendering;
 
 namespace MyFlatWEB.Areas.Management.Controllers
 {
@@ -30,6 +32,31 @@ namespace MyFlatWEB.Areas.Management.Controllers
             return View("ContactsPage", cphm);
         }
 
+        [Route("ChangeContacts")]
+        public async Task<IActionResult> ChangeContacts(ContactsPlaceholderModel model)
+        {
+            if(String.IsNullOrEmpty(model.Contacts.ContactAddress) ||
+               String.IsNullOrEmpty(model.Contacts.ContactPhone) ||
+               String.IsNullOrEmpty(model.Contacts.ContactEmail))
+            {
+                return RedirectToAction("Contacts", "ManageContactsPage");
+            }
+            else
+            {
+                bool result = await _dataManager.PageEditor.ChangeContacts(model.Contacts);
 
+                if (result)
+                {
+                    return RedirectToAction("Contacts", "ManageContactsPage");
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
+                
+            }
+        }
     }
 }

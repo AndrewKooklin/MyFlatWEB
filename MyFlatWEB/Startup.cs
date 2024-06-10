@@ -72,7 +72,8 @@ namespace MyFlatWEB
             services.AddTransient<ProjectModel>();
             services.AddTransient<ServiceModel>();
             services.AddTransient<PostModel>();
-
+            services.AddTransient<ContactModel>();
+            services.AddTransient<SocialModel>();
 
         }
 

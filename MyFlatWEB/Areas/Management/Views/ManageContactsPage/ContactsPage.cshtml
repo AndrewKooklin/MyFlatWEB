@@ -1,0 +1,80 @@
+﻿@model ContactsPlaceholderModel
+
+@{
+    string linkName = "";
+    string changePhrase = "";
+    string leftCentralAreaText = "";
+    IFormFile formFile = null;
+    byte[] image = null;
+    string bottomAreaHeader = "";
+    string bottomAreaContent = "";
+    string LeftAreaText = ViewBag.InputLeftCentralAreaPhrase;
+    string BottomHeader = ViewBag.InputBottomHeaderError;
+    string BottomText = ViewBag.InputBottomTextError;
+
+}
+
+<html>
+<head>
+    <script src="~/lib/jquery/admin/jquery-1.12.4.min.js"></script>
+    <script src="~/js/change-label-image.js"></script>
+</head>
+<body>
+</body>
+</html>
+
+<div class="container">
+    <section id="header">
+        <div class="row text-left pt-3 pl-3">
+            <h2>Changeable fields on the contacts page</h2>
+        </div>
+    </section>
+
+    <hr class="section-border" />
+
+    <section id="contacts">
+        <div class="text-left mt-3">
+            <h3>Contact data</h3>
+        </div>
+        <div class="mr-1 p-0">
+            <form id="formContact"
+                  method="post">
+                <label asp-for="@Model.Contacts.ContactAddress"></label>
+                <span asp-validation-for="@Model.Contacts.ContactAddress"
+                      class="text-danger"></span>
+                <input asp-for="@Model.Contacts.ContactAddress"
+                       type="text" class="form-control"
+                       value="@Model.Contacts.ContactAddress">
+
+                <label asp-for="@Model.Contacts.ContactPhone"></label>
+                <span asp-validation-for="@Model.Contacts.ContactPhone"
+                      class="text-danger"></span>
+                <input asp-for="@Model.Contacts.ContactPhone"
+                       type="text" class="form-control"
+                       value="@Model.Contacts.ContactPhone">
+
+                <label asp-for="@Model.Contacts.ContactEmail"></label>
+                <span asp-validation-for="@Model.Contacts.ContactEmail"
+                      class="text-danger"></span>
+                <input asp-for="@Model.Contacts.ContactEmail"
+                       type="text" class="form-control"
+                       value="@Model.Contacts.ContactEmail">
+
+                <button id="bcontact"
+                        asp-controller="ManageContactsPage"
+                        asp-action="ChangeContacts"
+                        class="btn-manage btn-manage-edit btn-edit-link justify-content-end mr-1"
+                        type="submit"
+                        title="Edit contacts">
+                    🖉
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <hr class="section-border" />
+
+    <section id="social">
+
+    </section>
+</div>
