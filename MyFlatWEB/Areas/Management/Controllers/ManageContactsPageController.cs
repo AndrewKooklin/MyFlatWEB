@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyFlatWEB.Areas.Management.Models;
 using MyFlatWEB.Areas.Management.Models.EditPages;
@@ -87,6 +89,41 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 }
             }
         }
-        
+
+        [Route("ChangeSocial")]
+        public async Task<IActionResult> ChangeSocial(SocialModel model, IFormFile image)
+        {
+            if (String.IsNullOrEmpty(model.SocialLink) ||
+                image == null)
+            {
+                ViewBag.FileName = "Choose image";
+                return View("ChangeSocialPage", model);
+            }
+            else
+            {
+                ViewBag.FileName = image.FileName;
+                model.SocialImage = new byte[image.Length];
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(image.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)image.Length);
+                }
+
+                model.SocialImage = imageData;
+
+                bool result = await _dataManager.PageEditor.ChangeSocial(model);
+
+                if (result)
+                {
+                    return RedirectToAction("Contacts", "ManageContactsPage");
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
+            }
+        }
     }
 }

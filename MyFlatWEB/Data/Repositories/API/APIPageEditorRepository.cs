@@ -489,5 +489,55 @@ namespace MyFlatWEB.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public SocialModel GetSocialById(int id)
+        {
+            SocialModel social = new SocialModel();
+
+            urlRequest = $"{url}" + "ContactsPageEditAPI/GetSocialById/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                social = JsonConvert.DeserializeObject<SocialModel>(result);
+            }
+
+            return social;
+        }
+
+        public async Task<bool> ChangeSocial(SocialModel model)
+        {
+            urlRequest = $"{url}" + "ContactsPageEditAPI/ChangeSocial/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public async Task<bool> DeleteSocialById(int id)
+        {
+            urlRequest = $"{url}" + "ContactsPageEditAPI/DeleteSocialById/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, id))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }

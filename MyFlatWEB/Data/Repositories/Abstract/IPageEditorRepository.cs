@@ -65,6 +65,10 @@ namespace MyFlatWEB.Data.Repositories.Abstract
 
         Task<bool> AddSocialToDB(SocialModel model);
 
-        
+        SocialModel GetSocialById(int id);
+
+        Task<bool> ChangeSocial(SocialModel model);
+
+        Task<bool> DeleteSocialById(int id);
     }
 }
