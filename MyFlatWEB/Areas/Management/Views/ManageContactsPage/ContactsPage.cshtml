@@ -63,7 +63,7 @@
                 <button id="bcontact"
                         asp-controller="ManageContactsPage"
                         asp-action="ChangeContacts"
-                        class="btn-manage btn-manage-edit btn-edit-link justify-content-end mr-1"
+                        class="btn btn-primary btn-effect"
                         type="submit"
                         title="Edit contacts">
                     🖉
@@ -74,7 +74,74 @@
 
     <hr class="section-border" />
 
-    <section id="social">
+    <section id="addSocial">
+        <div class="row text-left pt-3 ml-1">
+            <h3>Add new social link</h3>
+        </div>
+        <div class="row ml-3">
+            <a class="btn btn-primary btn-effect"
+               asp-area="Management"
+               asp-controller="ManageContactsPage"
+               asp-action="AddSocialPage"
+               title="Add social">Add</a>
+        </div>
+    </section>
 
+    <section id="social">
+        <div class="text-left mt-3">
+            <h3>Social links</h3>
+        </div>
+        <div class="row mt-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">HREF</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.SocialLinks.Any())
+                    {
+                        @foreach (var item in Model.SocialLinks)
+                        {
+                            <tr class="border-bottom">
+                                <td class="table-light">
+                                    @if (item.SocialImage != null)
+                                    {
+                                        <img class="img-social-link"
+                                             src="data:image;base64,@(Convert.ToBase64String(item.SocialImage))">
+                                    }
+                                </td>
+                                <td class="table-light">
+                                    @item.SocialLink
+                                </td>
+                                <td>
+                                    <button class="btn-manage btn-manage-edit"
+                                            asp-controller="ManageContactsPage"
+                                            asp-action="ChangeSocialPage"
+                                            asp-route-id="@item.Id"
+                                            type="submit"
+                                            title="Edit social">
+                                        🖉
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="btn-manage btn-manage-delete"
+                                            asp-controller="ManageContactsPage"
+                                            asp-action="DeleteSocialById"
+                                            asp-route-id="@item.Id"
+                                            type="submit"
+                                            title="Delete link">
+                                        🗑
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
     </section>
 </div>

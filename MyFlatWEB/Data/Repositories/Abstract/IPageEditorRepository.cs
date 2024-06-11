@@ -62,5 +62,9 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         List<SocialModel> GetSocialLinksFromDB();
 
         Task<bool> ChangeContacts(ContactModel model);
+
+        Task<bool> AddSocialToDB(SocialModel model);
+
+        
     }
 }

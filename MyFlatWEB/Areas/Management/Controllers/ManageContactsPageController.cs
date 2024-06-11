@@ -55,8 +55,38 @@ namespace MyFlatWEB.Areas.Management.Controllers
                     error.Message = "Server error";
                     return View("ErrorView", error);
                 }
-                
             }
         }
+
+        [Route("AddSocialPage")]
+        public IActionResult AddSocialPage()
+        {
+            return View("AddSocialPage");
+        }
+
+        [Route("AddSocialToDB")]
+        public async Task<IActionResult> AddSocialToDB(SocialModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Contacts", "ManageContactsPage");
+            }
+            else
+            {
+                bool result = await _dataManager.PageEditor.AddSocialToDB(model);
+
+                if (result)
+                {
+                    return RedirectToAction("Contacts", "ManageContactsPage");
+                }
+                else
+                {
+                    ErrorModel error = new ErrorModel();
+                    error.Message = "Server error";
+                    return View("ErrorView", error);
+                }
+            }
+        }
+        
     }
 }

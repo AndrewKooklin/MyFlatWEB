@@ -617,3 +617,13 @@ body {
     width: 30px;
     height: 30px;
 }
+
+.img-social-link {
+    width: 48px;
+    height: 48px;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    background-size: cover;
+}
