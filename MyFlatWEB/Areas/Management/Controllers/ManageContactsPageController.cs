@@ -100,6 +100,14 @@ namespace MyFlatWEB.Areas.Management.Controllers
             }
         }
 
+        [Route("ChangeSocialPage")]
+        public IActionResult ChangeSocialPage(int id)
+        {
+            var project = _dataManager.PageEditor.GetSocialById(id);
+            ViewBag.FileName = "Choose image";
+            return View("ChangeSocialPage", project);
+        }
+
         [Route("ChangeSocial")]
         public async Task<IActionResult> ChangeSocial(SocialModel model, IFormFile image)
         {
