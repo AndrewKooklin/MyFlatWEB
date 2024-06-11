@@ -67,14 +67,24 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [Route("AddSocialToDB")]
-        public async Task<IActionResult> AddSocialToDB(SocialModel model)
+        public async Task<IActionResult> AddSocialToDB(SocialModel model, IFormFile image)
         {
-            if (!ModelState.IsValid)
+            if (String.IsNullOrEmpty(model.SocialLink) ||
+                image == null)
             {
-                return RedirectToAction("Contacts", "ManageContactsPage");
+                return View("AddSocialPage");
             }
             else
             {
+                model.SocialImage = new byte[image.Length];
+                byte[] imageData = null;
+                using (var binaryReader = new BinaryReader(image.OpenReadStream()))
+                {
+                    imageData = binaryReader.ReadBytes((int)image.Length);
+                }
+
+                model.SocialImage = imageData;
+
                 bool result = await _dataManager.PageEditor.AddSocialToDB(model);
 
                 if (result)
