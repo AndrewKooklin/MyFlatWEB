@@ -125,5 +125,23 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 }
             }
         }
+
+        [Route("DeleteSocialById")]
+        public async Task<IActionResult> DeleteSocialById(int id)
+        {
+            bool result = await _dataManager.PageEditor.DeleteProjectById(id);
+
+            if (result)
+            {
+                return RedirectToAction("Contacts", "ManageContactsPage");
+            }
+            else
+            {
+                ErrorModel error = new ErrorModel();
+                error.Message = "Server error";
+                return View("ErrorView", error);
+            }
+        }
+        
     }
 }

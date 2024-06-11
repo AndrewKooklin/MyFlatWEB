@@ -1,0 +1,103 @@
+﻿@model SocialModel
+
+@{
+    ViewData["Title"] = "Change Social";
+
+    IFormFile formFile = ViewBag.FormFile;
+
+    string fileName = ViewBag.FileName;
+}
+
+<html>
+<head>
+    <script src="~/lib/jquery/admin/jquery-1.12.4.min.js"></script>
+    <script src="~/js/change-label-image.js"></script>
+</head>
+<body>
+</body>
+</html>
+
+<div class="ml-3">
+    <div class="row">
+        <div class="col">
+            <section id="changeSocialSection">
+                <div class="row text-left pt-3 ml-1">
+                    <h3>Change social</h3>
+                </div>
+                <div class="row mt-2 d-block">
+                    <form id="changeSocial"
+                          method="post"
+                          enctype="multipart/form-data">
+                        <div class="ml-3">
+                            <div class="">
+                                <label asp-for="@Model.SocialLink"
+                                       class="label-project">Social Link</label>
+                                <span asp-validation-for="@Model.SocialLink"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="">
+                                <input asp-for="@Model.SocialLink"
+                                       type="text"
+                                       placeholder="@Model.SocialLink"
+                                       class="form-control mr-1 input-project-header" />
+                            </div>
+                        </div>
+                        <div class="mt-1 ml-3 d-block">
+                            <div class="">
+                                <label asp-for="@Model.SocialImage"
+                                       class="mt-1 label-project">Social Image</label>
+                                <span asp-validation-for="@Model.SocialImage"
+                                      class="text-danger"></span>
+                            </div>
+                            <div class="mt-1 img-project-change">
+                                @if (Model.SocialImage != null)
+                                {
+                                    <img class="img-social-link"
+                                         src="data:image;base64,@(Convert.ToBase64String(Model.SocialImage))">
+                                }
+                            </div>
+                            <div class="mt-1">
+                                <label id="choose-file-label"
+                                       for="Image"
+                                       class="btn-choose-file"
+                                       title="Choose image">
+                                    @*Choose image*@
+                                    @fileName
+                                </label>
+                                <input id="Image"
+                                       type="file"
+                                       accept=".jpg, .jpeg, .png, .webp"
+                                       placeholder="Choose image"
+                                       class="select-image"
+                                       name="image"
+                                       value="@formFile"
+                                       alt="Choose image" />
+                                <label id="choose-file-text"
+                                       class="label-not-choose-image">
+                                    Image not choosed !
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-inline-block mt-3 ml-3">
+                            <button asp-controller="ManageContactsPage"
+                                    asp-action="Contacts"
+                                    class="btn btn-primary btn-effect justify-content-end mr-1"
+                                    type="submit"
+                                    title="Cancel change">
+                                Cancel
+                            </button>
+                            <button asp-controller="ManageContactsPage"
+                                    asp-action="ChangeSocial"
+                                    asp-route-id="@Model.Id"
+                                    class="btn btn-primary btn-effect justify-content-end mr-1"
+                                    type="submit"
+                                    title="Change project">
+                                Change
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
