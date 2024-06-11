@@ -500,3 +500,6 @@ C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\View
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageBlogPage\ChangePostPage.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageBlogPage\PostsPage.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Views\Home\Blog.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageContactsPage\AddSocialPage.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageContactsPage\ChangeSocialPage.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageContactsPage\ContactsPage.cshtml.g.cs

@@ -605,14 +605,6 @@ body {
     background-color: #001b94;
 }
 
-/*.icon-telegram {
-    background-image: url("/wwwroot/Images/icons/icon-telegram-48.png");
-    background-repeat:no-repeat;
-    background-position: center center;
-    width: 30px;
-    height: 30px;
-}*/
-
 .img-social{
     width: 30px;
     height: 30px;
@@ -623,7 +615,37 @@ body {
     height: 48px;
     background-repeat: no-repeat;
     border: none;
-    cursor: pointer;
-    border-radius: 50%;
     background-size: cover;
+}
+
+.label-contact{
+    font-size: 16px;
+    font-weight: 500;
+    color:#02006d;
+}
+
+.input-contact{
+    width: 30rem;
+}
+
+.table-social {
+    width: 20rem;
+    margin: 0 0 3rem 0.3rem;
+}
+
+.img-table-column {
+    width: 3rem;
+    padding: 0.5rem;
+}
+
+.href-table-column {
+    width: 15rem;
+    align-content: center;
+    padding: 0.5rem;
+}
+
+.btn-table-column {
+    width: 1rem;
+    align-content: center;
+    padding: 0.5rem;
 }

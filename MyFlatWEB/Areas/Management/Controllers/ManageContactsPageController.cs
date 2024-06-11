@@ -35,17 +35,42 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [Route("ChangeContacts")]
-        public async Task<IActionResult> ChangeContacts(ContactsPlaceholderModel model)
+        public async Task<IActionResult> ChangeContacts(string contactAddress,
+                                                        string contactPhone,
+                                                        string contactEmail)
         {
-            if(String.IsNullOrEmpty(model.Contacts.ContactAddress) ||
-               String.IsNullOrEmpty(model.Contacts.ContactPhone) ||
-               String.IsNullOrEmpty(model.Contacts.ContactEmail))
+            ContactsPlaceholderModel cphm = new ContactsPlaceholderModel();
+            cphm.Contacts = _dataManager.PageEditor.GetContactsFromDB();
+            cphm.SocialLinks = _dataManager.PageEditor.GetSocialLinksFromDB();
+
+            if (String.IsNullOrEmpty(contactAddress))
             {
-                return RedirectToAction("Contacts", "ManageContactsPage");
+                ViewBag.InputAddress = "Fill field \"Contact Address\"";
+                return View("ContactsPage", cphm);
+            }
+            else if (String.IsNullOrEmpty(contactPhone))
+            {
+                ViewBag.InputPhone = "Fill field \"Contact Phone\"";
+                return View("ContactsPage", cphm);
+            }
+            else if(String.IsNullOrEmpty(contactEmail))
+            {
+                ViewBag.InputEmail = "Fill field \"Contact Email\"";
+                return View("ContactsPage", cphm);
             }
             else
             {
-                bool result = await _dataManager.PageEditor.ChangeContacts(model.Contacts);
+                ViewBag.InputAddress = "";
+                ViewBag.InputPhone = "";
+                ViewBag.InputEmail = "";
+
+                ContactModel cm = new ContactModel()
+                {
+                     ContactAddress = contactAddress,
+                     ContactPhone = contactPhone,
+                     ContactEmail = contactEmail
+                };
+                bool result = await _dataManager.PageEditor.ChangeContacts(cm);
 
                 if (result)
                 {
@@ -147,7 +172,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("DeleteSocialById")]
         public async Task<IActionResult> DeleteSocialById(int id)
         {
-            bool result = await _dataManager.PageEditor.DeleteProjectById(id);
+            bool result = await _dataManager.PageEditor.DeleteSocialById(id);
 
             if (result)
             {

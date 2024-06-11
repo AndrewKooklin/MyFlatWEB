@@ -21,7 +21,7 @@ namespace MyFlatWEB.Models.Rendering
 
         [Required(ErrorMessage = "Fill in the field \"Email\"")]
         [EmailAddress(ErrorMessage = "View field \"name@example.com\"")]
-        [Display(Name = "Contact Phone")]
+        [Display(Name = "Contact Email")]
         public string ContactEmail { get; set; }
     }
 }
