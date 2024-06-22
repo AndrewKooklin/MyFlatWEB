@@ -20,7 +20,10 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand" 
+                   asp-area="" 
+                   asp-controller="Home" 
+                   asp-action="Index">
                     <img class="pt-7 pt-md-0" src="~/Images/kind.png" width="60" alt="header-logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -33,23 +36,42 @@
                         @*@if (UserRoles != null && UserRoles.Roles.Contains("Admin"))
                             {*@
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Management" asp-controller="ManageView" asp-action="ManageHome" title="Manage Views">Management</a>
+                            <a class="nav-link text-dark" 
+                               asp-area="Management" 
+                               asp-controller="ManageView" 
+                               asp-action="ManageHome" 
+                               title="Manage Views">Management</a>
                         </li>
                         @*}*@
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" 
+                               asp-area="" 
+                               asp-controller="Home" 
+                               asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Projects">Projects</a>
+                            <a class="nav-link text-dark" 
+                               asp-area="" 
+                               asp-controller="Home" 
+                               asp-action="Projects">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Services">Services</a>
+                            <a class="nav-link text-dark" 
+                               asp-area="" 
+                               asp-controller="Home" 
+                               asp-action="Services">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Blog">Blog</a>
+                            <a class="nav-link text-dark" 
+                               asp-area="" 
+                               asp-controller="Home" 
+                               asp-action="Blog">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacts">Contacts</a>
+                            <a class="nav-link text-dark" 
+                               asp-area="" 
+                               asp-controller="Home" 
+                               asp-action="Contacts">Contacts</a>
                         </li>
                     </ul>
                 </div>
@@ -71,7 +93,9 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - MyFlatWEB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - MyFlatWEB - <a asp-area="" 
+                                         asp-controller="Home" 
+                                         asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

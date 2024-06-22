@@ -49,5 +49,42 @@ namespace MyFlatWEB.Controllers
 
             return View("RegisterUser");
         }
+
+        [HttpGet]
+        public IActionResult LoginUser()
+        {
+            return View("LoginUser");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogInUser(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                UserRoles.Roles = await _dataManager.Accounts.GetUserRoles(model);
+                if (UserRoles.Roles == null)
+                {
+                    UserRoles.EMail = model.Email;
+                    UserRoles.Roles = new List<string> { "Anonymus" };
+                    return RedirectToAction("Index", "Home");
+                }
+                else if (UserRoles.Roles != null)
+                {
+                    UserRoles.EMail = model.Email;
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return Redirect("LogInError");
+                }
+            }
+            return View(model);
+        }
+
+        public IActionResult LogInError()
+        {
+            return View("LogInError");
+        }
     }
 }
