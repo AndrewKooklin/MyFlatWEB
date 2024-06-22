@@ -33,7 +33,7 @@ namespace MyFlatWEB.Data.Repositories.API
 
         public async Task<bool> CheckUserToDB(LoginModel model)
         {
-            urlRequest = $"{url}" + "Login/CheckUserToDB/" + $"{model}";
+            urlRequest = $"{url}" + "LoginAPI/CheckUserToDB/" + $"{model}";
             using (_httpClient = new HttpClient())
             {
                 _httpClient.DefaultRequestHeaders.Accept.Clear();
@@ -96,7 +96,7 @@ namespace MyFlatWEB.Data.Repositories.API
 
         public async Task<List<string>> GetUserRoles(LoginModel model)
         {
-            urlRequest = $"{url}" + "Login/GetUserRoles/" + $"{model}";
+            urlRequest = $"{url}" + "LoginAPI/GetUserRoles/" + $"{model}";
             using (_httpClient = new HttpClient())
             {
                 _httpClient.DefaultRequestHeaders.Accept.Clear();

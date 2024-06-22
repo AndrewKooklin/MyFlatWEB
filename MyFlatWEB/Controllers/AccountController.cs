@@ -44,10 +44,10 @@ namespace MyFlatWEB.Controllers
             else
             {
                 ModelState.AddModelError(string.Empty, "Invalid register model.");
-                return View("RegisterUser");
+                return View(model);
             }
 
-            return View("RegisterUser");
+            return View(model);
         }
 
         [HttpGet]
@@ -61,22 +61,26 @@ namespace MyFlatWEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserRoles.Roles = await _dataManager.Accounts.GetUserRoles(model);
-                if (UserRoles.Roles == null)
+                bool userExist = await _dataManager.Accounts.CheckUserToDB(model);
+                if(!userExist)
                 {
-                    UserRoles.EMail = model.Email;
-                    UserRoles.Roles = new List<string> { "Anonymus" };
-                    return RedirectToAction("Index", "Home");
-                }
-                else if (UserRoles.Roles != null)
-                {
-                    UserRoles.EMail = model.Email;
-
-                    return RedirectToAction("Index", "Home");
+                    return Redirect("LogInError");
                 }
                 else
                 {
-                    return Redirect("LogInError");
+                    UserRolesModel.Roles = await _dataManager.Accounts.GetUserRoles(model);
+                    if (UserRolesModel.Roles == null)
+                    {
+                        UserRolesModel.EMail = model.Email;
+                        UserRolesModel.Roles = new List<string> { "Anonymus" };
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (UserRolesModel.Roles != null)
+                    {
+                        UserRolesModel.EMail = model.Email;
+
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
             }
             return View(model);

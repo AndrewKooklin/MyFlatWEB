@@ -27,6 +27,7 @@
     <Compile Remove="Areas\Management\Models\BaseModel.cs" />
     <Compile Remove="Areas\Management\Models\Rendering\ServiceModel.cs" />
     <Compile Remove="Areas\Management\Models\Rendering\StatusesModel.cs" />
+    <Compile Remove="Models\Account\UserRoles.cs" />
     <Compile Remove="Views\ErrorModel.cs" />
     <Compile Remove="Views\Shared\ErrorModel.cs" />
     <Compile Remove="Views\Shared\ErrorViewModel.cs" />

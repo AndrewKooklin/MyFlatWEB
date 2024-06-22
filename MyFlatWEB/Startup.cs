@@ -57,7 +57,7 @@ namespace MyFlatWEB
             services.AddTransient<DataManager>();
             services.AddTransient<ErrorModel>();
             services.AddTransient<UserRolesModel>();
-            services.AddTransient<UserRoles>();
+            //services.AddTransient<UserRoles>();
             services.AddTransient<OrdersModel>();
             services.AddTransient<ServicesModel>();
             services.AddTransient<ChangeStatusModel>();
