@@ -90,5 +90,13 @@ namespace MyFlatWEB.Controllers
         {
             return View("LogInError");
         }
+
+        public IActionResult LogoutUser()
+        {
+            _dataManager.Accounts.LogoutUser();
+            UserRolesModel.EMail = "";
+            UserRolesModel.Roles = new List<string> { "Anonymus" };
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
