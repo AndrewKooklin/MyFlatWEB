@@ -649,3 +649,7 @@ body {
     align-content: center;
     padding: 0.5rem;
 }
+
+.hello-user{
+    padding-top: 1px;
+}

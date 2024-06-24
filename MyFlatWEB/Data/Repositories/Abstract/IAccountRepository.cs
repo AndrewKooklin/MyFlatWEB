@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MyFlatWEB.Models.Account;
+using MyFlatWEB.Areas.Management.Models.Users;
 
 namespace MyFlatWEB.Data.Repositories.Abstract
 {
@@ -14,6 +15,8 @@ namespace MyFlatWEB.Data.Repositories.Abstract
         void LogoutUser();
 
         Task<bool> CreateUser(RegisterModel model);
+
+        Task<bool> AddNewUser(AddUserModel model);
 
         List<string> GetRoleNames();
 

@@ -1,0 +1,99 @@
+﻿@model UserWithRolesModel
+@{
+    ViewData["Title"] = "User details";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.User.Id</td>
+            <td>@Model.User.Email</td>
+            <td>
+                @foreach (var role in Model.Roles)
+                {
+                    <label>@role </label><br />
+                }
+            </td>
+        </tr>
+    </tbody>
+</table>
+@if (Model != null)
+{
+    <div class="container row ">
+        <div style="width:auto">
+            <form asp-area="Management"
+                  asp-controller="ManageUsers" 
+                  asp-action="AddRoleToUser" 
+                  method="post">
+                <div class="form-group">
+                    <input asp-for="User.Id" 
+                           type="hidden" />
+                    <span asp-validation-for="Add" 
+                          class="text-danger w-100"></span>
+                    <label asp-for="Role" 
+                           class="w-100"></label>
+                    <select asp-for="Role" 
+                            asp-items="@Model.RolesList" 
+                            class="custom-select text-dark" 
+                            aria-required="true" 
+                            style="width:auto"
+                            title="Select role">
+                        <option disabled selected>Select role</option>
+                    </select>
+                </div>
+                <div>
+                    <button asp-area="Management"
+                            asp-controller="ManageUsers"
+                            asp-action="AddRoleToUser"
+                            type="submit" 
+                            class="btn btn-primary"
+                            title="Add role">
+                        Add
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div style="width:auto">
+            <form asp-area="Management"
+                  asp-controller="ManageUsers" 
+                  asp-action="DeleteRoleUser" 
+                  method="post">
+                <div class="form-group">
+                    <input asp-for="User.Id" 
+                           type="hidden" />
+                    <span asp-validation-for="Delete" 
+                          class="text-danger w-100"></span>
+                    <label asp-for="Role" 
+                           class="w-100"></label>
+                    <select asp-for="Role" 
+                            asp-items="@Model.RolesList" 
+                            class="custom-select text-dark" 
+                            aria-required="true" 
+                            style="width:auto"
+                            title="Select role">
+                        <option disabled selected>Select role</option>
+                    </select>
+                </div>
+                <div>
+                    <button asp-area="Management"
+                            asp-controller="ManageUsers"
+                            asp-action="DeleteRoleUser"
+                            type="submit" 
+                            class="btn btn-primary"
+                            title="Delete role">
+                        Delete
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+}

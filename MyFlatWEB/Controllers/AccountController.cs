@@ -33,7 +33,7 @@ namespace MyFlatWEB.Controllers
                 {
                     ViewBag.Message = "You have successfully registered," +
                                       "\nlog in with your email and password.";
-                    RedirectToAction("LogInUser", "Account");
+                    return RedirectToAction("LogInUser", "Account");
                 }
                 else
                 {
@@ -46,8 +46,6 @@ namespace MyFlatWEB.Controllers
                 ModelState.AddModelError(string.Empty, "Invalid register model.");
                 return View(model);
             }
-
-            return View(model);
         }
 
         [HttpGet]
@@ -82,6 +80,11 @@ namespace MyFlatWEB.Controllers
                         return RedirectToAction("Index", "Home");
                     }
                 }
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid register model.");
+                return View(model);
             }
             return View(model);
         }

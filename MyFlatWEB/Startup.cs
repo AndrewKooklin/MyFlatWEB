@@ -26,6 +26,7 @@ using MyFlatWEB.Areas.Management.Models.EditPages;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.FileProviders;
+using MyFlatWEB.Areas.Management.Models.Users;
 
 namespace MyFlatWEB
 {
@@ -57,6 +58,7 @@ namespace MyFlatWEB
             services.AddTransient<DataManager>();
             services.AddTransient<ErrorModel>();
             services.AddTransient<UserRolesModel>();
+            services.AddTransient<AddUserModel>(); 
             //services.AddTransient<UserRoles>();
             services.AddTransient<OrdersModel>();
             services.AddTransient<ServicesModel>();

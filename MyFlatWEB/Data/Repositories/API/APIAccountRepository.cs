@@ -65,6 +65,23 @@ namespace MyFlatWEB.Data.Repositories.API
             return apiResponseBoolean;
         }
 
+        public async Task<bool> AddNewUser(RegisterModel model)
+        {
+            urlRequest = $"{url}" + "UsersAPI/AddNewUser/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseBoolean = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseBoolean;
+        }
+
         public List<string> GetRoleNames()
         {
             roleNames = new List<string>();

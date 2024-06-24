@@ -3,10 +3,9 @@
 <ul class="navbar-nav">
         @if (UserRolesModel != null && !String.IsNullOrEmpty(UserRolesModel.EMail))
         {
-            <li class="nav-item ">
+            <li class="nav-item hello-user">
                 <a id="manage" 
-                   class="nav-link" 
-                   style="color:darkred"><i>Hello @UserRolesModel.EMail!</i></a>
+                   class="nav-link text-dark">Hello <i style="color:darkred">@UserRolesModel.EMail</i> !</a>
             </li>
             <li class="nav-item">
                 <form class="form-inline" 
