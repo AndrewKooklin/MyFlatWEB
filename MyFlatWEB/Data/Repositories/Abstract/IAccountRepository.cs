@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MyFlatWEB.Models.Account;
 using MyFlatWEB.Areas.Management.Models.Users;
+using MyFlatWEB.Models.Account;
 
 namespace MyFlatWEB.Data.Repositories.Abstract
 {

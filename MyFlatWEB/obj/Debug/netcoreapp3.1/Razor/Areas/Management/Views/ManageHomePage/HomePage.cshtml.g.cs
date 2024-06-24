@@ -28,49 +28,49 @@ using Microsoft.AspNetCore.Http;
 #nullable disable
 #nullable restore
 #line 3 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
-using MyFlatWEB.Areas.Identity.Pages.Account;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
-using MyFlatWEB.Areas.Identity.Pages;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
 using MyFlatWEB.Areas.Management;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
+#line 4 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
 using MyFlatWEB.Areas.Management.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
+#line 5 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
 using MyFlatWEB.Areas.Management.Models.EditPages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
+#line 6 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
 using MyFlatWEB.Areas.Management.Models.Rendering;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
+#line 7 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
+using MyFlatWEB.Areas.Management.Models.Users;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
 using MyFlatWEB.Models.Rendering;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\_ViewImports.cshtml"
+using MyFlatWEB.Models.Account;
 
 #line default
 #line hidden
@@ -83,7 +83,7 @@ using System.IO;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8d498a7a000549a6144ec7edb64ee72524ac8d68", @"/Areas/Management/Views/ManageHomePage/HomePage.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"54f7191e946ee7823557e9cc32582e8915869f0b", @"/Areas/Management/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"014c227fb1d37b1a7a6cc6d665f850c10c828d4f", @"/Areas/Management/Views/_ViewImports.cshtml")]
     public class Areas_Management_Views_ManageHomePage_HomePage : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<HomePagePlaceholderModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/lib/jquery/admin/jquery-1.12.4.min.js"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -176,9 +176,9 @@ using System.IO;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<html>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6819489", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6819484", async() => {
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6819752", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6819747", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -192,7 +192,7 @@ using System.IO;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6820852", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6820847", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -218,7 +218,7 @@ using System.IO;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6822656", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6822651", async() => {
                 WriteLiteral("\r\n");
             }
             );
@@ -269,7 +269,7 @@ using System.IO;
 #line hidden
 #nullable disable
             WriteLiteral("                            <div class=\"mr-1 p-0\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6824816", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6824811", async() => {
                 WriteLiteral("\r\n                                    <label");
                 BeginWriteAttribute("id", " id=\"", 1799, "\"", 1813, 2);
                 WriteAttributeValue("", 1804, "!", 1804, 1, true);
@@ -294,7 +294,7 @@ WriteAttributeValue("", 1805, item.Id, 1805, 8, false);
 #line hidden
 #nullable disable
                 WriteLiteral("\r\n                                    </label>\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8d498a7a000549a6144ec7edb64ee72524ac8d6826176", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8d498a7a000549a6144ec7edb64ee72524ac8d6826171", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -408,7 +408,7 @@ WriteAttributeValue("", 2478, item.Id, 2478, 8, false);
                 </div>
                 <div class=""row justify-content-start ml-1"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6832861", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6832856", async() => {
                 WriteLiteral(@"
                         <label id=""#rPhrase""
                                for=""rPhrase""
@@ -473,7 +473,7 @@ WriteAttributeValue("", 2478, item.Id, 2478, 8, false);
 #line hidden
 #nullable disable
             WriteLiteral("                            <div class=\"mr-1 p-0\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6836617", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6836612", async() => {
                 WriteLiteral("\r\n                                    <div");
                 BeginWriteAttribute("class", " class=\"", 5014, "\"", 5022, 0);
                 EndWriteAttribute();
@@ -497,7 +497,7 @@ WriteAttributeValue("", 5078, item.Id, 5078, 8, false);
 #line hidden
 #nullable disable
                 WriteLiteral("\r\n                                        </label>\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8d498a7a000549a6144ec7edb64ee72524ac8d6838158", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8d498a7a000549a6144ec7edb64ee72524ac8d6838153", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -530,7 +530,7 @@ AddHtmlAttributeValue("", 5576, item.Phrase, 5576, 12, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        <div class=\"row justify-content-end btns-random-phrase\">\r\n                                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6840575", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6840570", async() => {
                     WriteLiteral("\r\n                                                🖉\r\n                                            ");
                 }
                 );
@@ -564,7 +564,7 @@ AddHtmlAttributeValue("", 5576, item.Phrase, 5576, 12, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6843283", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6843278", async() => {
                     WriteLiteral("\r\n                                                🗑\r\n                                            ");
                 }
                 );
@@ -647,7 +647,7 @@ AddHtmlAttributeValue("", 5576, item.Phrase, 5576, 12, false);
                 </div>
                 <div class=""col"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6848500", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6848495", async() => {
                 WriteLiteral("\r\n                        <div class=\"row text-left\">\r\n                            <label class=\"text-danger label-input-central-area\"\r\n                                   style=\"height:1.2rem;width:9rem;\">\r\n                                ");
 #nullable restore
 #line 167 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\ManageHomePage\HomePage.cshtml"
@@ -657,7 +657,7 @@ AddHtmlAttributeValue("", 5576, item.Phrase, 5576, 12, false);
 #line hidden
 #nullable disable
                 WriteLiteral("\r\n                            </label>\r\n                        </div>\r\n                        <div class=\"row central-area-text\">\r\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8d498a7a000549a6144ec7edb64ee72524ac8d6849428", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8d498a7a000549a6144ec7edb64ee72524ac8d6849423", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -690,7 +690,7 @@ AddHtmlAttributeValue("", 8029, Model.LeftCentralAreaText, 8029, 26, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        </div>\r\n                        <div class=\"row button-change-central-text justify-content-end\">\r\n                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6851876", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6851871", async() => {
                     WriteLiteral("\r\n                                🖉\r\n                            ");
                 }
                 );
@@ -779,7 +779,7 @@ WriteAttributeValue("", 9304, Convert.ToBase64String(Model.MainPicture), 9304, 4
 #line hidden
 #nullable disable
             WriteLiteral("                </div>\r\n                <div class=\"row ml-4\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6857551", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6857546", async() => {
                 WriteLiteral(@"
                         <div class=""row mt-1"">
                             <label id=""choose-file-label""
@@ -812,7 +812,7 @@ WriteAttributeValue("", 10406, formFile, 10406, 9, false);
                         </div>
                         <div class=""row mt-1"">
                             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6859339", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6859334", async() => {
                     WriteLiteral("\r\n                                Change\r\n                            ");
                 }
                 );
@@ -891,7 +891,7 @@ WriteAttributeValue("", 10406, formFile, 10406, 9, false);
             </div>
             <div class=""text-left mt-2"">
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6864673", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6864668", async() => {
                 WriteLiteral("\r\n                    <div class=\"row text-left\">\r\n                        <label class=\"text-danger label-input-central-area\"\r\n                               style=\"height:1.2rem;width:9rem;\">\r\n                            ");
 #nullable restore
 #line 256 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\ManageHomePage\HomePage.cshtml"
@@ -901,7 +901,7 @@ WriteAttributeValue("", 10406, formFile, 10406, 9, false);
 #line hidden
 #nullable disable
                 WriteLiteral("\r\n                        </label>\r\n                    </div>\r\n                    <div class=\"mt-1\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6865548", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6865543", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper>();
@@ -933,7 +933,7 @@ AddHtmlAttributeValue("", 12303, Model.BottomAreaHeader, 12303, 23, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                    </div>\r\n                    <div class=\"mt-1\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6867830", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6867825", async() => {
                     WriteLiteral("\r\n                            Change\r\n                        ");
                 }
                 );
@@ -971,7 +971,7 @@ AddHtmlAttributeValue("", 12303, Model.BottomAreaHeader, 12303, 23, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            </div>\r\n            <div class=\"text-left mt-3\">\r\n                <h3>Bottom content text</h3>\r\n            </div>\r\n            <div class=\"text-left mt-2\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6871118", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6871113", async() => {
                 WriteLiteral("\r\n                    <div class=\"row text-left\">\r\n                        <label class=\"text-danger label-input-central-area\"\r\n                               style=\"height:1.2rem;width:9rem;\">\r\n                            ");
 #nullable restore
 #line 285 "C:\repos\MyFlatWEB\MyFlatWEB\Areas\Management\Views\ManageHomePage\HomePage.cshtml"
@@ -981,7 +981,7 @@ AddHtmlAttributeValue("", 12303, Model.BottomAreaHeader, 12303, 23, false);
 #line hidden
 #nullable disable
                 WriteLiteral("\r\n                        </label>\r\n                    </div>\r\n                    <div class=\"mt-1\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6871991", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6871986", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper>();
@@ -1013,7 +1013,7 @@ AddHtmlAttributeValue("", 13617, Model.BottomAreaContent, 13617, 24, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                    </div>\r\n                    <div class=\"mt-1\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6874275", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d498a7a000549a6144ec7edb64ee72524ac8d6874270", async() => {
                     WriteLiteral("\r\n                            Change\r\n                        ");
                 }
                 );

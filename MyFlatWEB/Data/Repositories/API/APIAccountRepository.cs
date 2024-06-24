@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using MyFlatWEB.Areas.Management.Models.Users;
 using MyFlatWEB.Models.Account;
 
 namespace MyFlatWEB.Data.Repositories.API
@@ -65,7 +66,7 @@ namespace MyFlatWEB.Data.Repositories.API
             return apiResponseBoolean;
         }
 
-        public async Task<bool> AddNewUser(RegisterModel model)
+        public async Task<bool> AddNewUser(AddUserModel model)
         {
             urlRequest = $"{url}" + "UsersAPI/AddNewUser/" + $"{model}";
             using (_httpClient = new HttpClient())

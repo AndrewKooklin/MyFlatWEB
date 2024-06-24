@@ -7,9 +7,10 @@
 
 <div asp-validation-summary="All" class="text-danger"></div>
 <div>
-    <a class="btn btn-primary"
-       asp-controller="Register"
+    <a asp-area="Management"
+       asp-controller="ManageUsers"
        asp-action="AddNewUser"
+       class="btn btn-primary"
        title="Add user">Add</a>
 </div>
 <div>

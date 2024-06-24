@@ -17,9 +17,12 @@
             <td>@Model.User.Id</td>
             <td>@Model.User.Email</td>
             <td>
-                @foreach (var role in Model.Roles)
+                @if (Model.Roles.Any())
                 {
-                    <label>@role </label><br />
+                    @foreach (var role in Model.Roles)
+                    {
+                        <label>@role </label><br />
+                    }
                 }
             </td>
         </tr>
