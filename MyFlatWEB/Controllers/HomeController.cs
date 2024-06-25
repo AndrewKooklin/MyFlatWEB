@@ -32,8 +32,10 @@ namespace MyFlatWEB.Controllers
             });
         }
 
-        public IActionResult Index()
+        public IActionResult Home()
         {
+            ViewBag.PlaceHolder = _dataManager.PageEditor.GetHomePagePlaceholder();
+            ViewBag.Contacts = _dataManager.PageEditor.GetContactsFromDB();
             return View();
         }
 

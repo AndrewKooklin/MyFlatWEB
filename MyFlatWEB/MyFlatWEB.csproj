@@ -33,6 +33,7 @@
     <Compile Remove="Models\Account\RoleUserModel.cs" />
     <Compile Remove="Models\Account\UserRoles.cs" />
     <Compile Remove="Models\Account\UserWithRolesModel.cs" />
+    <Compile Remove="Models\Rendering\TopMenuLinkNameModel.cs" />
     <Compile Remove="Views\ErrorModel.cs" />
     <Compile Remove="Views\Shared\ErrorModel.cs" />
     <Compile Remove="Views\Shared\ErrorViewModel.cs" />

@@ -11,6 +11,8 @@ namespace MyFlatWEB.Areas.Management.Models.EditPages
     {
         public string LinkName { get; set; }
 
+        public string ActionMethod { get; set; }
+
         [NotMapped]
         public string InputLinkNameError { get; set; }
     }
