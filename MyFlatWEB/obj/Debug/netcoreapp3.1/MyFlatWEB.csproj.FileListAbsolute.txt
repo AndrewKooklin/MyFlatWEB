@@ -468,7 +468,8 @@ C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\View
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Views\Account\LogInError.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Views\Account\LoginUser.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Views\Account\RegisterUser.cshtml.g.cs
-C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageUsers\AddNewUser.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageUsers\AllUsers.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageUsers\UserDetails.cshtml.g.cs
 C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageRoles\Roles.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageUsers\AddUser.cshtml.g.cs
+C:\repos\MyFlatWEB\MyFlatWEB\obj\Debug\netcoreapp3.1\Razor\Areas\Management\Views\ManageRoles\AddRole.cshtml.g.cs

@@ -19,6 +19,8 @@ namespace MyFlatWEB.Areas.Management.Controllers
             _dataManager = dataManager;
         }
 
+        [HttpGet]
+        [Route("[controller]/Roles")]
         public IActionResult Roles()
         {
             var roles = _dataManager.Accounts.GetRoles();
@@ -26,12 +28,14 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [HttpGet]
-        public IActionResult CreateRole()
+        [Route("[controller]/AddRole")]
+        public IActionResult AddRole()
         {
             return View();
         }
 
         [HttpPost]
+        [Route("[controller]/CreateRole")]
         public IActionResult CreateRole(IdentityRole role)
         {
             var result = _dataManager.Accounts.CreateRole(role).GetAwaiter().GetResult();
@@ -47,6 +51,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [HttpGet]
+        [Route("[controller]/DeleteRole")]
         public IActionResult DeleteRole(string id)
         {
             var result = _dataManager.Accounts.DeleteRole(id).GetAwaiter().GetResult();

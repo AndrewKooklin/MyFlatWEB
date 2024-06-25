@@ -173,7 +173,7 @@
                                 <li>
                                     <a asp-area="Management"
                                        asp-controller="ManageUsers"
-                                       asp-action="GetAllUsers"
+                                       asp-action="AllUsers"
                                        class="d-flex justify-content-between align-items-center">
                                         <p>All users</p>
                                         <i class="ion-ios-arrow-forward"></i>
@@ -185,15 +185,6 @@
                                        asp-action="AddUser"
                                        class="d-flex justify-content-between align-items-center">
                                         <p>Add user</p>
-                                        <i class="ion-ios-arrow-forward"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a asp-area="Management"
-                                       asp-controller="ManageUsers"
-                                       asp-action="AddRoleToUser"
-                                       class="d-flex justify-content-between align-items-center">
-                                        <p>Add role to user</p>
                                         <i class="ion-ios-arrow-forward"></i>
                                     </a>
                                 </li>
@@ -226,7 +217,16 @@
                             <ul>
                                 <li>
                                     <a asp-area="Management"
-                                       asp-controller="ManageUsers"
+                                       asp-controller="ManageRoles"
+                                       asp-action="Roles"
+                                       class="d-flex justify-content-between align-items-center">
+                                        <p>Roles</p>
+                                        <i class="ion-ios-arrow-forward"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-area="Management"
+                                       asp-controller="ManageRoles"
                                        asp-action="AddRole"
                                        class="d-flex justify-content-between align-items-center">
                                         <p>Add role</p>
@@ -420,15 +420,6 @@
                                                             <i class="ion-ios-arrow-forward"></i>
                                                         </a>
                                                     </li>
-                                                    <li>
-                                                        <a asp-area="Management"
-                                                           asp-controller="ManageUsers"
-                                                           asp-action="AddRoleToUser"
-                                                           class="d-flex justify-content-between align-items-center">
-                                                            <p>Add role to user</p>
-                                                            <i class="ion-ios-arrow-forward"></i>
-                                                        </a>
-                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -458,7 +449,16 @@
                                                 <ul>
                                                     <li>
                                                         <a asp-area="Management"
-                                                           asp-controller="ManageUsers"
+                                                           asp-controller="ManageRoles"
+                                                           asp-action="Roles"
+                                                           class="d-flex justify-content-between align-items-center">
+                                                            <p>Roles</p>
+                                                            <i class="ion-ios-arrow-forward"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-area="Management"
+                                                           asp-controller="ManageRoles"
                                                            asp-action="AddRole"
                                                            class="d-flex justify-content-between align-items-center">
                                                             <p>Add role</p>

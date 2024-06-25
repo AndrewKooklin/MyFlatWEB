@@ -33,6 +33,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [HttpGet]
+        [Route("UserDetails")]
         public IActionResult UserDetails(string id)
         {
             var user = _dataManager.Accounts.GetUserWithRoles(id);
@@ -45,7 +46,8 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddNewUser()
+        [Route("[controller]/AddUser")]
+        public IActionResult AddUser()
         {
             _addUserModel = new AddUserModel
             {
@@ -59,6 +61,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [HttpPost]
+        [Route("[controller]/AddNewUser")]
         public async Task<IActionResult> AddNewUser(AddUserModel model)
         {
             if (ModelState.IsValid)
@@ -79,7 +82,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
                         })
                     };
                     ModelState.AddModelError(string.Empty, "User already exist.");
-                    return View(_addUserModel);
+                    return View("AddUser", _addUserModel);
                 }
             }
             else
@@ -93,11 +96,12 @@ namespace MyFlatWEB.Areas.Management.Controllers
                         Value = i
                     })
                 };
-                return View(_addUserModel);
+                return View("AddUser", _addUserModel);
             }
         }
 
         [HttpPost]
+        [Route("[controller]/AddRoleToUser")]
         public IActionResult AddRoleToUser(UserWithRolesModel model)
         {
             RoleUserModel roleUserModel = new RoleUserModel();
@@ -154,6 +158,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [HttpPost]
+        [Route("[controller]/DeleteRoleUser")]
         public IActionResult DeleteRoleUser(UserWithRolesModel model)
         {
             RoleUserModel roleUserModel = new RoleUserModel();
@@ -225,6 +230,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
         }
 
         [HttpGet]
+        [Route("[controller]/DeleteUser")]
         public IActionResult DeleteUser(string id)
         {
             bool resultRoles = _dataManager.Accounts.DeleteRolesUser(id).GetAwaiter().GetResult();
@@ -251,5 +257,7 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 return View("AllUsers", users);
             }
         }
+
+
     }
 }

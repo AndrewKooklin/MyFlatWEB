@@ -22,6 +22,7 @@ namespace MyFlatWEB.Areas.Management.Models.Users
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        [Required(ErrorMessage = "Fill field \"Confirm password\"")]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "Field \"Password\" и \"Confirm password\" don't match.")]

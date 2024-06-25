@@ -653,3 +653,43 @@ body {
 .hello-user{
     padding-top: 1px;
 }
+
+.users-column-name,
+.users-column-email {
+    width: 5rem;
+    padding: 0.75rem;
+    vertical-align:middle;
+    border-bottom: 1px solid #787878;
+}
+
+.roles-column-name {
+    width: 10rem;
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #787878;
+}
+
+.users-column-details,
+.users-column-delete,
+.roles-column-delete {
+    width: 2rem;
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #787878;
+}
+
+.users-details-column-id,
+.users-details-column-email,
+.roles-column-id {
+    width: 14rem;
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #787878;
+}
+
+.users-details-column-roles {
+    width: 5rem;
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #787878;
+}
