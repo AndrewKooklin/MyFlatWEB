@@ -1,12 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Blog Details";
+﻿@model PostModel
+
+@{
+    ViewData["Title"] = "Post Details";
 }
 
+
 <section id="blog-header" class="latest-product-area pt-130 pb-110">
+    <div class="d-block">
+        <h1>@ViewData["Title"]</h1>
+    </div>
     <div class="container">
         <div class="row justify-content-md-center mt-5">
             <div class="col-md-5 col-lg-3">
-                <h3 class="text-left">Kitchen Design</h3>
+                <h3 class="text-left">@Model.PostHeader</h3>
             </div>
             <div class="col-md-7 col-lg-6">
             </div>
@@ -18,11 +24,14 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-5 col-lg-3">
-                <img class="pt-7 pt-md-0 w-100" src="~/Images/b1.jpeg" alt="hero-header">
+                <img class="pt-7 pt-md-0 w-100" 
+                     src="data:image;base64,@(Convert.ToBase64String(Model.PostImage))" 
+                     alt="post-image">
             </div>
             <div class="col-md-7 col-lg-6">
                 <h6 class="fw-bold font-sans-serif text-left">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                    @Model.PostDescription
+                    @*Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
                     magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
                     gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
                     elitr.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
@@ -30,10 +39,13 @@
                     magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
                     gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
                     elitr.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-                    dolore magna aliquyam erat.
+                    dolore magna aliquyam erat.*@
                 </h6>
                 <div class="text-right">
-                    <a class="btn btn-primary me-2 ion-ios-arrow-back" asp-controller="Home" asp-action="Blogs" role="button">&nbsp;Back</a>
+                    <a class="btn btn-primary me-2 ion-ios-arrow-back" 
+                       asp-controller="Home" 
+                       asp-action="Blog" 
+                       role="button">&nbsp;Back</a>
                 </div>
             </div>
                 

@@ -4531,7 +4531,9 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
     .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-        color: rgba(0,0,0,.7)
+        color: rgba(0,0,0,.7);
+        text-shadow: 2px 2px 10px #3fa9f9;
+        transition: text-shadow 0.2s ease-in, color 0.2s ease-in;
     }
 
     .navbar-light .navbar-nav .nav-link.disabled {
@@ -10148,7 +10150,7 @@ a.text-light:focus, a.text-light:hover {
 }
 
 a.text-dark:focus, a.text-dark:hover {
-    color: #121416 !important
+    color: #121416 !important;
 }
 
 .text-body {

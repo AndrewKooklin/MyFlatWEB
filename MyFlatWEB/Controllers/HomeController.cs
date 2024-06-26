@@ -76,32 +76,39 @@ namespace MyFlatWEB.Controllers
 
         public IActionResult Projects()
         {
-            return View();
+            var projects = _dataManager.PageEditor.GetProjectsFromDB();
+            return View(projects);
         }
 
-        public IActionResult ProjectDetails()
+        public IActionResult ProjectDetails(int id)
         {
-            return View();
+            var project = _dataManager.PageEditor.GetProjectById(id);
+            return View(project);
         }
 
         public IActionResult Services()
         {
-            return View();
+            var services = _dataManager.PageEditor.GetServicesFromDB();
+            return View(services);
         }
 
         public IActionResult Blog()
         {
-            return View();
+            var posts = _dataManager.PageEditor.GetPostsFromDB();
+            return View(posts);
         }
 
-        public IActionResult BlogDetails()
+        public IActionResult BlogDetails(int id)
         {
-            return View();
+            var post = _dataManager.PageEditor.GetPostById(id);
+            return View(post);
         }
 
         public IActionResult Contacts()
         {
-            return View();
+            var contacts = _dataManager.PageEditor.GetContactsFromDB();
+            ViewBag.Social = _dataManager.PageEditor.GetSocialLinksFromDB();
+            return View(contacts);
         }
 
         public IActionResult Privacy()
