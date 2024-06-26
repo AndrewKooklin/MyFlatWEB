@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<ProjectModel>
+
+@{
     ViewData["Title"] = "Our Projects";
 }
 
@@ -14,88 +16,102 @@
         </div>
 
         <div class="row">
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="single-product">
-                    <div class="product-img">
-                        <a asp-controller="Home" asp-action="ProjectDetails" >
-                            <img src="~/Images/i1.jpg" alt="">
-                        </a>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-xl-4 col-lg-6 col-md-6">
+                        <div class="single-product">
+                            <div class="product-img">
+                                <a asp-controller="Home"
+                                   asp-action="ProjectDetails"
+                                   asp-route-id="@item.Id">
+                                    <img src="data:image;base64,@(Convert.ToBase64String(item.ProjectImage))"
+                                         alt="Project image">
+                                </a>
+                            </div>
+                            <div class="product-content">
+                                <h4 class="name">
+                                    <a asp-controller="Home"
+                                       asp-action="ProjectDetails"
+                                       asp-route-id="@item.Id">@item.ProjectHeader</a>
+                                </h4>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product-content">
-                        <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">Panoramic windows</a></h4>
+                }
+            }
+
+
+            @*<div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <a asp-controller="Home" asp-action="ProjectDetails">
+                                <img src="~/Images/i2.jpg" alt="">
+                            </a>
+                        </div>
+
+                        <div class="product-content">
+                            <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">Original roof</a></h4>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="single-product">
-                    <div class="product-img">
-                        <a asp-controller="Home" asp-action="ProjectDetails">
-                            <img src="~/Images/i2.jpg" alt="">
-                        </a>
-                    </div>
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <a asp-controller="Home" asp-action="ProjectDetails">
+                                <img src="~/Images/i3.jpg" alt="">
+                            </a>
+                        </div>
 
-                    <div class="product-content">
-                        <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">Original roof</a></h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="single-product">
-                    <div class="product-img">
-                        <a asp-controller="Home" asp-action="ProjectDetails">
-                            <img src="~/Images/i3.jpg" alt="">
-                        </a>
-                    </div>
-
-                    <div class="product-content">
-                        <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">High-tech model</a></h4>
+                        <div class="product-content">
+                            <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">High-tech model</a></h4>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="single-product">
-                    <div class="product-img">
-                        <a asp-controller="Home" asp-action="ProjectDetails">
-                            <img src="~/Images/i4.jpg" alt="">
-                        </a>
-                    </div>
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <a asp-controller="Home" asp-action="ProjectDetails">
+                                <img src="~/Images/i4.jpg" alt="">
+                            </a>
+                        </div>
 
-                    <div class="product-content">
-                        <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">Two-story house</a></h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="single-product">
-                    <div class="product-img">
-                        <a asp-controller="Home" asp-action="ProjectDetails">
-                            <img src="~/Images/i5.jpg" alt="">
-                        </a>
-                    </div>
-
-                    <div class="product-content">
-                        <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">Hotel with pool</a></h4>
+                        <div class="product-content">
+                            <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">Two-story house</a></h4>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="single-product">
-                    <div class="product-img">
-                        <a asp-controller="Home" asp-action="ProjectDetails">
-                            <img src="~/Images/i6.jpg" alt="">
-                        </a>
-                    </div>
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <a asp-controller="Home" asp-action="ProjectDetails">
+                                <img src="~/Images/i5.jpg" alt="">
+                            </a>
+                        </div>
 
-                    <div class="product-content">
-                        <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">Wooden house</a></h4>
+                        <div class="product-content">
+                            <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">Hotel with pool</a></h4>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <a asp-controller="Home" asp-action="ProjectDetails">
+                                <img src="~/Images/i6.jpg" alt="">
+                            </a>
+                        </div>
+
+                        <div class="product-content">
+                            <h4 class="name"><a asp-controller="Home" asp-action="ProjectDetails">Wooden house</a></h4>
+                        </div>
+                    </div>
+                </div>*@
 
         </div>
     </div>
