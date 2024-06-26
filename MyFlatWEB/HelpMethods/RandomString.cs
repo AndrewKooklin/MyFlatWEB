@@ -15,7 +15,7 @@ namespace MyFlatWEB.HelpMethods
         private string url = @"https://localhost:44388/";
         private string urlRequest = "";
 
-        public List<string> GetPhraseNames()
+        private List<string> GetPhraseNames()
         {
             List<string> phraseNames = new List<string>();
 
