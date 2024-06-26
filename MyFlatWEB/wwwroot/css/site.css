@@ -555,7 +555,7 @@ body {
 }
 
 .input-project-header{
-    width:20rem;
+    width:25rem;
 }
 
 .input-project-desc {
@@ -697,4 +697,10 @@ body {
     padding: 0.75rem;
     vertical-align: middle;
     border-bottom: 1px solid #787878;
+}
+
+.users-table-header,
+.roles-table-header,
+.contacts-table-header {
+    background-color: #dbdbdb;
 }

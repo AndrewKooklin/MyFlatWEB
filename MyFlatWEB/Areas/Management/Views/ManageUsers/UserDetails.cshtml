@@ -5,10 +5,10 @@
 
 <div class="container">
     <div class="">
-        <div  class="row d-block pt-3">
+        <div class="row d-block pt-3">
             <h1>@ViewData["Title"]</h1>
         </div>
-        
+
         <div class="row d-block">
             <table class="w-auto">
                 <thead>
@@ -107,5 +107,14 @@
                 </div>
             </div>
         }
+    </div>
+    <div class="w-auto pt-4">
+        <div class="">
+            <a class="btn btn-primary me-2 ion-ios-arrow-back"
+               asp-area="Management"
+               asp-controller="ManageUsers"
+               asp-action="AllUsers"
+               role="button">&nbsp;Back</a>
+        </div>
     </div>
 </div>

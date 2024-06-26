@@ -3,17 +3,25 @@
 @{
     ViewData["Title"] = "Roles";
 }
-<h1>@ViewData["Title"]</h1>
-<p>
-    <a asp-area="Management"
-       asp-controller="ManageRoles"
-       asp-action="AddRole"
-       class="btn btn-primary"
-       title="Add role">Add role</a>
-</p>
+
+<div class="pt-3">
+        <div class="row d-block ml-2">
+            <h1 class="m-0 p-0">@ViewData["Title"]</h1>
+        </div>
+        <div class="row d-block ml-2 mt-2">
+            <p>
+                <a asp-area="Management"
+                   asp-controller="ManageRoles"
+                   asp-action="AddRole"
+                   class="btn btn-primary"
+                   title="Add role">Add role</a>
+            </p>
+        </div>
+</div>
+
 <table class="w-auto">
     <thead>
-        <tr>
+        <tr class="roles-table-header">
             <th class="roles-column-id">@Html.DisplayNameFor(model => model.Id)</th>
             <th class="roles-column-name">@Html.DisplayNameFor(model => model.Name)</th>
             <th class="roles-column-name">@Html.DisplayNameFor(model => model.NormalizedName)</th>

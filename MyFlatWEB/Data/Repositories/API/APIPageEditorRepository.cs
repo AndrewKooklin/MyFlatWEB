@@ -39,6 +39,38 @@ namespace MyFlatWEB.Data.Repositories.API
             return phm;
         }
 
+        public List<RandomPhraseModel> GetRandomPhrasesFromDB()
+        {
+            List<RandomPhraseModel> phrases = new List<RandomPhraseModel>();
+
+            urlRequest = $"{url}" + "ProjectsPageEditAPI/GetRandomPhrases";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                phrases = JsonConvert.DeserializeObject<List<RandomPhraseModel>>(result);
+            }
+
+            return phrases;
+        }
+
+        public List<string> GetRandomPhraseNamesFromDB()
+        {
+            List<string> phraseNames = new List<string>();
+
+            urlRequest = $"{url}" + "ProjectsPageEditAPI/GetRandomPhraseNames";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                phraseNames = JsonConvert.DeserializeObject<List<string>>(result);
+            }
+
+            return phraseNames;
+        }
+
         public async Task<bool> ChangeNameLinkTopMenu(TopMenuLinkNameModel model)
         {
             urlRequest = $"{url}" + "HomePageEditAPI/ChangeNameLinkTopMenu/" + $"{model}";

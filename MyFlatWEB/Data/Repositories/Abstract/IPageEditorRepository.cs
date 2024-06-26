@@ -13,6 +13,10 @@ namespace MyFlatWEB.Data.Repositories.Abstract
 
         Task<bool> ChangeNameLinkTopMenu(TopMenuLinkNameModel model);
 
+        List<RandomPhraseModel> GetRandomPhrasesFromDB();
+
+        List<string> GetRandomPhraseNamesFromDB();
+
         Task<bool> AddRandomPhrase(RandomPhraseModel model);
 
         Task<bool> ChangeRandomPhrase(RandomPhraseModel model);
