@@ -292,7 +292,7 @@ namespace MyFlatWEB.Data.Repositories.API
 
         public List<ServiceModel> GetServicesFromDB()
         {
-            List<ServiceModel> projects = new List<ServiceModel>();
+            List<ServiceModel> services = new List<ServiceModel>();
 
             urlRequest = $"{url}" + "ServicesPageEditAPI/GetServicesFromDB";
             using (_httpClient = new HttpClient())
@@ -300,10 +300,10 @@ namespace MyFlatWEB.Data.Repositories.API
                 _httpClient.DefaultRequestHeaders.Accept.Clear();
                 _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 string result = _httpClient.GetStringAsync(urlRequest).Result;
-                projects = JsonConvert.DeserializeObject<List<ServiceModel>>(result);
+                services = JsonConvert.DeserializeObject<List<ServiceModel>>(result);
             }
 
-            return projects;
+            return services;
         }
 
         public async Task<bool> AddServiceToDB(ServiceModel model)
