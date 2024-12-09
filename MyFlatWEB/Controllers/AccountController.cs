@@ -71,13 +71,13 @@ namespace MyFlatWEB.Controllers
                     {
                         UserRolesModel.EMail = model.Email;
                         UserRolesModel.Roles = new List<string> { "Anonymus" };
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Home", "Home");
                     }
                     else if (UserRolesModel.Roles != null)
                     {
                         UserRolesModel.EMail = model.Email;
 
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Home", "Home");
                     }
                 }
             }
@@ -99,7 +99,7 @@ namespace MyFlatWEB.Controllers
             _dataManager.Accounts.LogoutUser();
             UserRolesModel.EMail = "";
             UserRolesModel.Roles = new List<string> { "Anonymus" };
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Home", "Home");
         }
     }
 }
