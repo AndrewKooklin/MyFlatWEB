@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="~/css/ionicon.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+    <link rel="icon" href="~/Images/icons/app.ico" />
 </head>
 <body>
     <header>
@@ -35,8 +36,8 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        @*@if (UserRolesModel != null && UserRolesModel.Roles.Contains("Admin"))
-                            {*@
+                        @if (UserRolesModel != null && UserRolesModel.Roles.Contains("Admin"))
+                            {
                         <li class="nav-item">
                             <a class="nav-link text-dark"
                                asp-area="Management"
@@ -44,7 +45,7 @@
                                asp-action="ManageHome"
                                title="Manage Views">Management</a>
                         </li>
-                        @*}*@
+                        }
                         @if (topMenuLink.Any())
                         {
                             @foreach (var item in topMenuLink)

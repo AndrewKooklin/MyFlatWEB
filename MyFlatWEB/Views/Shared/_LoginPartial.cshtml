@@ -3,9 +3,12 @@
 <ul class="navbar-nav">
         @if (UserRolesModel != null && !String.IsNullOrEmpty(UserRolesModel.EMail))
         {
+            string[] nameArray = UserRolesModel.EMail.Split("@");
+            string name = nameArray[0];
+
             <li class="nav-item hello-user">
-                <a id="manage" 
-                   class="nav-link text-dark">Hello <i style="color:darkred">@UserRolesModel.EMail</i> !</a>
+                <p id="manage" 
+                   class="nav-link text-dark">Hello <i style="color:darkred">@name</i> !</p>
             </li>
             <li class="nav-item">
                 <form class="form-inline" 

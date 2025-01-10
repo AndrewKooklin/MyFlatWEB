@@ -48,7 +48,7 @@ namespace MyFlatWEB.Controllers
                 if (result)
                 {
                     ModelState.AddModelError(string.Empty, "Order added successfully.");
-                    return View("Index");
+                    return RedirectToAction("Home");
                 }
                 else
                 {
@@ -58,7 +58,7 @@ namespace MyFlatWEB.Controllers
                         Value = i
                     });
                     ModelState.AddModelError(string.Empty, "Server error.");
-                    return View("Index", _orderModel);
+                    return View("Home", _orderModel);
                 }
             }
             else
@@ -70,7 +70,7 @@ namespace MyFlatWEB.Controllers
                     Text = i,
                     Value = i
                 });
-                return View("Index", _orderModel);
+                return View("Home", _orderModel);
             }
         }
 
