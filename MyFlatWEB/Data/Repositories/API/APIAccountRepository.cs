@@ -24,6 +24,7 @@ namespace MyFlatWEB.Data.Repositories.API
 
         private List<string> userRoles;
         private List<string> roleNames;
+        private IdentityRole role;
         private IEnumerable<IdentityRole> roles;
         private List<IdentityUser> users;
         private UserWithRolesModel userWithRoles;
@@ -112,6 +113,20 @@ namespace MyFlatWEB.Data.Repositories.API
             return roles;
         }
 
+        public IdentityRole GetRoleById(string id)
+        {
+            urlRequest = $"{url}" + "RolesAPI/GetRoleById/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                role = JsonConvert.DeserializeObject<IdentityRole>(result);
+            }
+
+            return role;
+        }
+
         public async Task<List<string>> GetUserRoles(LoginModel model)
         {
             urlRequest = $"{url}" + "LoginAPI/GetUserRoles/" + $"{model}";
@@ -145,6 +160,8 @@ namespace MyFlatWEB.Data.Repositories.API
 
             return apiResponseBoolean;
         }
+
+
 
         public async Task<bool> DeleteRole(string id)
         {

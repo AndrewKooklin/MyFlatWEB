@@ -1,3 +1,5 @@
 Email: admin1@myflat.com
 Password: admin1
 Role: Admin
+
+//Database User ID='ak'; Password='ak';

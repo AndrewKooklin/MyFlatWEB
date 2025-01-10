@@ -14,9 +14,9 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end">
-                <img class="pt-7 pt-md-0 w-100" 
-                     src="data:image;base64,@(Convert.ToBase64String(placeholder.MainPicture))" 
-                     width="470" 
+                <img class="pt-7 pt-md-0 w-100"
+                     src="data:image;base64,@(Convert.ToBase64String(placeholder.MainPicture))"
+                     width="470"
                      alt="main-image">
             </div>
             <div class="col-md-7 col-lg-6 text-md-start text-center py-6">
@@ -38,11 +38,11 @@
                     <p class="mb-4">
                         @placeholder.BottomAreaContent
                         @*Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                        Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.
-                        Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                        Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.
-                        Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                        Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.*@
+                            Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.
+                            Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
+                            Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.
+                            Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
+                            Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.*@
                     </p>
                     <a class="d-inline-flex align-items-center rounded overflow-hidden border border-primary text-decoration-none" href="tel:+70123456789">
                         <span class="btn-lg-square bg-primary" style="width: 40px; height: 40px; padding:5px;">
@@ -50,7 +50,7 @@
                         </span>
                         <span class="fs-5 fw-medium mx-4">
                             @contacts.ContactPhone
-                        @*+7 012 345 6789*@
+                            @*+7 012 345 6789*@
                         </span>
                     </a>
                 </div>
@@ -64,21 +64,36 @@
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <div class="form-floating form-group">
-                                    <input asp-for="Name" type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input asp-for="Name"
+                                           type="text"
+                                           class="form-control"
+                                           id="name"
+                                           placeholder="Your Name"
+                                           onkeyup="getInputsVal()">
                                     <label asp-for="Name"></label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-floating form-group">
-                                    <input asp-for="Email" type="email" class="form-control" id="mail" placeholder="Your Email">
+                                    <input asp-for="Email"
+                                           type="email"
+                                           class="form-control"
+                                           id="mail"
+                                           placeholder="Your Email"
+                                           onkeyup="getInputsVal()">
                                     <label asp-for="Email"></label>
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-floating form-group">
-                                    <input asp-for="Mobile" type="text" class="form-control" id="mobile" placeholder="Your Mobile">
+                                    <input asp-for="Mobile"
+                                           type="text"
+                                           class="form-control"
+                                           id="mobile"
+                                           placeholder="Your Mobile"
+                                           onkeyup="getInputsVal()">
                                     <label asp-for="Mobile"></label>
                                     <span asp-validation-for="Mobile" class="text-danger"></span>
                                 </div>
@@ -86,7 +101,11 @@
                             <div class="col-sm-6">
                                 <div class="form-floating form-group">
                                     @*<label asp-for="CategoryName"></label>*@
-                                    <select asp-for="ServiceName" asp-items="@ServicesModel.ServiceNames" class="form-control" id="service">
+                                    <select asp-for="ServiceName"
+                                            asp-items="@ServicesModel.ServiceNames"
+                                            class="form-control"
+                                            id="service"
+                                            onchange="getInputsVal()">
                                         <option disabled selected></option>
                                         @*<option value="Building design">Building design</option>*@
                                         @*<option value="Home construction">Home construction</option>*@
@@ -100,13 +119,23 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating form-group">
-                                    <textarea asp-for="Message" class="form-control" placeholder="Leave a message here" id="message" style="height: 104px;"></textarea>
+                                    <textarea asp-for="Message"
+                                              class="form-control"
+                                              placeholder="Leave a message here"
+                                              id="message"
+                                              onkeyup="getInputsVal()"
+                                              style="height: 104px;"></textarea>
                                     <label asp-for="Message">Message</label>
                                     <span asp-validation-for="Message" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
-                                <button id="submitOrder" class="btn btn-primary w-100 py-3" type="submit" disabled>Send form</button>
+                                <button id="submitOrder"
+                                        class="btn btn-primary w-100 py-3"
+                                        type="submit"
+                                        disabled>
+                                    Send form
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -116,18 +145,22 @@
     </div>
 </section>
 
+<script src="~/js/checkInputValues.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-<script>
-    var $form = $("#formOrder");
-    var $submitbutton = $("#submitOrder");
 
-    $form.on("blur", "input", () => {
-        if ($form.valid()) {
-            $submitbutton.removeAttr("disabled");
-        }
-        else {
-            $submitbutton.add.attr("disabled", "disabled");
-        }
-    });
-</script>
+
+
+@*<script>
+        var $form = $("#formOrder");
+        var $submitbutton = $("#submitOrder");
+
+        $form.on("blur", "input", () => {
+            if ($form.valid()) {
+                $submitbutton.removeAttr("disabled");
+            }
+            else {
+                $submitbutton.add.attr("disabled", "disabled");
+            }
+        });
+    </script>*@
