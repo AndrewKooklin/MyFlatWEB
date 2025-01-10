@@ -59,7 +59,7 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #fff
+    background: linear-gradient(to bottom, #fff, #fff 50%, #8ed5ff 85%);
 }
 
 [tabindex="-1"]:focus {
@@ -4642,7 +4642,15 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1.25rem
+    padding: 1.25rem;
+}
+
+.service-card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
 }
 
 .card-body li{
@@ -12285,6 +12293,10 @@ a.text-dark:focus, a.text-dark:hover {
         padding: 6px 12px;
         transition: border-color .15s ease-in-out 0s,box-shadow .15s ease-in-out 0s;
         width: 100%
+    }
+
+    .input-rolename{
+        width: 20rem;
     }
 
     .breadcome-heading a {
