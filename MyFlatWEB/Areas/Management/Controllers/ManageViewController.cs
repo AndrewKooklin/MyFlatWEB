@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MyFlatWEB.Areas.Management.Models;
 using MyFlatWEB.Areas.Management.Models.Rendering;
 using MyFlatWEB.Data;
-using MyFlatWEB.Models;
 using MyFlatWEB.Models.Rendering;
 using System;
 using System.Collections.Generic;
@@ -32,27 +31,11 @@ namespace MyFlatWEB.Areas.Management.Controllers
         [Route("ManageHome")]
         public IActionResult ManageHome()
         {
-            //if (UserRoles.Roles.Contains("Admin"))
-            //{
             OrdersByServiceModel model = new OrdersByServiceModel();
-
             model.ServiceOrders = _dataManager.Rendering.GetServiceOrdersCount();
-
-            //int total = 0;
-
-            //foreach (var item in model.ServiceOrders)
-            //{
-            //    total += item.OrdersByServiceCount;
-            //}
-
             model.OrdersCount = _totalCountOrders;
 
-                return View("ManageHome", model);
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Index", "Home", new { area = "" });
-            //}
+            return View("ManageHome", model);
         }
 
         [Route("AllOrders")]
@@ -60,7 +43,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
         {
             OrdersModel ordersModel = new OrdersModel();
             InputDataModel inputDataModel = new InputDataModel();
-            //_statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
             ordersModel.StatusNames = _statusNamesList.AsEnumerable().Select(i => new SelectListItem
             {
                 Text = i,
@@ -78,7 +60,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
         public IActionResult OrdersByService(string serviceName)
         {
             OrdersModel ordersModel = new OrdersModel();
-            //_statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
             ordersModel.StatusNames = _statusNamesList.AsEnumerable().Select(i => new SelectListItem
             {
                 Text = i,
@@ -101,8 +82,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
 
             if (String.IsNullOrEmpty(datefrom) || String.IsNullOrEmpty(dateto))
             {
-                
-                //_statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
                 ordersModel.StatusNames = _statusNamesList.AsEnumerable().Select(i => new SelectListItem
                 {
                     Text = i,
@@ -133,7 +112,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 }
 
                 ordersModel = new OrdersModel();
-                //_statusNames = _dataManager.Rendering.GetStatusNames().AsEnumerable();
                 ordersModel.StatusNames = _statusNamesList.AsEnumerable().Select(i => new SelectListItem
                 {
                     Text = i,
@@ -151,7 +129,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 ordersModel.Title = $"Orders per {periodname} : {ordersModel.CountOrdersByParameter} order(s)";
 
                 return View("AllOrders", ordersModel);
-
             }
 
             return RedirectToAction("AllOrders", "ManageView");

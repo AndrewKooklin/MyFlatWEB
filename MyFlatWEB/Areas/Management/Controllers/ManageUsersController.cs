@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyFlatWEB.Areas.Management.Models.Users;
 using MyFlatWEB.Data;
-using MyFlatWEB.Models.Account;
 
 namespace MyFlatWEB.Areas.Management.Controllers
 {
@@ -257,7 +256,5 @@ namespace MyFlatWEB.Areas.Management.Controllers
                 return View("AllUsers", users);
             }
         }
-
-
     }
 }

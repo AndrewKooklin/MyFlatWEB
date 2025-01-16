@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +31,6 @@ namespace MyFlatWEB.Areas.Management.Controllers
 
             return View(placeHolder);
         }
-
 
         [HttpPost]
         [Route("ChangeNameLinkTopMenu")]
