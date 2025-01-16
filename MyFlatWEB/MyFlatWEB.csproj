@@ -64,6 +64,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="app.ico" />
+    <None Remove="myflat.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="jQuery.UI.Core" Version="1.8.9" />
     <PackageReference Include="jQuery.UI.Widgets.Datepicker" Version="1.8.9" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.0.0" />
