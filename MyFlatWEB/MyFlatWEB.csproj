@@ -9,18 +9,22 @@
 
   <ItemGroup>
     <Compile Remove="Areas\Identity\Pages\**" />
+    <Compile Remove="Areas\Management\Data\**" />
     <Compile Remove="Areas\Management\Pages\**" />
     <Compile Remove="Attributes\**" />
     <Compile Remove="wwwroot\lib\jquery-ui-1.13.2\**" />
     <Content Remove="Areas\Identity\Pages\**" />
+    <Content Remove="Areas\Management\Data\**" />
     <Content Remove="Areas\Management\Pages\**" />
     <Content Remove="Attributes\**" />
     <Content Remove="wwwroot\lib\jquery-ui-1.13.2\**" />
     <EmbeddedResource Remove="Areas\Identity\Pages\**" />
+    <EmbeddedResource Remove="Areas\Management\Data\**" />
     <EmbeddedResource Remove="Areas\Management\Pages\**" />
     <EmbeddedResource Remove="Attributes\**" />
     <EmbeddedResource Remove="wwwroot\lib\jquery-ui-1.13.2\**" />
     <None Remove="Areas\Identity\Pages\**" />
+    <None Remove="Areas\Management\Data\**" />
     <None Remove="Areas\Management\Pages\**" />
     <None Remove="Attributes\**" />
     <None Remove="wwwroot\lib\jquery-ui-1.13.2\**" />
@@ -83,10 +87,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Management\Data\" />
   </ItemGroup>
 
   <ItemGroup>
