@@ -1,18 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using MyFlatWEB.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MyFlatWEB.Models;
 using MyFlatWEB.HelpMethods;
 using MyFlatWEB.Data.Repositories.Abstract;
 using MyFlatWEB.Data.Repositories.API;
@@ -20,12 +13,7 @@ using MyFlatWEB.Models.Account;
 using MyFlatWEB.Models.Rendering;
 using MyFlatWEB.Areas.Management.Models.Rendering;
 using MyFlatWEB.Areas.Management.Models;
-using System.Globalization;
-using Microsoft.AspNetCore.Localization;
 using MyFlatWEB.Areas.Management.Models.EditPages;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.FileProviders;
 using MyFlatWEB.Areas.Management.Models.Users;
 
 namespace MyFlatWEB

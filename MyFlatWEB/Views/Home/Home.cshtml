@@ -32,34 +32,44 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp mb-3" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                <div class="col-lg-6 wow fadeInUp mb-3" 
+                     data-wow-delay="0.1s" 
+                     style="visibility: visible; 
+                     animation-delay: 0.1s; 
+                     animation-name: fadeInUp;">
                     <p class="fs-5 fw-medium text-primary">Get A Help</p>
                     <h1 class="display-5 mb-4">@placeholder.BottomAreaHeader</h1>
                     <p class="mb-4">
                         @placeholder.BottomAreaContent
-                        @*Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                            Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.
-                            Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                            Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.
-                            Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                            Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.*@
                     </p>
                     <a class="d-inline-flex align-items-center rounded overflow-hidden border border-primary text-decoration-none" href="tel:+70123456789">
-                        <span class="btn-lg-square bg-primary" style="width: 40px; height: 40px; padding:5px;">
-                            <i class="fa fa-phone-alt text-white"><img src="~/Images/icons/apps_comm.png" width="30" /></i>
+                        <span class="btn-lg-square bg-primary" 
+                              style="width: 40px; height: 40px; padding:5px;">
+                            <i class="fa fa-phone-alt text-white">
+                                <img src="~/Images/icons/apps_comm.png" 
+                                     width="30" />
+                            </i>
                         </span>
                         <span class="fs-5 fw-medium mx-4">
                             @contacts.ContactPhone
-                            @*+7 012 345 6789*@
                         </span>
                     </a>
                 </div>
-                <form id="formOrder" asp-controller="Home" asp-action="SaveOrder" class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;" method="post">
+                <form id="formOrder" 
+                      asp-controller="Home" 
+                      asp-action="SaveOrder" 
+                      class="col-lg-6 wow fadeInUp" 
+                      data-wow-delay="0.5s" 
+                      style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;" 
+                      method="post">
                     <div>
                         <h2 class="mb-4">Make An Order</h2>
-                        <div class="col-sm-6 text-danger" asp-validation-summary="All"></div>
+                        <div class="col-sm-6 text-danger" 
+                             asp-validation-summary="All"></div>
                         <div class="form-group collapse invisible">
-                            <input class="form-control collapse invisible" asp-for="StatusName" value="Recieved" />
+                            <input class="form-control collapse invisible" 
+                                   asp-for="StatusName" 
+                                   value="Recieved" />
                         </div>
                         <div class="row g-3">
                             <div class="col-sm-6">
@@ -71,7 +81,8 @@
                                            placeholder="Your Name"
                                            onkeyup="getInputsVal()">
                                     <label asp-for="Name"></label>
-                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                    <span asp-validation-for="Name" 
+                                          class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -83,7 +94,8 @@
                                            placeholder="Your Email"
                                            onkeyup="getInputsVal()">
                                     <label asp-for="Email"></label>
-                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                    <span asp-validation-for="Email" 
+                                          class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -95,26 +107,22 @@
                                            placeholder="Your Mobile"
                                            onkeyup="getInputsVal()">
                                     <label asp-for="Mobile"></label>
-                                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                                    <span asp-validation-for="Mobile" 
+                                          class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-floating form-group">
-                                    @*<label asp-for="CategoryName"></label>*@
                                     <select asp-for="ServiceName"
                                             asp-items="@ServicesModel.ServiceNames"
                                             class="form-control"
                                             id="service"
                                             onchange="getInputsVal()">
                                         <option disabled selected></option>
-                                        @*<option value="Building design">Building design</option>*@
-                                        @*<option value="Home construction">Home construction</option>*@
-                                        @*<option value="Communications">Communications</option>*@
-                                        @*<option value="Room design">Room design</option>*@
-                                        @*<option value="Finishing facilities">Finishing facilities</option>*@
                                     </select>
                                     <label asp-for="ServiceName"></label>
-                                    <span asp-validation-for="ServiceName" class="text-danger"></span>
+                                    <span asp-validation-for="ServiceName" 
+                                          class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -126,7 +134,8 @@
                                               onkeyup="getInputsVal()"
                                               style="height: 104px;"></textarea>
                                     <label asp-for="Message">Message</label>
-                                    <span asp-validation-for="Message" class="text-danger"></span>
+                                    <span asp-validation-for="Message" 
+                                          class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
