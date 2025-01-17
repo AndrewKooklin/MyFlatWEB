@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MyFlatWEB.Models.Rendering
 {
@@ -11,8 +7,6 @@ namespace MyFlatWEB.Models.Rendering
         [Required(ErrorMessage = "Select a picture")]
         [Display(Name = "Project Image")]
         public byte[] ProjectImage { get; set; }
-
-        //public string ProjectImageName { get; set; }
 
         [Required(ErrorMessage = "Fill in the field \"Header\"")]
         [MinLength(3, ErrorMessage = "Length of at least 3 characters.")]

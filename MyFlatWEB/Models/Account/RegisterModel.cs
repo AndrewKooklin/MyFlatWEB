@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MyFlatWEB.Models.Account
 {
@@ -28,7 +25,7 @@ namespace MyFlatWEB.Models.Account
         [Compare("Password", ErrorMessage = "Field \"Password\" и \"Confirm password\" don't match.")]
         public string ConfirmPassword { get; set; }
 
-        //[Required(ErrorMessage = "Выберите поле \"Роль\"")]
+        //[Required(ErrorMessage = "Choose field \"Role\"")]
         [Display(Name = "Role")]
         public string Role { get; set; }
 

@@ -2,15 +2,23 @@
 @using System.Globalization;
 
 @{
-    var dateTodayStart = DateTime.Now.Date.ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
-    var dateTodayNow = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateTodayStart = 
+        DateTime.Now.Date.ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
 
-    var dateYesterdayStart = DateTime.Now.Date.AddDays(-1).ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
-    var dateYesterdayEnd = DateTime.Now.Date.AddTicks(-1).ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateTodayNow = 
+        DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
 
-    var dateWeekEarlier = DateTime.Now.Date.AddDays(-7).ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateYesterdayStart = 
+        DateTime.Now.Date.AddDays(-1).ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
+    
+    var dateYesterdayEnd = 
+        DateTime.Now.Date.AddTicks(-1).ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
 
-    var dateMonthEarlier = DateTime.Now.Date.AddMonths(-1).ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
+    var dateWeekEarlier = 
+        DateTime.Now.Date.AddDays(-7).ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
+
+    var dateMonthEarlier = 
+        DateTime.Now.Date.AddMonths(-1).ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.GetCultureInfo("ru-RU"));
 }
 
 <html>
@@ -103,14 +111,22 @@
                                 </button>
                             </div>
                             <div class="d-inline-block container-button">
-                                <div id="datefrom" class="d-inline input-daterange input-group-data">
-                                    <input id="datefrom" asp-for="DateFrom" type="text" class="input-data-field input-sm d-inline-flex" />
+                                <div id="datefrom" 
+                                     class="d-inline input-daterange input-group-data">
+                                    <input id="datefrom" 
+                                           asp-for="DateFrom" 
+                                           type="text" 
+                                           class="input-data-field input-sm d-inline-flex" />
                                 </div>
                                 <div class="d-inline input-daterange input-group-data align-content-center">
                                     <span class="input-data-span-to">to</span>
                                 </div>
-                                <div id="dateto" class="d-inline input-daterange input-group-data">
-                                    <input id="dateto" asp-for="DateTo" type="text" class="input-data-field input-sm d-inline-flex" />
+                                <div id="dateto" 
+                                     class="d-inline input-daterange input-group-data">
+                                    <input id="dateto" 
+                                           asp-for="DateTo" 
+                                           type="text" 
+                                           class="input-data-field input-sm d-inline-flex" />
                                 </div>
                             </div>
                         </div>
@@ -147,15 +163,3 @@
     $('#dateto').datepicker('show');
 
 </script>
-@*<script type="text/javascript">
-        function checkParams() {
-            var dateFrom = $('#datefrom').val();
-            var dateTo = $('#dateto').val();
-
-            if (dateFrom.length != 0 && dateTo.length != 0) {
-                $('#periodsubmit').removeProp('disabled');
-            } else {
-                $('#periodsubmit').attr('disabled', true);
-            }
-        }
-    </script>*@

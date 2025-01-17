@@ -4,7 +4,6 @@ using MyFlatWEB.Models.Rendering;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Net.Http.Headers;
@@ -18,7 +17,6 @@ namespace MyFlatWEB.Data.Repositories.API
         private string url = @"https://localhost:44388/";
         string urlRequest = "";
         HttpResponseMessage response;
-        string result;
         bool apiResponseConvert;
 
         public List<OrderModel> GetAllOrders()
