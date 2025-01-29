@@ -1,2 +1,2 @@
-Web Application for collecting requests and managing users, roles and content. 
+Web Application for collecting orders and managing users, roles and content. 
 The application accesses the API service MyFlatAPI to obtain data.
